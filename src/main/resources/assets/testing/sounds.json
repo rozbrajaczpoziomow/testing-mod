@@ -1,0 +1,80 @@
+{
+  "corbi": {
+    "subtitle": "sound.testing.corbi",
+    "sounds": [
+      "testing:corbi"
+    ]
+  },
+  "corbi_step": {
+    "subtitle": "sound.testing.corbi_step",
+    "sounds": [
+      "testing:corbi_step"
+    ]
+  },
+  "looking_corbi": {
+    "subtitle": "sound.testing.corbi",
+    "sounds": [
+      "testing:looking_corbi"
+    ]
+  },
+  "wither_corbi_break": {
+    "subtitle": "sound.testing.wither_corbi",
+    "sounds": [
+      "testing:wither_corbi_break"
+    ]
+  },
+  "wither_corbi_step": {
+    "subtitle": "sound.testing.wither_corbi",
+    "sounds": [
+      "testing:wither_corbi_step"
+    ]
+  },
+  "wither_corbi_place": {
+    "subtitle": "sound.testing.wither_corbi",
+    "sounds": [
+      "testing:wither_corbi_place"
+    ]
+  },
+  "corble": {
+    "subtitle": "sound.testing.corble",
+    "sounds": [
+      "testing:corble"
+    ]
+  },
+  "alt_void_break": {
+    "subtitle": "sound.testing.alt_void_break",
+    "sounds": [
+      "testing:alt_void_break"
+    ]
+  },
+  "alt_void_step": {
+    "subtitle": "sound.testing.alt_void_step",
+    "sounds": [
+      "testing:alt_void_step"
+    ]
+  },
+  "alt_void_place": {
+    "subtitle": "sound.testing.alt_void_place",
+    "sounds": [
+      "testing:alt_void_place"
+    ]
+  },
+  "void_block_place": {
+    "subtitle": "sound.testing.void_block_place",
+    "sounds": [
+      "testing:void_block_place"
+    ]
+  },
+  "void_block_step": {
+    "subtitle": "sound.testing.void_block_step",
+    "sounds": [
+      "testing:void_block_step"
+    ]
+  },
+  "void_block_break": {
+    "subtitle": "sound.testing.void_block_break",
+    "sounds": [
+      "testing:void_block_break"
+    ]
+  }
+}

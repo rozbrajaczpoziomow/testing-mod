@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:stone"
+    },
+    {
+      "item": "testing:core"
+    }
+  ],
+  "result": {
+    "item": "testing:core_pillar"
+  }
+}

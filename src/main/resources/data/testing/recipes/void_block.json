@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:stone"
+    },
+    {
+      "item": "testing:alt_core_ingot"
+    },
+    {
+      "item": "testing:alt_core_ingot"
+    },
+    {
+      "item": "testing:demonic_core_ingot"
+    },
+    {
+      "item": "testing:alt_core"
+    },
+    {
+      "item": "testing:glitched_sword"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "testing:core"
+    }
+  ],
+  "result": {
+    "item": "testing:void_block",
+    "count": 1
+  }
+}

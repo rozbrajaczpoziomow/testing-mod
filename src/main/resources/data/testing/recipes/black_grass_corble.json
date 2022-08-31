@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:grass_block"
+    },
+    {
+      "item": "minecraft:wheat_seeds"
+    },
+    {
+      "item": "testing:coal_ingot"
+    }
+  ],
+  "result": {
+    "item": "testing:black_grass_corble",
+    "count": 64
+  }
+}

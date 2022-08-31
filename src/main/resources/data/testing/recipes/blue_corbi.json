@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "testing:jungle_corbi"
+    },
+    {
+      "item": "testing:icy_corbi"
+    }
+  ],
+  "result": {
+    "item": "testing:blue_corbi",
+    "count": 64
+  }
+}

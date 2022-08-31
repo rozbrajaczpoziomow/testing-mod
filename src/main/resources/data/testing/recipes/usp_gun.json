@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "testing:usp_broken"
+    },
+    {
+      "item": "testing:usp_ingot"
+    }
+  ],
+  "result": {
+    "item": "testing:usp_gun"
+  }
+}

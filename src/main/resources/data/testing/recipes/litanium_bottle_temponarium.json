@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "testing:alt_core"
+    },
+    {
+      "item": "testing:alt_core"
+    },
+    {
+      "item": "testing:core"
+    },
+    {
+      "item": "testing:core"
+    },
+    {
+      "item": "testing:coal_ingot"
+    },
+    {
+      "item": "testing:temponarium_ingot"
+    },
+    {
+      "item": "testing:asuli_bottle"
+    }
+  ],
+  "result": {
+    "item": "testing:litanium_bottle"
+  }
+}

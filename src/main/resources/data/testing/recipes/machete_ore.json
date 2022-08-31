@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#_#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "testing:machete"
+    },
+    "_": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "testing:machete_ore"
+  }
+}

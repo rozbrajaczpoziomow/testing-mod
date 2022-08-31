@@ -1,0 +1,16 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="https://github.com/rozbrajaczpoziomow/testing-mod/blob/main/LICENSE"
+issueTrackerURL="https://github.com/rozbrajaczpoziomow/testing-mod/issues"
+[[mods]]
+modId="testing"
+version="${file.jarVersion}"
+displayName="Testing Mod"
+# updateJSONURL="https://change.me.example.invalid/updates.json"
+displayURL="https://github.com/rozbrajaczpoziomow/testing-mod"
+logoFile="examplemod.png" # root of the mod JAR - logo for display
+credits="Me and my friend - Sniw"
+authors="rozbrajaczpoziomow"
+description='''
+This is just a collection of completely random stuff that we came up with.
+'''

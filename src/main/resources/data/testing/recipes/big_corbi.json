@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond_ore"
+    },
+    {
+      "item": "minecraft:gold_ore"
+    },
+    {
+      "item": "minecraft:emerald_ore"
+    },
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "minecraft:netherite_ingot"
+    },
+    {
+      "item": "testing:jungle_corbi"
+    }
+  ],
+  "result": {
+    "item": "testing:big_corbi",
+    "count": 1
+  }
+}

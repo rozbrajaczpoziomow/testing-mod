@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "___",
+    "###"
+  ],
+  "key": {
+    "_": {
+      "item": "minecraft:wheat_seeds"
+    },
+    "#": {
+      "item": "minecraft:dirt"
+    }
+  },
+  "result": {
+    "item": "testing:core"
+  }
+}

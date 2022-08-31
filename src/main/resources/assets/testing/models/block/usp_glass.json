@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "testing:block/usp_glass_side",
+    "north": "testing:block/usp_glass_front"
+  }
+}

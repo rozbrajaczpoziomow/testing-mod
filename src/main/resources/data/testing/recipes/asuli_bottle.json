@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "testing:alt_bottle"
+    },
+    {
+      "item": "testing:asuli_ingot"
+    },
+    {
+      "item": "testing:coal_ingot"
+    }
+  ],
+  "result": {
+    "item": "testing:asuli_bottle"
+  }
+}

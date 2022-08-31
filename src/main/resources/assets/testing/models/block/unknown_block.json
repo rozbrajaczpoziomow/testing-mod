@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "testing:block/unknown_block_side",
+    "down": "testing:block/unknown_block_up_down",
+    "up": "testing:block/unknown_block_up_down",
+    "north": "testing:block/unknown_block_fan",
+    "south": "testing:block/unknown_block_text"
+  }
+}

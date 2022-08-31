@@ -1,0 +1,7 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "testing:item/machete_rev",
+    "layer1": "testing:item/machete_rev_l2"
+  }
+}

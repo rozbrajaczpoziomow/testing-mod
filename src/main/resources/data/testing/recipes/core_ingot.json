@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "testing:core"
+    },
+    {
+      "item": "testing:alt_core"
+    }
+  ],
+  "result": {
+    "item": "testing:core_ingot"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "testing:alt_core"
+    },
+    {
+      "item": "testing:core"
+    },
+    {
+      "item": "testing:void_ingot"
+    }
+  ],
+  "result": {
+    "item": "testing:void_core",
+    "count": 1
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "testing:block/grass_corble_side",
+    "up": "testing:block/grass_corble_top"
+  }
+}

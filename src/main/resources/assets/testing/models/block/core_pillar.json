@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "testing:block/core_pillar_side",
+    "up": "testing:block/core_pillar_top",
+    "down": "testing:block/core_pillar_top"
+  }
+}

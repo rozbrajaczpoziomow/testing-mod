@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "testing:block/uncrafting_table_front",
+    "north": "testing:block/uncrafting_table_front",
+    "south": "testing:block/uncrafting_table_side",
+    "east": "testing:block/uncrafting_table_side",
+    "west": "testing:block/uncrafting_table_front",
+    "up": "testing:block/uncrafting_table_top",
+    "down": "testing:block/other_blue_corbi"
+  }
+}

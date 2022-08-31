@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "testing:usp_ingot"
+    },
+    {
+      "item": "testing:core_ingot"
+    },
+    {
+      "item": "testing:coal_ingot"
+    }
+  ],
+  "result": {
+    "item": "testing:demonic_core_ingot"
+  }
+}

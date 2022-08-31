@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "testing:block/relic_glass_side",
+    "north": "testing:block/relic_glass_front",
+    "south": "testing:block/relic_glass_back",
+    "up": "testing:block/relic_glass_top",
+    "down": "testing:block/relic_glass_top"
+  }
+}

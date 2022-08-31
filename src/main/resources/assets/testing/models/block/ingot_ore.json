@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "testing:block/ingot_ore_side",
+    "up": "testing:block/ingot_ore_blue",
+    "west": "testing:block/ingot_ore_cyan",
+    "east": "testing:block/ingot_ore_yellow"
+  }
+}
