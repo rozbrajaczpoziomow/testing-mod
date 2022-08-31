@@ -1,6 +1,5 @@
 package mod.rozbrajaczpoziomow.testing.blocks.custom;
 
-import mcp.MethodsReturnNonnullByDefault;
 import mod.rozbrajaczpoziomow.testing.items.ItemRegister;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -17,11 +16,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.util.ForgeSoundType;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Objects;
 import java.util.Random;
 
@@ -30,8 +27,6 @@ import static mod.rozbrajaczpoziomow.testing.sounds.iSounds.*;
 import static net.minecraft.potion.Effects.*;
 import static net.minecraft.util.text.TextFormatting.DARK_PURPLE;
 
-@MethodsReturnNonnullByDefault
-@ParametersAreNonnullByDefault
 public class VoidBlock extends Block {
 	private int ticksExisted = 0;
 
@@ -41,53 +36,53 @@ public class VoidBlock extends Block {
 
 	@Override
 	public boolean canHarvestBlock(BlockState state, IBlockReader world, BlockPos pos, PlayerEntity player) {
-		return player.getHeldItemMainhand().getItem() == ItemRegister.VoidCore.get();
+		return player.getMainHandItem().getItem() == ItemRegister.VoidCore.get();
 	}
 
 	@Override
-	public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
-		if(stack.getItem() == ItemRegister.VoidCore.get()) super.harvestBlock(worldIn, player, pos, state, te, stack);
-		else player.addStat(Stats.BLOCK_MINED.get(this));
+	public void playerDestroy(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
+		if(stack.getItem() == ItemRegister.VoidCore.get()) super.playerDestroy(worldIn, player, pos, state, te, stack);
+		else player.awardStat(Stats.BLOCK_MINED.get(this));
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
-		if(world.isRemote) return;
+	public void setPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
+		if(world.isClientSide) return;
 		for(ServerPlayerEntity player : Objects.requireNonNull(world.getServer()).getPlayerList().getPlayers()) {
-			player.sendMessage(withColor("The void has been openenenenenenenenened...", DARK_PURPLE), player.getUniqueID());
-			player.addPotionEffect(new EffectInstance(BLINDNESS, 20 * 25, 0));
-			player.addPotionEffect(new EffectInstance(WITHER, 20 * 5, 0));
-			player.addPotionEffect(new EffectInstance(SLOWNESS, 20 * 25, 2));
+			player.sendMessage(withColor("The void has been openenenenenenenenened...", DARK_PURPLE), player.getUUID());
+			player.addEffect(new EffectInstance(BLINDNESS, 20 * 25, 0));
+			player.addEffect(new EffectInstance(WITHER, 20 * 5, 0));
+			player.addEffect(new EffectInstance(MOVEMENT_SLOWDOWN, 20 * 25, 2));
 		}
 	}
 
 	@Override
-	public void onBlockHarvested(World world, BlockPos pos, BlockState state, PlayerEntity breaker) {
-		if(world.isRemote) return;
+	public void playerWillDestroy(World world, BlockPos pos, BlockState state, PlayerEntity breaker) {
+		if(world.isClientSide) return;
 		for(ServerPlayerEntity player : Objects.requireNonNull(world.getServer()).getPlayerList().getPlayers()) {
-			player.addPotionEffect(new EffectInstance(NIGHT_VISION, 20 * 120, 0));
-			player.addPotionEffect(new EffectInstance(REGENERATION, 20 * 30, 0));
+			player.addEffect(new EffectInstance(NIGHT_VISION, 20 * 120, 0));
+			player.addEffect(new EffectInstance(REGENERATION, 20 * 30, 0));
 		}
 	}
 
 	@Override
-	public void onEntityWalk(World world, BlockPos pos, Entity entity) {
-		if(world.isRemote) return;
-		entity.sendMessage(withColor("*)!#&% if you dont s#)@", DARK_PURPLE), entity.getUniqueID());
+	public void stepOn(World world, BlockPos pos, Entity entity) {
+		if(world.isClientSide) return;
+		entity.sendMessage(withColor("*)!#&% if you dont s#)@", DARK_PURPLE), entity.getUUID());
 		for(ServerPlayerEntity player : Objects.requireNonNull(world.getServer()).getPlayerList().getPlayers()) {
-			player.addPotionEffect(new EffectInstance(SLOWNESS, 20 * 3, 9));
-			player.addPotionEffect(new EffectInstance(BLINDNESS, 20 * 3, 0));
+			player.addEffect(new EffectInstance(MOVEMENT_SLOWDOWN, 20 * 3, 9));
+			player.addEffect(new EffectInstance(BLINDNESS, 20 * 3, 0));
 		}
 	}
 
 	@Override
 	public void animateTick(BlockState state, World world, BlockPos pos, Random rand) {
 		ticksExisted += 2;
-		if(world.isRemote) return;
+		if(world.isClientSide) return;
 		if(ticksExisted % (20 * 30) == 0) {
 			for(ServerPlayerEntity player : Objects.requireNonNull(world.getServer()).getPlayerList().getPlayers()) {
-				player.addPotionEffect(new EffectInstance(SLOWNESS, 20 * 2, 3));
-				player.addPotionEffect(new EffectInstance(BLINDNESS, 20 * 3, 0));
+				player.addEffect(new EffectInstance(MOVEMENT_SLOWDOWN, 20 * 2, 3));
+				player.addEffect(new EffectInstance(BLINDNESS, 20 * 3, 0));
 			}
 		}
 	}

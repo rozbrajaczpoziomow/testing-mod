@@ -14,13 +14,13 @@ public class TemponariumBottle extends Item {
 	}
 
 	@Override
-	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entity) {
+	public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entity) {
 		if(!stack.getItem().equals(this)) return stack;
-		if(!worldIn.isRemote) {
-			entity.addPotionEffect(new EffectInstance(Effects.SPEED, 30 * 20, 3));
-			entity.addPotionEffect(new EffectInstance(Effects.NIGHT_VISION, 20, 0));
-			entity.addPotionEffect(new EffectInstance(Effects.INSTANT_HEALTH, 20, 0));
-			stack.damageItem(1, entity, p -> p.sendBreakAnimation(Hand.MAIN_HAND));
+		if(!worldIn.isClientSide) {
+			entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 30 * 20, 3));
+			entity.addEffect(new EffectInstance(Effects.NIGHT_VISION, 20, 0));
+			entity.addEffect(new EffectInstance(Effects.HEAL, 20, 0));
+			stack.hurtAndBreak(1, entity, p -> p.broadcastBreakEvent(Hand.MAIN_HAND));
 		}
 		return stack;
 	}

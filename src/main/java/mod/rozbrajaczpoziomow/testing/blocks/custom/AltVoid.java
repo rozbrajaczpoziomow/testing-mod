@@ -1,6 +1,5 @@
 package mod.rozbrajaczpoziomow.testing.blocks.custom;
 
-import mcp.MethodsReturnNonnullByDefault;
 import mod.rozbrajaczpoziomow.testing.blocks.BlockRegister;
 import mod.rozbrajaczpoziomow.testing.items.ItemRegister;
 import net.minecraft.block.Block;
@@ -22,7 +21,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeSoundType;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -37,10 +35,9 @@ import static net.minecraft.potion.Effects.*;
 import static net.minecraft.util.Hand.MAIN_HAND;
 import static net.minecraft.util.Hand.OFF_HAND;
 import static net.minecraft.util.SoundCategory.MASTER;
-import static net.minecraft.util.SoundEvents.BLOCK_BELL_USE;
+import static net.minecraft.util.SoundEvents.BELL_BLOCK;
 import static net.minecraft.util.text.TextFormatting.BLUE;
 
-@MethodsReturnNonnullByDefault @ParametersAreNonnullByDefault
 public class AltVoid extends Block {
 	private int ticksExisted = 0;
 	private int cooldown = 20 * 60;
@@ -50,29 +47,29 @@ public class AltVoid extends Block {
 	}
 
 	@Override
-	public void onEntityWalk(World world, BlockPos pos, Entity entity) {
+	public void stepOn(World world, BlockPos pos, Entity entity) {
 		if(!(entity instanceof LivingEntity livingEntity)) return;
-		if(world.isRemote) return;
-		entity.sendMessage(withColor("!od dluohs uoy gniht eht ton s'ti ,potS", BLUE), entity.getUniqueID());
-		livingEntity.addPotionEffect(new EffectInstance(NIGHT_VISION, 20 * 5, 0));
+		if(world.isClientSide) return;
+		entity.sendMessage(withColor("!od dluohs uoy gniht eht ton s'ti ,potS", BLUE), entity.getUUID());
+		livingEntity.addEffect(new EffectInstance(NIGHT_VISION, 20 * 5, 0));
 	}
 
 	@Override
 	public void animateTick(BlockState state, World world, BlockPos pos, Random rand) {
 		ticksExisted += 2;
 		cooldown -= 2;
-		if(world.isRemote) return;
+		if(world.isClientSide) return;
 		if(ticksExisted % (20 * 60) == 0) {
 			for(ServerPlayerEntity player : Objects.requireNonNull(world.getServer()).getPlayerList().getPlayers()) {
-				player.addPotionEffect(new EffectInstance(REGENERATION, 20 * 10, 0));
-				player.addPotionEffect(new EffectInstance(INSTANT_HEALTH, 5, 0));
-				player.addPotionEffect(new EffectInstance(NIGHT_VISION, 20 * 20, 0));
+				player.addEffect(new EffectInstance(REGENERATION, 20 * 10, 0));
+				player.addEffect(new EffectInstance(HEAL, 5, 0));
+				player.addEffect(new EffectInstance(NIGHT_VISION, 20 * 20, 0));
 			}
 		}
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, @Nullable IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+	public void appendHoverText(ItemStack stack, @Nullable IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
 		tooltip.add(text("...eciohc doog a saw tI"));
 	}
 
@@ -82,28 +79,28 @@ public class AltVoid extends Block {
 	}
 
 	@Override
-	public void onLanded(IBlockReader world, Entity entity) {
-		if(((World)world).isRemote) return;
+	public void updateEntityAfterFallOn(IBlockReader world, Entity entity) {
+		if(((World)world).isClientSide) return;
 		if(!(entity instanceof PlayerEntity player)) return;
-		entity.setMotion(entity.getMotion().add(0d, 200d, 0d));
-		player.setMotion(entity.getMotion());
+		entity.setDeltaMovement(entity.getDeltaMovement().add(0d, 200d, 0d));
+		player.setDeltaMovement(entity.getDeltaMovement());
 
 		if(cooldown > 0) {
-			player.sendMessage(withColor(Integer.valueOf(cooldown / 20).toString() + "s", BLUE), player.getUniqueID());
+			player.sendMessage(withColor(Integer.valueOf(cooldown / 20).toString() + "s", BLUE), player.getUUID());
 			return;
 		}
 
-		if(player.getHeldItemMainhand().getItem() != AIR || player.getHeldItemOffhand().getItem() == AIR) return;
-		ItemStack item = player.getHeldItemOffhand().copy();
+		if(player.getMainHandItem().getItem() != AIR || player.getOffhandItem().getItem() == AIR) return;
+		ItemStack item = player.getOffhandItem().copy();
 		if(!canCopy(item.getItem(), player)) return;
 		item.setCount(1);
-		player.setHeldItem(MAIN_HAND, item);
-		player.playSound(BLOCK_BELL_USE, MASTER, 5f, 1f);
+		player.setItemInHand(MAIN_HAND, item);
+		player.playNotifySound(BELL_BLOCK, MASTER, 5f, 1f);
 		cooldown = 20 * 60;
 	}
 
 	private boolean canCopy(Item item, PlayerEntity dirt) {
-		if(item == DIRT) { dirt.addPotionEffect(new EffectInstance(POISON, 20 * 1000000, 255)); dirt.setHeldItem(OFF_HAND, AIR.getDefaultInstance()); return false; }
+		if(item == DIRT) { dirt.addEffect(new EffectInstance(POISON, 20 * 1000000, 255)); dirt.setItemInHand(OFF_HAND, AIR.getDefaultInstance()); return false; }
 		ArrayList<Item> no = new ArrayList<>();
 		no.add(BlockRegister.AltVoid.get().asItem());
 		no.add(BlockRegister.VoidBlock.get().asItem());

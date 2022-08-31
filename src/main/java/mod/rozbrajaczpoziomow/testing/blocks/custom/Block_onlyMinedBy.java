@@ -25,12 +25,12 @@ public class Block_onlyMinedBy extends Block {
 
 	@Override
 	public boolean canHarvestBlock(BlockState state, IBlockReader world, BlockPos pos, PlayerEntity player) {
-		return tools.contains(player.getHeldItemMainhand().getItem());
+		return tools.contains(player.getMainHandItem().getItem());
 	}
 
 	@Override
-	public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
-		if(tools.contains(stack.getItem())) super.harvestBlock(worldIn, player, pos, state, te, stack);
-		else player.addStat(Stats.BLOCK_MINED.get(this));
+	public void playerDestroy(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
+		if(tools.contains(stack.getItem())) super.playerDestroy(worldIn, player, pos, state, te, stack);
+		else player.awardStat(Stats.BLOCK_MINED.get(this));
 	}
 }

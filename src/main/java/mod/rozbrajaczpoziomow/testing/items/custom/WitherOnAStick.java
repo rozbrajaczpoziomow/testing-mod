@@ -1,6 +1,5 @@
 package mod.rozbrajaczpoziomow.testing.items.custom;
 
-import mcp.MethodsReturnNonnullByDefault;
 import mod.rozbrajaczpoziomow.testing.entities.WitherOnAStickEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,12 +10,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 import static net.minecraft.potion.Effects.*;
 
-@MethodsReturnNonnullByDefault
-@ParametersAreNonnullByDefault
 public class WitherOnAStick extends Item {
 
 	public WitherOnAStick(Properties builderIn) {
@@ -24,28 +19,28 @@ public class WitherOnAStick extends Item {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
-		if(!player.isCreative()) player.getCooldownTracker().setCooldown(this, 10);
-		ItemStack stack = player.getHeldItem(hand);
-		if(hand != Hand.MAIN_HAND) return ActionResult.resultPass(stack);
+	public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+		if(!player.isCreative()) player.getCooldowns().addCooldown(this, 10);
+		ItemStack stack = player.getItemInHand(hand);
+		if(hand != Hand.MAIN_HAND) return ActionResult.pass(stack);
 
 		WitherOnAStickEntity skull = new WitherOnAStickEntity(world, player);
-		skull.setDirectionAndMovement(player, player.rotationPitch, player.rotationYawHead, 0f, 1.3f, 0f);
-		world.addEntity(skull);
+		skull.shootFromRotation(player, player.xRot, player.yHeadRot, 0f, 1.3f, 0f);
+		world.addFreshEntity(skull);
 
-		stack.damageItem(1, player, p -> p.sendBreakAnimation(Hand.MAIN_HAND));
-		return ActionResult.resultPass(stack);
+		stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(Hand.MAIN_HAND));
+		return ActionResult.pass(stack);
 	}
 
 	@Override
-	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		if((attacker instanceof PlayerEntity player) && !player.isCreative()) player.getCooldownTracker().setCooldown(this, 20);
+	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+		if((attacker instanceof PlayerEntity player) && !player.isCreative()) player.getCooldowns().addCooldown(this, 20);
 
-		target.addPotionEffect(new EffectInstance(NAUSEA, 20 * 15, 0));
-		target.addPotionEffect(new EffectInstance(WITHER, 20 * 15, 0));
-		target.addPotionEffect(new EffectInstance(POISON, 20 * 15, 0));
-		attacker.setVelocity(0d, 25d, 0d);
-		stack.damageItem(1, attacker, p -> p.sendBreakAnimation(Hand.MAIN_HAND));
+		target.addEffect(new EffectInstance(CONFUSION, 20 * 15, 0));
+		target.addEffect(new EffectInstance(WITHER, 20 * 15, 0));
+		target.addEffect(new EffectInstance(POISON, 20 * 15, 0));
+		attacker.setDeltaMovement(0d, 25d, 0d);
+		stack.hurtAndBreak(1, attacker, p -> p.broadcastBreakEvent(Hand.MAIN_HAND));
 		return true;
 	}
 }

@@ -33,7 +33,7 @@ public class Rybek extends Item {
 
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
-		if(!(entity instanceof PlayerEntity)) entity.attackEntityFrom(DamageSource.FLY_INTO_WALL, Float.MAX_VALUE);
+		if(!(entity instanceof PlayerEntity)) entity.hurt(DamageSource.FLY_INTO_WALL, Float.MAX_VALUE);
 		if(++tick % 5 == 0) current++;
 	}
 
@@ -46,11 +46,11 @@ public class Rybek extends Item {
 	}
 
 	@Override
-	public void addInformation(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
+	public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
 		final char chr = ' ';
-		char[] base = StringUtils.repeat(chr, 50).toCharArray();
+		char[] base = StringUtils.repeat(chr, 100).toCharArray();
 		int idx = current;
-		for(int i = 0; i < 35; i++) {
+		for(int i = 0; i < 50; i++) {
 			if(++idx > base.length - 1) idx %= base.length - 1;
 			base[idx] = '\\';
 			tooltip.add(text(String.valueOf(base)));

@@ -14,15 +14,15 @@ public class LitaniumBottle extends Item {
 	}
 
 	@Override
-	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+	public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
 		if(!stack.getItem().equals(this)) return stack;
-		if(!worldIn.isRemote) {
-			entityLiving.addPotionEffect(new EffectInstance(Effects.NIGHT_VISION, 5 * 20, 0));
-			entityLiving.addPotionEffect(new EffectInstance(Effects.SPEED, 25 * 20, 1));
-			entityLiving.addPotionEffect(new EffectInstance(Effects.REGENERATION, 60 * 20, 3));
-			entityLiving.addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, 30 * 20, 0));
-			entityLiving.addPotionEffect(new EffectInstance(Effects.HEALTH_BOOST, 60 * 20, 2));
-			stack.damageItem(1, entityLiving, p -> p.sendBreakAnimation(Hand.MAIN_HAND));
+		if(!worldIn.isClientSide) {
+			entityLiving.addEffect(new EffectInstance(Effects.NIGHT_VISION, 5 * 20, 0));
+			entityLiving.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 25 * 20, 1));
+			entityLiving.addEffect(new EffectInstance(Effects.REGENERATION, 60 * 20, 3));
+			entityLiving.addEffect(new EffectInstance(Effects.JUMP, 30 * 20, 0));
+			entityLiving.addEffect(new EffectInstance(Effects.HEALTH_BOOST, 60 * 20, 2));
+			stack.hurtAndBreak(1, entityLiving, p -> p.broadcastBreakEvent(Hand.MAIN_HAND));
 		}
 		return stack;
 	}

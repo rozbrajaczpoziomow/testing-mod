@@ -14,13 +14,13 @@ public class AsuliBottle extends Item {
 	}
 
 	@Override
-	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+	public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
 		if(!stack.getItem().equals(this)) return stack;
-		if(!worldIn.isRemote) {
-			entityLiving.addPotionEffect(new EffectInstance(Effects.NIGHT_VISION, 70 * 20, 0));
-			entityLiving.addPotionEffect(new EffectInstance(Effects.INSTANT_HEALTH, 20, 1));
-			entityLiving.addPotionEffect(new EffectInstance(Effects.REGENERATION, 30 * 20, 0));
-			stack.damageItem(1, entityLiving, p -> p.sendBreakAnimation(Hand.MAIN_HAND));
+		if(!worldIn.isClientSide) {
+			entityLiving.addEffect(new EffectInstance(Effects.NIGHT_VISION, 70 * 20, 0));
+			entityLiving.addEffect(new EffectInstance(Effects.HEAL, 20, 1));
+			entityLiving.addEffect(new EffectInstance(Effects.REGENERATION, 30 * 20, 0));
+			stack.hurtAndBreak(1, entityLiving, p -> p.broadcastBreakEvent(Hand.MAIN_HAND));
 		}
 		return stack;
 	}

@@ -4,14 +4,13 @@ import mod.rozbrajaczpoziomow.testing.items.ItemRegister;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
-import static net.minecraft.item.ItemTier.IRON;
 
 import java.util.function.Supplier;
 
 public enum ToolTier implements IItemTier {
 
-	MACHETE(0, 50, 0f, 0f, 10, () -> Ingredient.fromItems(ItemRegister.Machete.get())),
-	CROWBAR(6, 100, 1.5f, 0f, 0, () -> Ingredient.fromItems(ItemRegister.Crowbar.get()));
+	MACHETE(0, 50, 0f, 0f, 10, () -> Ingredient.of(ItemRegister.Machete.get())),
+	CROWBAR(6, 100, 1.5f, 0f, 0, () -> Ingredient.of(ItemRegister.Crowbar.get()));
 
 	private final int harvestLevel;
 	private final int maxUses;
@@ -31,32 +30,32 @@ public enum ToolTier implements IItemTier {
 	}
 
 	@Override
-	public int getMaxUses() {
+	public int getUses() {
 		return maxUses;
 	}
 
 	@Override
-	public float getEfficiency() {
+	public float getSpeed() {
 		return efficiency;
 	}
 
 	@Override
-	public float getAttackDamage() {
+	public float getAttackDamageBonus() {
 		return attackDamage;
 	}
 
 	@Override
-	public int getHarvestLevel() {
+	public int getLevel() {
 		return harvestLevel;
 	}
 
 	@Override
-	public int getEnchantability() {
+	public int getEnchantmentValue() {
 		return enchantability;
 	}
 
 	@Override
-	public Ingredient getRepairMaterial() {
-		return repairMaterial.getValue();
+	public Ingredient getRepairIngredient() {
+		return repairMaterial.get();
 	}
 }

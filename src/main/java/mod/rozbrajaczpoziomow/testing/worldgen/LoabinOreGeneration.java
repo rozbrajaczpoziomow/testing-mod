@@ -15,16 +15,16 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 public class LoabinOreGeneration {
 	public static void gen(final BiomeLoadingEvent event) { // From Y = 11 to Y = 17; Max Vein = 6 ores
 		OreFeatureConfig oreFeatureConfig = new OreFeatureConfig(
-				OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
-				BlockRegister.LoabinOre.get().getDefaultState(), 8);
+				OreFeatureConfig.FillerBlockType.NATURAL_STONE,
+				BlockRegister.LoabinOre.get().defaultBlockState(), 8);
 
-		ConfiguredPlacement<TopSolidRangeConfig> configuredPlacement = Placement.RANGE.configure(
+		ConfiguredPlacement<TopSolidRangeConfig> configuredPlacement = Placement.RANGE.configured(
 				new TopSolidRangeConfig(11, 11, 17));
 
 		ConfiguredFeature<?, ?> oreFeature = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, BlockRegister.LoabinOre.get().getRegistryName(),
-				Feature.ORE.withConfiguration(oreFeatureConfig).withPlacement(configuredPlacement)
-						.square().count(8));
+				Feature.ORE.configured(oreFeatureConfig).decorated(configuredPlacement)
+						.squared().count(8));
 
-		event.getGeneration().withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, oreFeature);
+		event.getGeneration().addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, oreFeature);
 	}
 }

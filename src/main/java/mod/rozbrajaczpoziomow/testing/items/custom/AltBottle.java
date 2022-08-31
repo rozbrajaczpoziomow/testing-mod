@@ -8,20 +8,18 @@ import net.minecraft.potion.Effects;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 public class AltBottle extends Item {
 	public AltBottle(Properties properties) {
 		super(properties);
 	}
 
 	@Override
-	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+	public ItemStack finishUsingItem(ItemStack stack, World worldIn, LivingEntity entityLiving) {
 		if(!stack.getItem().equals(this)) return stack;
-		if(!worldIn.isRemote) {
-			entityLiving.addPotionEffect(new EffectInstance(Effects.NAUSEA, 35 * 20, 0));
-			entityLiving.addPotionEffect(new EffectInstance(Effects.REGENERATION, 5 * 20, 0));
-			stack.damageItem(1, entityLiving, p -> p.sendBreakAnimation(Hand.MAIN_HAND));
+		if(!worldIn.isClientSide) {
+			entityLiving.addEffect(new EffectInstance(Effects.CONFUSION, 35 * 20, 0));
+			entityLiving.addEffect(new EffectInstance(Effects.REGENERATION, 5 * 20, 0));
+			stack.hurtAndBreak(1, entityLiving, p -> p.broadcastBreakEvent(Hand.MAIN_HAND));
 		}
 		return stack;
 	}

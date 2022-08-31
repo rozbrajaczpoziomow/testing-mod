@@ -15,16 +15,16 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 public class UnknownBlockGeneration {
 	public static void gen(final BiomeLoadingEvent event) { // From Y = 11 to Y = 17; Max Vein = 3 ores
 		OreFeatureConfig oreFeatureConfig = new OreFeatureConfig(
-				OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD,
-				BlockRegister.UnknownBlock.get().getDefaultState(), 1);
+				OreFeatureConfig.FillerBlockType.NATURAL_STONE,
+				BlockRegister.UnknownBlock.get().defaultBlockState(), 1);
 
-		ConfiguredPlacement<TopSolidRangeConfig> configuredPlacement = Placement.RANGE.configure(
+		ConfiguredPlacement<TopSolidRangeConfig> configuredPlacement = Placement.RANGE.configured(
 				new TopSolidRangeConfig(11, 11, 17));
 
 		ConfiguredFeature<?, ?> oreFeature = Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, BlockRegister.UnknownBlock.get().getRegistryName(),
-				Feature.ORE.withConfiguration(oreFeatureConfig).withPlacement(configuredPlacement)
-						.square().count(3));
+				Feature.ORE.configured(oreFeatureConfig).decorated(configuredPlacement)
+						.squared().count(3));
 
-		event.getGeneration().withFeature(GenerationStage.Decoration.UNDERGROUND_ORES, oreFeature);
+		event.getGeneration().addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, oreFeature);
 	}
 }

@@ -1,6 +1,5 @@
 package mod.rozbrajaczpoziomow.testing.entities;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.WitherSkullEntity;
@@ -11,27 +10,23 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.Objects;
-
 import static net.minecraft.potion.Effects.*;
 
-@ParametersAreNonnullByDefault
 public class WitherOnAStickEntity extends WitherSkullEntity {
 
 	public WitherOnAStickEntity(World worldIn, LivingEntity e) {
 		super(worldIn, e, 0f, 0f, 0f);
-		setRawPosition(e.getPosX(), e.getPosYEye(), e.getPosZ());
+		setPosRaw(e.getX(), e.getEyeY(), e.getZ());
 	}
 
 	@Override
-	protected void onEntityHit(EntityRayTraceResult result) {
-		if(!world.isRemote) {
+	protected void onHitEntity(EntityRayTraceResult result) {
+		if(!level.isClientSide) {
 			if(result.getEntity() instanceof LivingEntity hit) {
-				hit.attackEntityFrom(DamageSource.WITHER, 4f);
-				hit.addPotionEffect(new EffectInstance(NAUSEA, 20 * 15, 0));
-				hit.addPotionEffect(new EffectInstance(WITHER, 20 * 15, 0));
-				hit.addPotionEffect(new EffectInstance(POISON, 20 * 15, 0));
+				hit.hurt(DamageSource.WITHER, 4f);
+				hit.addEffect(new EffectInstance(CONFUSION, 20 * 15, 0));
+				hit.addEffect(new EffectInstance(WITHER, 20 * 15, 0));
+				hit.addEffect(new EffectInstance(POISON, 20 * 15, 0));
 			}
 //			if(entity instanceof PlayerEntity) {
 //				Objects.requireNonNull(entity.getServer()).getCommandManager().handleCommand(entity.getServer().getCommandSource(), "kick " + entity.getName().getUnformattedComponentText());
@@ -41,25 +36,25 @@ public class WitherOnAStickEntity extends WitherSkullEntity {
 	}
 
 	@Override
-	public void onCollideWithPlayer(PlayerEntity entity) {
-		if(ticksExisted <= 5) return;
-		onEntityHit(new EntityRayTraceResult(entity));
+	public void playerTouch(PlayerEntity entity) {
+		if(tickCount <= 5) return;
+		onHitEntity(new EntityRayTraceResult(entity));
 	}
 
 	@Override
-	protected void onImpact(RayTraceResult result) {
+	protected void onHit(RayTraceResult result) {
 		kaboom();
 	}
 
 	@Override
 	public void tick() {
-		if(ticksExisted <= 40 && ticksExisted % 2 == 0) setMotion(getMotion().mul(1.03f, 1f, 1.03f));
+		if(tickCount <= 40 && tickCount % 2 == 0) setDeltaMovement(getDeltaMovement().multiply(1.03f, 1f, 1.03f));
 		super.tick();
-		if(ticksExisted >= 10 * 20) kaboom();
+		if(tickCount >= 10 * 20) kaboom();
 	}
 
 	private void kaboom() {
-		world.createExplosion(this, getPosX(), getPosY(), getPosZ(), 1f, false, Explosion.Mode.NONE);
+		level.explode(this, getX(), getY(), getZ(), 1f, false, Explosion.Mode.NONE);
 		remove();
 	}
 }

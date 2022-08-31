@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.world.World;
 
-import static net.minecraft.potion.Effects.SLOWNESS;
+import static net.minecraft.potion.Effects.MOVEMENT_SLOWDOWN;
 
 public class Sniw extends Item {
 	public Sniw(Properties properties) {
@@ -18,16 +18,16 @@ public class Sniw extends Item {
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
 		if(!isSelected || !(entity instanceof PlayerEntity player)) return;
-		player.abilities.allowFlying = false;
-		player.abilities.isFlying = false;
+		player.abilities.mayfly = false;
+		player.abilities.flying = false;
 		player.startFallFlying();
-		player.addVelocity(0d, -.3d, 0d);
+		player.push(0d, -.3d, 0d);
 	}
 
 	@Override
-	public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 		if(!(target instanceof PlayerEntity player)) return true;
-		player.addPotionEffect(new EffectInstance(SLOWNESS, 20 * 20, 256));
+		player.addEffect(new EffectInstance(MOVEMENT_SLOWDOWN, 20 * 20, 256));
 		stack.setCount(0);
 		return true;
 	}

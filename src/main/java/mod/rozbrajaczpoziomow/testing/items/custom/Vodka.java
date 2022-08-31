@@ -15,12 +15,12 @@ public class Vodka extends Item {
 	}
 
 	@Override
-	public ItemStack onItemUseFinish(ItemStack stack, World world, LivingEntity entity) {
-		if(!world.isRemote) {
-			if(entity instanceof PlayerEntity player && !player.isCreative()) player.getCooldownTracker().setCooldown(this, 5 * 20);
-			entity.addPotionEffect(new EffectInstance(Effects.NAUSEA, 30 * 20, 2));
-			entity.addPotionEffect(new EffectInstance(Effects.SPEED, 5 * 20, 1));
-			stack.damageItem(1, entity, p -> p.sendBreakAnimation(Hand.MAIN_HAND));
+	public ItemStack finishUsingItem(ItemStack stack, World world, LivingEntity entity) {
+		if(!world.isClientSide) {
+			if(entity instanceof PlayerEntity player && !player.isCreative()) player.getCooldowns().addCooldown(this, 5 * 20);
+			entity.addEffect(new EffectInstance(Effects.CONFUSION, 30 * 20, 2));
+			entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 5 * 20, 1));
+			stack.hurtAndBreak(1, entity, p -> p.broadcastBreakEvent(Hand.MAIN_HAND));
 		}
 		return stack;
 	}

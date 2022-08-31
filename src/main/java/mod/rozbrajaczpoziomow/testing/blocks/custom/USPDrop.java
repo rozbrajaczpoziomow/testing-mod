@@ -21,12 +21,12 @@ public class USPDrop extends Block {
 
 	@Override
 	public boolean canHarvestBlock(BlockState state, IBlockReader world, BlockPos pos, PlayerEntity player) {
-		return player.getHeldItemMainhand().getItem().equals(ItemRegister.Crowbar.get());
+		return player.getMainHandItem().getItem().equals(ItemRegister.Crowbar.get());
 	}
 
 	@Override
-	public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
-		if(stack.getItem().equals(ItemRegister.Crowbar.get())) super.harvestBlock(worldIn, player, pos, state, te, stack);
-		else player.addStat(Stats.BLOCK_MINED.get(this));
+	public void playerDestroy(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
+		if(stack.getItem().equals(ItemRegister.Crowbar.get())) super.playerDestroy(worldIn, player, pos, state, te, stack);
+		else player.awardStat(Stats.BLOCK_MINED.get(this));
 	}
 }

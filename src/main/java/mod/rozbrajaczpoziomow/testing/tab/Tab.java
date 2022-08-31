@@ -1,13 +1,13 @@
-package mod.rozbrajaczpoziomow.testing.group;
+package mod.rozbrajaczpoziomow.testing.tab;
 
 import mod.rozbrajaczpoziomow.testing.items.ItemRegister;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 
-public class Group {
+public class Tab {
 	public static final ItemGroup Sniwek = new ItemGroup("sniwekTab") {
 		@Override
-		public ItemStack createIcon() {
+		public ItemStack makeIcon() {
 			return new ItemStack(ItemRegister.Sniw.get());
 		}
 
@@ -19,7 +19,7 @@ public class Group {
 
 	public static final ItemGroup Rybkek = new ItemGroup("rybkekTab") {
 		@Override
-		public ItemStack createIcon() {
+		public ItemStack makeIcon() {
 			return new ItemStack(ItemRegister.Rybek.get());
 		}
 

@@ -12,7 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class EntityRegister {
 	public static final DeferredRegister<EntityType<?>> EntityRegistry = DeferredRegister.create(ForgeRegistries.ENTITIES, TestingMod.MOD_ID);
 
-	public static final RegistryObject<EntityType<Projectile>> Projectile = EntityRegistry.register("projectile", () -> EntityType.Builder.create(Projectile::new, EntityClassification.MISC).size(.5f, .5f).build(new ResourceLocation(TestingMod.MOD_ID, "projectile").toString()));
+	public static final RegistryObject<EntityType<Projectile>> Projectile = EntityRegistry.register("projectile", () -> EntityType.Builder.of(Projectile::new, EntityClassification.MISC).sized(.5f, .5f).build(new ResourceLocation(TestingMod.MOD_ID, "projectile").toString()));
 
 	public static void register(IEventBus bus) {
 		EntityRegistry.register(bus);
