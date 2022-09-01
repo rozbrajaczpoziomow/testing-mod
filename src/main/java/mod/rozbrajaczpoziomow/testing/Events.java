@@ -1,7 +1,7 @@
 package mod.rozbrajaczpoziomow.testing;
 
-import mod.rozbrajaczpoziomow.testing.blocks.BlockRegister;
-import mod.rozbrajaczpoziomow.testing.items.ItemRegister;
+import mod.rozbrajaczpoziomow.testing.a_registers.BlockRegister;
+import mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.entity.item.ItemEntity;

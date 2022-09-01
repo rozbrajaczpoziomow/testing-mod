@@ -53,7 +53,7 @@ public class Projectile extends DamagingProjectileEntity {
 		Block block = level.getBlockState(pos).getBlock();
 		if(block.is(Tags.Blocks.GLASS) || block.is(Tags.Blocks.GLASS_PANES) || block.is(Tags.Blocks.STAINED_GLASS) || block.is(Tags.Blocks.STAINED_GLASS_PANES))
 			level.destroyBlock(pos, false, owner);
-		spawnParticles(RedstoneParticleData.REDSTONE, getX(), getY(), getZ(), 1d, 1d, 1d, 50, true);
+		spawnParticles(RedstoneParticleData.REDSTONE, pos.getX(), pos.getY(), pos.getZ(), 1d, 1d, 1d, 50, true);
 		remove();
 	}
 

@@ -1,6 +1,6 @@
 package mod.rozbrajaczpoziomow.testing.worldgen;
 
-import mod.rozbrajaczpoziomow.testing.blocks.BlockRegister;
+import mod.rozbrajaczpoziomow.testing.a_registers.BlockRegister;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.GenerationStage;

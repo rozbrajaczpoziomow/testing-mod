@@ -1,9 +1,9 @@
 package mod.rozbrajaczpoziomow.testing;
 
-import mod.rozbrajaczpoziomow.testing.blocks.BlockRegister;
-import mod.rozbrajaczpoziomow.testing.entities.EntityRegister;
-import mod.rozbrajaczpoziomow.testing.items.ItemRegister;
-import mod.rozbrajaczpoziomow.testing.sounds.iSounds;
+import mod.rozbrajaczpoziomow.testing.a_registers.BlockRegister;
+import mod.rozbrajaczpoziomow.testing.a_registers.EntityRegister;
+import mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister;
+import mod.rozbrajaczpoziomow.testing.a_registers.SoundRegister;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -18,7 +18,7 @@ public class TestingMod {
 
 	public TestingMod() {
 		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-		iSounds.register(eventBus);
+		SoundRegister.register(eventBus);
 		ItemRegister.register(eventBus);
 		BlockRegister.register(eventBus);
 		EntityRegister.register(eventBus);
