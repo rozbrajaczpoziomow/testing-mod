@@ -80,7 +80,7 @@ public class Recipes extends RecipeProvider {
 		makeShapeless("alt_core_ingot", AltCoreIngot.get(), ing().add(CoreIngot).add(AltCore));
 		makeShapeless("alt_hoe", AltHoe.get(), ing().add(IRON_HOE).add(AltCore));
 		makeShapeless("alt_sword", AltSword.get(), ing().add(AltCore).add(CoalIngot).add(IRON_SWORD));
-		makeShapeless("alt_paper", AltHoe.get(), ing().add(PAPER).add(AltCore));
+		makeShapeless("alt_paper", AltPaper.get(), ing().add(PAPER).add(AltCore));
 
 		// Bottles / Eatable
 		makeShapeless("demonic_bottle", DemonicBottle.get(), ing().add(DemonicCoreIngot).add(Core).add(AltBottle));
@@ -114,6 +114,9 @@ public class Recipes extends RecipeProvider {
 		makeShaped("crowbar", Crowbar.get(), " ||/ Z / Z ", map().add('Z', IRON_INGOT).add('|', STICK));
 		makeShaped("wither_on_a_stick", Crowbar.get(), "_X_/ I / | ", map().add('X', NETHER_STAR).add('_', WITHER_SKELETON_SKULL).add('I', AltCore).add('|', Core));
 		makeShapeless("recipe_book", RecipeBook.get(), ing().add(BOOK).add(AltPaper).add(AltPaper).add(AltPaper));
+
+		// Shitpost items
+		makeShaped("shop", Shop.get(), " D /PEP/ P ", map().add('D', DIAMOND).add('P', PAPER).add('E', EMERALD));
 	}
 
 	private void makeShapeless(String name, IItemProvider result, int amount, Ingredients ingredients) {

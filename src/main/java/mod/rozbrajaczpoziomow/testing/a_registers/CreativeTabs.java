@@ -27,4 +27,16 @@ public class CreativeTabs {
 			return true;
 		}
 	};
+
+	public static final ItemGroup Shitpost = new ItemGroup("shitpost_tab") {
+		@Override
+		public ItemStack makeIcon() {
+			return new ItemStack(ItemRegister.Rybek.get());
+		}
+
+		@Override
+		public boolean hasSearchBar() {
+			return true;
+		}
+	};
 }

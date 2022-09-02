@@ -14,8 +14,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
 
-import static mod.rozbrajaczpoziomow.testing.a_registers.CreativeTabs.Rybkek;
-import static mod.rozbrajaczpoziomow.testing.a_registers.CreativeTabs.Sniwek;
+import static mod.rozbrajaczpoziomow.testing.a_registers.CreativeTabs.*;
 import static mod.rozbrajaczpoziomow.testing.items.ToolTier.CROWBAR;
 import static mod.rozbrajaczpoziomow.testing.items.ToolTier.MACHETE;
 import static net.minecraft.item.Item.Properties;
@@ -67,10 +66,11 @@ public class ItemRegister {
 	public static final RegistryObject<Item> CorbiCore = r("corbi_core", new Item(new Properties().tab(Sniwek)));
 	public static final RegistryObject<Item> Sniw = r("sniw", new Sniw(new Properties().tab(Rybkek)));
 	public static final RegistryObject<Item> Rybek = r("rybek", new Rybek(new Properties().tab(Rybkek).stacksTo(1).rarity(EPIC).addToolType(HOE, NETHERITE.getLevel())));
-	public static final RegistryObject<Item> Yeetr = r("yeetr", new Yeetr(new Properties().tab(Rybkek).durability(1).setNoRepair()));
-	public static final RegistryObject<Item> YeetrX = r("yeetr_x", new Yeetr(new Properties().tab(Rybkek).stacksTo(0)));
+	public static final RegistryObject<Item> Yeetr = r("yeetr", new Yeetr(new Properties().tab(Rybkek).durability(1).setNoRepair())); // TODO: Fully implement
+	public static final RegistryObject<Item> YeetrX = r("yeetr_x", new Yeetr(new Properties().tab(Rybkek).stacksTo(0))); // TODO: Fully implement
 	public static final RegistryObject<Item> RecipeBook = r("recipe_book", new RecipeBook(new Properties().tab(Rybkek).stacksTo(1).rarity(EPIC)));
 
+	public static final RegistryObject<Item> Shop = r("shop", new Shop(new Properties().tab(Shitpost).stacksTo(1)));
 
 	public static void register(IEventBus eventBus) {
 		ItemsConstruct.register(eventBus);
