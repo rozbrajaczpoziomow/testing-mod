@@ -102,7 +102,7 @@ public class Recipes extends RecipeProvider {
 		// Void
 		makeShapeless("void_core", VoidCore.get(), ing().add(AltCore).add(Core).add(VoidIngot));
 		makeShapeless("void_ingot", VoidIngot.get(), ing().add(DemonicCoreIngot).add(AltCoreIngot).add(CoreIngot).add(CorbiCore).add(AltCore).add(DIAMOND_SWORD).add(DIAMOND_HOE).add(AltHoe).add(DIAMOND_BLOCK));
-		makeShapeless("void_block", VoidBlock.get(), ing().add(STONE).add(AltCoreIngot).add(AltCoreIngot).add(DemonicCoreIngot).add(AltCore).add(GlitchedSword).add(DIAMOND).add(DIAMOND).add(DIAMOND).add(Core));
+		makeShapeless("void_block", VoidBlock.get(), ing().add(AltCoreIngot).add(AltCoreIngot).add(DemonicCoreIngot).add(AltCore).add(GlitchedSword).add(DIAMOND).add(DIAMOND).add(DIAMOND).add(Core));
 		makeShapeless("alt_void", AltVoid.get(), ing().add(VoidIngot).add(VoidCore).add(VoidBlock).add(AltCore).add(DIAMOND_BLOCK).add(IRON_BLOCK).add(GOLD_BLOCK).add(COAL_BLOCK).add(ANCIENT_DEBRIS));
 
 		// USP

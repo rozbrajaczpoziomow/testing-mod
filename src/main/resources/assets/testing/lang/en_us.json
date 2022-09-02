@@ -53,7 +53,6 @@
   "item.testing.void_core": "Void Core",
   "item.testing.void_ingot": "Void Ingot",
   "item.testing.corbi_core": "Corbi Core",
-  "item.testing.alt_void": "dioV etanretlA",
 
   "block.testing.screenshot_block": "Screenshot Block",
   "block.testing.paper_block": "Paper Block",
@@ -102,5 +101,6 @@
   "block.testing.garawa_glass": "Garawa Glass",
   "block.testing.usp_glass": "USP-Z DT-4 Glass",
 
-  "block.testing.void_block": "Void Block"
+  "block.testing.void_block": "Void Block",
+  "block.testing.alt_void": "dioV etanretlA"
 }
