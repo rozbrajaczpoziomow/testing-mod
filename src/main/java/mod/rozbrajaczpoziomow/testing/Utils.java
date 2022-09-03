@@ -32,4 +32,10 @@ public class Utils {
 	public static double rng() {
 		return new Random().nextDouble();
 	}
+	public static int rng(int min, int max) { // From min to max - 1
+		return new Random().nextInt(max - min) + min;
+	}
+	public static int rng(int max) { // From 0 to max - 1
+		return new Random().nextInt(max);
+	}
 }

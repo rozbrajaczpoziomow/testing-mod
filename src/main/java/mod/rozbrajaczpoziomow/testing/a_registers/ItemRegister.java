@@ -71,6 +71,7 @@ public class ItemRegister {
 	public static final RegistryObject<Item> RecipeBook = r("recipe_book", new RecipeBook(new Properties().tab(Rybkek).stacksTo(1).rarity(EPIC)));
 
 	public static final RegistryObject<Item> Shop = r("shop", new Shop(new Properties().tab(Shitpost).stacksTo(1)));
+	public static final RegistryObject<Item> AltShop = r("alt_shop", new AltShop(new Properties().tab(Shitpost).stacksTo(1)));
 
 	public static void register(IEventBus eventBus) {
 		ItemsConstruct.register(eventBus);
