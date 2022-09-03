@@ -117,6 +117,9 @@ public class Recipes extends RecipeProvider {
 
 		// Shitpost items
 		makeShaped("shop", Shop.get(), " D /PEP/ P ", map().add('D', DIAMOND).add('P', PAPER).add('E', EMERALD));
+
+		// Minecraft Items
+		makeShaped("random_tipped_arrow", TIPPED_ARROW, 8, "###/#@#/###", map().add('#', Rybek).add('@', ARROW));
 	}
 
 	private void makeShapeless(String name, IItemProvider result, int amount, Ingredients ingredients) {
