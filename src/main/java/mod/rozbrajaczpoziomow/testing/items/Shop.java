@@ -37,7 +37,8 @@ public class Shop extends Item {
 		int seconds = stack.getTag().getInt(secondsNBT);
 		if(++seconds == updateOn) {
 			seconds -= player.getOffhandItem().getItem() == ItemRegister.Rybek.get()? 5 : updateOn;
-			player.addItem(EMERALD.getDefaultInstance());
+			if(!player.addItem(EMERALD.getDefaultInstance()))
+				player.drop(EMERALD.getDefaultInstance(), false);
 			player.hurt(DROWN.bypassInvul().bypassArmor().bypassMagic(), 1f);
 			player.sendMessage(withColor("GET SHOPPED lmfao. You sold your life for 1 emerald. Loser.", GREEN), player.getUUID());
 		}

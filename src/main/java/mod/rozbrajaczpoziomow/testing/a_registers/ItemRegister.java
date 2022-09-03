@@ -14,6 +14,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
 
+import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
 import static mod.rozbrajaczpoziomow.testing.a_registers.CreativeTabs.*;
 import static mod.rozbrajaczpoziomow.testing.items.ToolTier.CROWBAR;
 import static mod.rozbrajaczpoziomow.testing.items.ToolTier.MACHETE;
@@ -24,6 +25,7 @@ import static net.minecraft.item.Items.BREAD;
 import static net.minecraft.item.Items.IRON_HOE;
 import static net.minecraft.item.Rarity.EPIC;
 import static net.minecraft.potion.Effects.*;
+import static net.minecraft.util.text.TextFormatting.LIGHT_PURPLE;
 import static net.minecraftforge.common.ToolType.HOE;
 
 @SuppressWarnings("unused")
@@ -69,9 +71,11 @@ public class ItemRegister {
 	public static final RegistryObject<Item> Yeetr = r("yeetr", new Yeetr(new Properties().tab(Rybkek).durability(1).setNoRepair())); // TODO: Fully implement
 	public static final RegistryObject<Item> YeetrX = r("yeetr_x", new Yeetr(new Properties().tab(Rybkek).stacksTo(0))); // TODO: Fully implement
 	public static final RegistryObject<Item> RecipeBook = r("recipe_book", new RecipeBook(new Properties().tab(Rybkek).stacksTo(1).rarity(EPIC)));
+	public static final RegistryObject<Item> ReshiftedEmerald = r("reshifted_emerald", new ItemWithDescription(new Properties().tab(Sniwek).fireResistant(), withColor("This is probably void matter, maybe because it's hard to study... But it could be an emerald from another dimension... We will never know.", LIGHT_PURPLE)));
 
 	public static final RegistryObject<Item> Shop = r("shop", new Shop(new Properties().tab(Shitpost).stacksTo(1)));
 	public static final RegistryObject<Item> AltShop = r("alt_shop", new AltShop(new Properties().tab(Shitpost).stacksTo(1)));
+	public static final RegistryObject<Item> Augustus = r("augustus", new Augustus(new Properties().tab(Shitpost).stacksTo(1)));
 
 	public static void register(IEventBus eventBus) {
 		ItemsConstruct.register(eventBus);

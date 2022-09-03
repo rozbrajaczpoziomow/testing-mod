@@ -118,6 +118,7 @@ public class Recipes extends RecipeProvider {
 		// Shitpost items
 		makeShaped("shop", Shop.get(), " D /PEP/ P ", map().add('D', DIAMOND).add('P', PAPER).add('E', EMERALD));
 		makeShaped("alt_shop", AltShop.get(), " P /P#P/ P ", map().add('P', AltPaper).add('#', Shop));
+		makeShaped("augustus", Augustus.get(), " # / # / | ", map().add('#', DIRT).add('|', DIAMOND));
 
 		// Minecraft Items
 	}
