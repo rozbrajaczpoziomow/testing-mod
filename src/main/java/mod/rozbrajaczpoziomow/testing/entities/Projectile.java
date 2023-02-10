@@ -1,6 +1,5 @@
 package mod.rozbrajaczpoziomow.testing.entities;
 
-import mod.rozbrajaczpoziomow.testing.TestingMod;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -9,6 +8,7 @@ import net.minecraft.entity.projectile.DamagingProjectileEntity;
 import net.minecraft.particles.RedstoneParticleData;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -16,6 +16,7 @@ import net.minecraftforge.common.Tags;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.spawnParticles;
 import static net.minecraft.potion.Effects.*;
+import static net.minecraft.util.DamageSource.DRY_OUT;
 
 public class Projectile extends DamagingProjectileEntity {
 	public PlayerEntity owner;
@@ -29,13 +30,13 @@ public class Projectile extends DamagingProjectileEntity {
 		// 9 dmg, CONFUSION 3 for 15secs, wither 1 for 4secs, regen 3 for 2secs
 		if(player == owner) return;
 		addEffects(player);
-		TestingMod.LOGGER.info(String.format("COLLIDING WITH %s", player.getDisplayName().getString()));
 	}
 
 	@Override
 	protected void onHitEntity(EntityRayTraceResult result) {
 		if(!(result.getEntity() instanceof LivingEntity livingEntity)) return;
 		if(result.getEntity() instanceof PlayerEntity player) { playerTouch(player); return; }
+		livingEntity.hurt(DRY_OUT.bypassMagic().bypassArmor().bypassInvul(), 9f);
 		addEffects(livingEntity);
 	}
 
@@ -47,9 +48,11 @@ public class Projectile extends DamagingProjectileEntity {
 
 	@Override
 	protected void onHit(RayTraceResult result) {
+		if(result.getType() == RayTraceResult.Type.ENTITY) { onHitEntity((EntityRayTraceResult) result); return; }
+		if(result.getType() == RayTraceResult.Type.MISS) return;
+		BlockRayTraceResult res = (BlockRayTraceResult) result;
 		// just removes(); also destroys glass
-		TestingMod.LOGGER.info("IMPACT - DESTROYING");
-		BlockPos pos = new BlockPos(result.getLocation().x, result.getLocation().y, result.getLocation().z);
+		BlockPos pos = res.getBlockPos();
 		Block block = level.getBlockState(pos).getBlock();
 		if(block.is(Tags.Blocks.GLASS) || block.is(Tags.Blocks.GLASS_PANES) || block.is(Tags.Blocks.STAINED_GLASS) || block.is(Tags.Blocks.STAINED_GLASS_PANES))
 			level.destroyBlock(pos, false, owner);

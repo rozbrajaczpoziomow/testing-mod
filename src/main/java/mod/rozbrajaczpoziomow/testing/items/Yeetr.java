@@ -23,9 +23,10 @@ public class Yeetr extends Item {
 		target.teleportTo(x, 250, z);
 		target.inventory.dropAll();
 		target.teleportTo(x, y, z);
-		target.lerpHeadTo(180f, 180);
+		if(target.getCommandSenderWorld().isClientSide)
+			target.lerpHeadTo(180f, 180);
 
-		if(stack.getMaxDamage() > 0) stack.hurtAndBreak(1, attacker, p -> p.broadcastBreakEvent(MAIN_HAND));
+		if(stack.getItem().canBeDepleted()) stack.hurtAndBreak(1, attacker, p -> p.broadcastBreakEvent(MAIN_HAND));
 		return true;
 	}
 }

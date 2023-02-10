@@ -17,9 +17,27 @@ public class Ingredients {
 	public static Ingredients ing() { return new Ingredients(); }
 
 	public Ingredients add(Ingredient ing) {
-		if(list.size() > 9) throw new IllegalArgumentException("More than 9 ingredients in Ingredients.");
 		list.add(ing);
 		return this;
+	}
+
+	public Ingredients add(IItemProvider item, int n) {
+		for(int i = 0; i < n; i++)
+			add(of(item));
+		return this;
+	}
+	public Ingredients add(ITag<Item> tag, int n) {
+		for(int i = 0; i < n; i++)
+			add(of(tag));
+		return this;
+	}
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	public Ingredients add(RegistryObject reg, int n) {
+		try {
+			return add(((RegistryObject<Item>) reg).get(), n);
+		} catch(Exception ignored) {
+			return add(((RegistryObject<Block>) reg).get(), n);
+		}
 	}
 
 	public Ingredients add(IItemProvider item) {
@@ -40,9 +58,6 @@ public class Ingredients {
 			}
 		}
 	}
-//	public Ingredients add(RegistryObject<Block> item) {
-//		return add(item.get());
-//	}
 
 	public ArrayList<Ingredient> get() {
 		return list;

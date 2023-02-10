@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 
 import java.util.Objects;
 
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
 import static net.minecraft.potion.Effects.BLINDNESS;
 import static net.minecraft.util.text.TextFormatting.LIGHT_PURPLE;
 
@@ -29,6 +29,6 @@ public class VoidCore extends Item {
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
 		if(!(entity instanceof LivingEntity livingEntity)) return;
-		stack.hurtAndBreak(1, livingEntity, e -> e.sendMessage(withColor("Your Void Core broke!", LIGHT_PURPLE), e.getUUID()));
+		stack.hurtAndBreak(1, livingEntity, e -> sendMessage(e, "Your Void Core broke!", LIGHT_PURPLE));
 	}
 }

@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
+import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
 import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
 import static net.minecraft.item.Items.EMERALD;
 import static net.minecraft.util.DamageSource.DROWN;
@@ -35,12 +36,12 @@ public class Shop extends Item {
 			stack.getTag().putInt(secondsNBT, 0);
 
 		int seconds = stack.getTag().getInt(secondsNBT);
-		if(++seconds == updateOn) {
+		if(++seconds >= updateOn) {
 			seconds -= player.getOffhandItem().getItem() == ItemRegister.Rybek.get()? 5 : updateOn;
 			if(!player.addItem(EMERALD.getDefaultInstance()))
 				player.drop(EMERALD.getDefaultInstance(), false);
 			player.hurt(DROWN.bypassInvul().bypassArmor().bypassMagic(), 1f);
-			player.sendMessage(withColor("GET SHOPPED lmfao. You sold your life for 1 emerald. Loser.", GREEN), player.getUUID());
+			sendMessage(player, "GET SHOPPED lmfao. You sold your life for 1 emerald. Loser.", GREEN);
 		}
 		stack.getTag().putInt(secondsNBT, seconds);
 	}

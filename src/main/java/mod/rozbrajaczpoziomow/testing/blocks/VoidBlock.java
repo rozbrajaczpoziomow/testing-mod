@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 import java.util.Objects;
 import java.util.Random;
 
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
 import static mod.rozbrajaczpoziomow.testing.a_registers.SoundRegister.*;
 import static net.minecraft.potion.Effects.*;
 import static net.minecraft.util.text.TextFormatting.DARK_PURPLE;
@@ -49,7 +49,7 @@ public class VoidBlock extends Block {
 	public void setPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
 		if(world.isClientSide) return;
 		for(ServerPlayerEntity player : Objects.requireNonNull(world.getServer()).getPlayerList().getPlayers()) {
-			player.sendMessage(withColor("The void has been openenenenenenenenened...", DARK_PURPLE), player.getUUID());
+			sendMessage(player, "The void has been openenenenenenenenened...", DARK_PURPLE);
 			player.addEffect(new EffectInstance(BLINDNESS, 20 * 25, 0));
 			player.addEffect(new EffectInstance(WITHER, 20 * 5, 0));
 			player.addEffect(new EffectInstance(MOVEMENT_SLOWDOWN, 20 * 25, 2));
@@ -68,7 +68,7 @@ public class VoidBlock extends Block {
 	@Override
 	public void stepOn(World world, BlockPos pos, Entity entity) {
 		if(world.isClientSide) return;
-		entity.sendMessage(withColor("*)!#&% if you dont s#)@", DARK_PURPLE), entity.getUUID());
+		sendMessage(entity, "*)!#&% if you dont s#)@", DARK_PURPLE);
 		for(ServerPlayerEntity player : Objects.requireNonNull(world.getServer()).getPlayerList().getPlayers()) {
 			player.addEffect(new EffectInstance(MOVEMENT_SLOWDOWN, 20 * 3, 9));
 			player.addEffect(new EffectInstance(BLINDNESS, 20 * 3, 0));

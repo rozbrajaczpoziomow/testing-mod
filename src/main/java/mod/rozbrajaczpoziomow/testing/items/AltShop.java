@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
+import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
 import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
 import static net.minecraft.item.Items.EMERALD;
 import static net.minecraft.potion.Effects.*;
@@ -36,16 +37,17 @@ public class AltShop extends Item {
 			stack.getTag().putInt(secondsNBT, 0);
 
 		int seconds = stack.getTag().getInt(secondsNBT);
-		if (++seconds != updateOn) return;
+		stack.getTag().putInt(secondsNBT, ++seconds);
+		if(seconds != updateOn) return;
 
-		seconds = player.getOffhandItem().getItem() == ItemRegister.Rybek.get()? updateOn - 5 : 0;
+		seconds -= player.getOffhandItem().getItem() == ItemRegister.Rybek.get()? 5 : updateOn;
 		stack.getTag().putInt(secondsNBT, seconds);
 
 		for(ItemStack item : player.inventory.items)
 			if (item.getItem() == EMERALD) {
 				item.shrink(1);
 				player.addEffect(new EffectInstance(HEAL, 1, 1));
-				player.sendMessage(withColor("You sold 1 emerald for some HP, lol.", LIGHT_PURPLE), player.getUUID());
+				sendMessage(player, "You sold 1 emerald for some HP, lol.", LIGHT_PURPLE);
 				return;
 			}
 
@@ -55,7 +57,7 @@ public class AltShop extends Item {
 		player.addEffect(new EffectInstance(BLINDNESS, 5 * 20, 0));
 		player.addEffect(new EffectInstance(WITHER, 5 * 20, 0));
 		player.addEffect(new EffectInstance(HARM, 1, 0));
-		player.sendMessage(withColor(": ?Sh?!@3?!@tu?:\"<> :", DARK_PURPLE), player.getUUID());
+		sendMessage(player, ": ?Sh?!@3?!@tu?:\"<> :", DARK_PURPLE);
 	}
 
 	@Override

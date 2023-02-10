@@ -7,7 +7,6 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = TestingMod.MOD_ID)
 public class WorldEvents {
-
 	@SubscribeEvent
 	public static void biomeLoadingEvent(final BiomeLoadingEvent event) {
 		USPOreGeneration.gen(event);
@@ -15,5 +14,8 @@ public class WorldEvents {
 		UnknownBlockGeneration.gen(event);
 		LoabinOreGeneration.gen(event);
 		LoabinOreGeneration.gen(event);
+		GMDMilkShelfGeneration.gen(event);
+		MilkShelfGeneration.gen(event);
+		StoneGenOreGeneration.gen(event);
 	}
 }

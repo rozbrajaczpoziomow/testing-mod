@@ -26,8 +26,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
+import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
 import static mod.rozbrajaczpoziomow.testing.Utils.text;
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
 import static mod.rozbrajaczpoziomow.testing.a_registers.SoundRegister.*;
 import static net.minecraft.block.SoundType.BAMBOO;
 import static net.minecraft.item.Items.*;
@@ -50,7 +50,7 @@ public class AltVoid extends Block {
 	public void stepOn(World world, BlockPos pos, Entity entity) {
 		if(!(entity instanceof LivingEntity livingEntity)) return;
 		if(world.isClientSide) return;
-		entity.sendMessage(withColor("!od dluohs uoy gniht eht ton s'ti ,potS", BLUE), entity.getUUID());
+		sendMessage(entity, "!od dluohs uoy gniht eht ton s'ti ,potS", BLUE);
 		livingEntity.addEffect(new EffectInstance(NIGHT_VISION, 20 * 5, 0));
 	}
 
@@ -86,7 +86,7 @@ public class AltVoid extends Block {
 		player.setDeltaMovement(entity.getDeltaMovement());
 
 		if(cooldown > 0) {
-			player.sendMessage(withColor(Integer.valueOf(cooldown / 20).toString() + "s", BLUE), player.getUUID());
+			sendMessage(player, Integer.valueOf(cooldown / 20).toString() + "s", BLUE);
 			return;
 		}
 

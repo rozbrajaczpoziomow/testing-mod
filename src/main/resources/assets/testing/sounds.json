@@ -76,5 +76,29 @@
     "sounds": [
       "testing:void_block_break"
     ]
+  },
+  "reshifter_shift": {
+    "subtitle": "sound.testing.reshifter_shift",
+    "sounds": [
+      "testing:reshifter_shift"
+    ]
+  },
+  "aura_diamond_i": {
+    "subtitle": "sound.testing.aura_diamond_i",
+    "sounds": [
+      "testing:aura_diamond_i"
+    ]
+  },
+  "aura_diamond_ii": {
+    "subtitle": "sound.testing.aura_diamond_ii",
+    "sounds": [
+      "testing:aura_diamond_ii"
+    ]
+  },
+  "reshifted_diamond_sword": {
+    "subtitle": "sound.testing.reshifted_diamond_sword",
+    "sounds": [
+      "testing:reshifted_diamond_sword"
+    ]
   }
 }

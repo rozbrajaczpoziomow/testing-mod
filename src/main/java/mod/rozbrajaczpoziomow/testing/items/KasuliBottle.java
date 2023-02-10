@@ -3,6 +3,7 @@ package mod.rozbrajaczpoziomow.testing.items;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.UseAction;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.Hand;
@@ -23,5 +24,10 @@ public class KasuliBottle extends Item {
 			stack.hurtAndBreak(1, entityLiving, p -> p.broadcastBreakEvent(Hand.MAIN_HAND));
 		}
 		return stack;
+	}
+
+	@Override
+	public UseAction getUseAnimation(ItemStack pStack) {
+		return UseAction.DRINK;
 	}
 }

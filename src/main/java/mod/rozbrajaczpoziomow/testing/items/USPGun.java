@@ -17,6 +17,7 @@ public class USPGun extends Item {
 
 	@Override
 	public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+		if(!player.isCreative()) player.getCooldowns().addCooldown(this, 20);
 		if(hand != Hand.MAIN_HAND || !hasAmmo(player)) return super.use(world, player, hand);
 		Projectile proj = new Projectile(EntityRegister.Projectile.get(), world);
 		proj.setPosRaw(player.getX(), player.getEyeY(), player.getZ());

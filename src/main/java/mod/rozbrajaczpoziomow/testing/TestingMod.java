@@ -1,10 +1,6 @@
 package mod.rozbrajaczpoziomow.testing;
 
-import mod.rozbrajaczpoziomow.testing.a_registers.BlockRegister;
-import mod.rozbrajaczpoziomow.testing.a_registers.EntityRegister;
-import mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister;
-import mod.rozbrajaczpoziomow.testing.a_registers.SoundRegister;
-import net.minecraftforge.common.MinecraftForge;
+import mod.rozbrajaczpoziomow.testing.a_registers.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -17,12 +13,11 @@ public class TestingMod {
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	public TestingMod() {
-		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-		SoundRegister.register(eventBus);
-		ItemRegister.register(eventBus);
-		BlockRegister.register(eventBus);
-		EntityRegister.register(eventBus);
-
-		MinecraftForge.EVENT_BUS.register(this);
+		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+		SoundRegister.register(bus);
+		BlockRegister.register(bus);
+		ItemRegister.register(bus);
+		EntityRegister.register(bus);
+		TileEntityRegister.register(bus);
 	}
 }

@@ -15,8 +15,10 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.*;
+import static mod.rozbrajaczpoziomow.testing.blocks.UncraftingTable.IUncraftingDisallowed;
 import static net.minecraft.potion.Effects.*;
 
+@IUncraftingDisallowed
 public class Augustus extends Item {
 	public Augustus(Properties properties) {
 		super(properties);
@@ -27,10 +29,10 @@ public class Augustus extends Item {
 		if(entity.tickCount % 20 != 0) return;
 		if(!(entity instanceof LivingEntity living)) return;
 
-		living.forceAddEffect(new EffectInstance(HARM, 1, 0));
-		living.forceAddEffect(new EffectInstance(MOVEMENT_SLOWDOWN, 20, 19));
-		living.forceAddEffect(new EffectInstance(MOVEMENT_SPEED, 20, 9));
-		living.sendMessage(withColor("AUGUSTUS GUZ HAS ARRIVED LAKUMBA LAKAKA", TextFormatting.values()[rng(TextFormatting.values().length)]), living.getUUID());
+		living.addEffect(new EffectInstance(HARM, 1, 0));
+		living.addEffect(new EffectInstance(MOVEMENT_SLOWDOWN, 20, 19));
+		living.addEffect(new EffectInstance(MOVEMENT_SPEED, 20, 9));
+		sendMessage(living, "AUGUSTUS GUZ HAS ARRIVED LAKUMBA LAKAKA", TextFormatting.values()[rng(TextFormatting.values().length)]);
 
 		if(!(living instanceof PlayerEntity player)) return;
 		if(entity.tickCount % 40 != 0) return;

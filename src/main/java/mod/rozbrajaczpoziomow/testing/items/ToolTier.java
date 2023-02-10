@@ -1,16 +1,18 @@
 package mod.rozbrajaczpoziomow.testing.items;
 
-import mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
 
 import java.util.function.Supplier;
 
+import static mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister.*;
+
 public enum ToolTier implements IItemTier {
 
-	MACHETE(0, 50, 0f, 0f, 10, () -> Ingredient.of(ItemRegister.Machete.get())),
-	CROWBAR(6, 100, 1.5f, 0f, 0, () -> Ingredient.of(ItemRegister.Crowbar.get()));
+	MACHETE(0, 50, 0f, 0f, 10, () -> Ingredient.of(Machete.get())),
+	CROWBAR(6, 100, 1.5f, 0f, 0, () -> Ingredient.of(Crowbar.get())),
+	MILKBAR(7, 304, 1.3f, 0f, 0, () -> Ingredient.of(Milkbar.get()));
 
 	private final int harvestLevel;
 	private final int maxUses;
@@ -20,7 +22,7 @@ public enum ToolTier implements IItemTier {
 	private final LazyValue<Ingredient> repairMaterial;
 
 	ToolTier(int harvestLevel, int maxUses, float efficiency,
-	            float attackDamage, int enchantability, Supplier<Ingredient> repairMaterial) {
+	         float attackDamage, int enchantability, Supplier<Ingredient> repairMaterial) {
 		this.harvestLevel = harvestLevel;
 		this.maxUses = maxUses;
 		this.efficiency = efficiency;
