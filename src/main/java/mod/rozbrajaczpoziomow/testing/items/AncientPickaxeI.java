@@ -33,7 +33,8 @@ public class AncientPickaxeI extends Item {
 
 	@Override
 	public void inventoryTick(ItemStack pStack, World pLevel, Entity pEntity, int pItemSlot, boolean pIsSelected) {
-		if(!(pEntity instanceof PlayerEntity player)) { pEntity.kill(); return; }
+		if(!(pEntity instanceof PlayerEntity)) { pEntity.kill(); return; }
+		PlayerEntity player = (PlayerEntity) pEntity;
 
 		if(pIsSelected && player.tickCount % 20 * 5 == 0)
 			player.addEffect(new EffectInstance(MOVEMENT_SLOWDOWN, 20 * 3, 1));

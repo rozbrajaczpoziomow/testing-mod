@@ -32,7 +32,8 @@ public class HealingDiamond extends Item {
 
 	@Override
 	public void inventoryTick(ItemStack pStack, World pLevel, Entity pEntity, int pItemSlot, boolean pIsSelected) {
-		if(!(pEntity instanceof PlayerEntity player)) { pEntity.kill(); return; }
+		if(!(pEntity instanceof PlayerEntity)) { pEntity.kill(); return; }
+		PlayerEntity player = (PlayerEntity) pEntity;
 		if(pIsSelected)
 			player.addEffect(new EffectInstance(REGENERATION, 20 * 3, 0));
 		player.addEffect(new EffectInstance(REGENERATION, 20 * 4, 0));

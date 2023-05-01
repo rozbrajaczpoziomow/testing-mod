@@ -23,7 +23,8 @@ public class AncientDiamondIII extends Item {
 
 	@Override
 	public void inventoryTick(ItemStack pStack, World pLevel, Entity pEntity, int pItemSlot, boolean pIsSelected) {
-		if(!(pEntity instanceof PlayerEntity player)) { pEntity.kill(); return; }
+		if(!(pEntity instanceof PlayerEntity)) { pEntity.kill(); return; }
+		PlayerEntity player = (PlayerEntity) pEntity;
 
 		int tick = pStack.getOrCreateTag().getInt("testing:tick");
 		int holdingTick = pStack.getTag().getInt("testing:holding_tick");

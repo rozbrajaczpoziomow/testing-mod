@@ -139,11 +139,13 @@ public class Recipes extends RecipeProvider {
 		makeShapeless("stone_generator_i_core", StoneGenICore.get(), ing().add(Core).add(AltCore).add(STONE, 3).add(COBBLESTONE).add(CoreIngot).add(CoalIngot).add(GLASS_BOTTLE));
 		makeShaped("hsc_bandage", HSCBandage.get(), "GGG/HHH/PPP", map().add('G', GluedPaper).add('H', HealingSugarCane).add('P', PAPER));
 		makeShaped("help_book", HelpBook.get(), "CCC/CBC/CCC", map().add('C', Core).add('B', RecipeBook));
+		makeShaped("rainbow_freezer", RainbowFreezer.get(), "|  / #$/ $$", map().add('#', RainbowBlock).add('|', STICK).add('$', ICE));
 
 		// Shitpost items
 		makeShaped("shop", Shop.get(), " D /PEP/ P ", map().add('D', DIAMOND).add('P', PAPER).add('E', EMERALD));
 		makeShaped("alt_shop", AltShop.get(), " P /P#P/ P ", map().add('P', AltPaper).add('#', Shop));
 		makeShaped("augustus", Augustus.get(), " # / # / | ", map().add('#', DIRT).add('|', DIAMOND));
+		makeShapeless("depressed_fish", DepressedFish.get(), ing().add(TLACore).add(PUFFERFISH));
 
 		// Minecraft Items
 	}

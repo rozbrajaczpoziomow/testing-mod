@@ -26,10 +26,10 @@ public class StoneGenICore extends Item {
 
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
-		if(!(entity instanceof PlayerEntity player)) return;
+		if(!(entity instanceof PlayerEntity)) return;
 
 		if(stack.getOrCreateTag().contains("drop"))
-			stack.hurtAndBreak(1, player, p -> {
+			stack.hurtAndBreak(1, (PlayerEntity) entity, p -> {
 				p.addItem(new ItemStack(STONE, 2));
 				p.addItem(COBBLESTONE.getDefaultInstance());
 				p.addItem(ItemRegister.AltCore.get().getDefaultInstance());
@@ -44,9 +44,9 @@ public class StoneGenICore extends Item {
 		World world = ctx.getLevel();
 
 		if(world.getBlockState(pos).getBlock() != BlockRegister.StoneGenI.get()) return PASS;
-		if(!(world.getBlockEntity(pos) instanceof StoneGenITile gen)) return PASS;
+		if(!(world.getBlockEntity(pos) instanceof StoneGenITile)) return PASS;
 
-		gen.overclock();
+		((StoneGenITile) world.getBlockEntity(pos)).overclock();
 		world.setBlock(pos, world.getBlockState(pos).setValue(StoneGenI.overclocked, true), 2 | 16 | 32 | 64);
 		ctx.getItemInHand().getOrCreateTag().putBoolean("drop", true);
 

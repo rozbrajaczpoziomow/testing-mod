@@ -34,8 +34,9 @@ public class Projectile extends DamagingProjectileEntity {
 
 	@Override
 	protected void onHitEntity(EntityRayTraceResult result) {
-		if(!(result.getEntity() instanceof LivingEntity livingEntity)) return;
-		if(result.getEntity() instanceof PlayerEntity player) { playerTouch(player); return; }
+		if(!(result.getEntity() instanceof LivingEntity)) return;
+		if(result.getEntity() instanceof PlayerEntity) { playerTouch((PlayerEntity) result.getEntity()); return; }
+		LivingEntity livingEntity = (LivingEntity) result.getEntity();
 		livingEntity.hurt(DRY_OUT.bypassMagic().bypassArmor().bypassInvul(), 9f);
 		addEffects(livingEntity);
 	}

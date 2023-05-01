@@ -36,8 +36,8 @@ public class Reshifter extends Block {
 		if(level.isClientSide) return ActionResultType.SUCCESS;
 		if(hand != MAIN_HAND) return ActionResultType.PASS;
 
-		if(level.getBlockEntity(pos) != null && level.getBlockEntity(pos) instanceof ReshifterTile te)
-			te.rightClick(state, level, pos, player);
+		if(level.getBlockEntity(pos) != null && level.getBlockEntity(pos) instanceof ReshifterTile)
+			((ReshifterTile) level.getBlockEntity(pos)).rightClick(state, level, pos, player);
 
 		return ActionResultType.SUCCESS;
 	}

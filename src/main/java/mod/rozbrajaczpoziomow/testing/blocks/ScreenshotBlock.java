@@ -30,8 +30,8 @@ public class ScreenshotBlock extends Block {
 
 	@Override
 	public void stepOn(World world, BlockPos pos, Entity entity) {
-		if(world.isClientSide || !(entity instanceof LivingEntity livingEntity)) return;
-		livingEntity.addEffect(new EffectInstance(REGENERATION, 20 * 3, 0));
+		if(world.isClientSide || !(entity instanceof LivingEntity)) return;
+		((LivingEntity) entity).addEffect(new EffectInstance(REGENERATION, 20 * 3, 0));
 	}
 
 	@Override

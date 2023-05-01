@@ -37,7 +37,7 @@ public class AuraDiamondI extends DamagingProjectileEntity implements IRendersAs
 		ret.setPosRaw(shooter.getX(), shooter.getEyeY(), shooter.getZ());
 		ret.shootFromRotation(shooter, shooter.xRot, shooter.yHeadRot, 0f, 1.3f, 0f);
 		world.addFreshEntity(ret);
-		if(shooter instanceof PlayerEntity player) player.playNotifySound(aura_diamond_i.get(), SoundCategory.MASTER, 1f, 1f);
+		if(shooter instanceof PlayerEntity) ((PlayerEntity) shooter).playNotifySound(aura_diamond_i.get(), SoundCategory.MASTER, 1f, 1f);
 		return ret;
 	}
 

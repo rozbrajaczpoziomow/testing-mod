@@ -95,6 +95,7 @@ public class BlockRegister {
 	public static final RegistryObject<Reshifter> Reshifter = r("reshifter", new Reshifter(of(STONE).strength(3f).harvestTool(PICKAXE)), Sniwek);
 	public static final RegistryObject<SnowEradicator> SnowEradicator = r("snow_eradicator", new SnowEradicator(of(STONE, LAPIS).strength(1.5f)), Rybkek);
 	public static final RegistryObject<StoneGenI> StoneGenI = r("stone_gen_i", new StoneGenI(of(STONE).strength(2f).harvestTool(PICKAXE)), Sniwek);
+	public static final RegistryObject<RainbowBlock> RainbowBlock = r("rainbow_block", new RainbowBlock(of(METAL).strength(1f, 2f)), Rybkek);
 
 	public static <T extends Block> RegistryObject<T> r(String n, T block, ItemGroup tab) {
 		RegistryObject<T> ret = BlocksConstruct.register(n, () -> block);

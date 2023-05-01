@@ -37,8 +37,8 @@ public class WitherCorbi extends Block {
 
 	@Override
 	public void stepOn(World world, BlockPos pos, Entity entity) {
-		if(world.isClientSide || !(entity instanceof LivingEntity livingEntity)) return;
-		livingEntity.addEffect(new EffectInstance(WITHER, 20 * 5, 0));
+		if(world.isClientSide || !(entity instanceof LivingEntity)) return;
+		((LivingEntity) entity).addEffect(new EffectInstance(WITHER, 20 * 5, 0));
 	}
 
 	@Override

@@ -22,7 +22,8 @@ public class WitherOnAStickEntity extends WitherSkullEntity {
 	@Override
 	protected void onHitEntity(EntityRayTraceResult result) {
 		if(!level.isClientSide) {
-			if(result.getEntity() instanceof LivingEntity hit) {
+			if(result.getEntity() instanceof LivingEntity) {
+				LivingEntity hit = (LivingEntity) result.getEntity();
 				hit.hurt(DamageSource.WITHER, 4f);
 				hit.addEffect(new EffectInstance(CONFUSION, 20 * 15, 0));
 				hit.addEffect(new EffectInstance(WITHER, 20 * 15, 0));

@@ -29,7 +29,8 @@ public class Shop extends Item {
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
 		if(world.isClientSide) return;
-		if(!(entity instanceof PlayerEntity player)) { entity.kill(); return; }
+		if(!(entity instanceof PlayerEntity)) { entity.kill(); return; }
+		PlayerEntity player = (PlayerEntity) entity;
 		if(player.tickCount % 20 != 0) return;
 
 		if(!stack.getOrCreateTag().contains(secondsNBT))

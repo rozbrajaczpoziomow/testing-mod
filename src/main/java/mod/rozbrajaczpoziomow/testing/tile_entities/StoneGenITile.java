@@ -102,23 +102,23 @@ public class StoneGenITile extends TileEntity implements ITickableTileEntity {
 	}
 
 	public void setPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
-		if(!(placer instanceof PlayerEntity player)) {
+		if(!(placer instanceof PlayerEntity)) {
 			world.destroyBlock(pos, true);
 			return;
 		}
 
-		ownerUUID = player.getUUID();
+		ownerUUID = placer.getUUID();
 	}
 
 	@SubscribeEvent
 	public void logIn(final PlayerLoggedInEvent event) {
-		if(event.getPlayer() instanceof ServerPlayerEntity spe && spe.getUUID() == ownerUUID)
-			owner = spe;
+		if(event.getPlayer() instanceof ServerPlayerEntity && event.getPlayer().getUUID() == ownerUUID)
+			owner = (ServerPlayerEntity) event.getPlayer();
 	}
 
 	@SubscribeEvent
 	public void logOut(final PlayerLoggedOutEvent event) {
-		if(event.getPlayer() instanceof ServerPlayerEntity spe && spe.getUUID() == ownerUUID)
+		if(event.getPlayer() instanceof ServerPlayerEntity && event.getPlayer().getUUID() == ownerUUID)
 			owner = null;
 	}
 

@@ -27,15 +27,17 @@ public class Augustus extends Item {
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
 		if(entity.tickCount % 20 != 0) return;
-		if(!(entity instanceof LivingEntity living)) return;
+		if(!(entity instanceof LivingEntity)) return;
+		LivingEntity living = (LivingEntity) entity;
 
 		living.addEffect(new EffectInstance(HARM, 1, 0));
 		living.addEffect(new EffectInstance(MOVEMENT_SLOWDOWN, 20, 19));
 		living.addEffect(new EffectInstance(MOVEMENT_SPEED, 20, 9));
 		sendMessage(living, "AUGUSTUS GUZ HAS ARRIVED LAKUMBA LAKAKA", TextFormatting.values()[rng(TextFormatting.values().length)]);
 
-		if(!(living instanceof PlayerEntity player)) return;
 		if(entity.tickCount % 40 != 0) return;
+		if(!(living instanceof PlayerEntity)) return;
+		PlayerEntity player = (PlayerEntity) living;
 
 		if(!player.addItem(getDefaultInstance()))
 			player.drop(getDefaultInstance(), false);

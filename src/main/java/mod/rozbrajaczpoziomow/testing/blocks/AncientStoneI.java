@@ -36,8 +36,8 @@ public class AncientStoneI extends Block {
 
 	@Override
 	public void playerDestroy(World pLevel, PlayerEntity pPlayer, BlockPos pPos, BlockState pState, @Nullable TileEntity pTe, ItemStack pStack) {
-		if(!(pStack.getItem() instanceof PickaxeItem pick)) return;
-		if(pick.getTier().getLevel() < DIAMOND.getLevel()) return;
+		if(!(pStack.getItem() instanceof PickaxeItem)) return;
+		if(((PickaxeItem) pStack.getItem()).getTier().getLevel() < DIAMOND.getLevel()) return;
 
 		Vector3d center = Vector3d.atCenterOf(new Vector3i(pPos.getX(), pPos.getY(), pPos.getZ()));
 

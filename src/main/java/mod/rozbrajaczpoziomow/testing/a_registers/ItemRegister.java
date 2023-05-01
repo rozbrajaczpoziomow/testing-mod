@@ -106,10 +106,13 @@ public class ItemRegister {
 	public static final RegistryObject<Item> HealingSugarCane = r("healing_sugar_cane", new HealingSugarCane(new Properties().tab(Sniwek).food(new Food.Builder().alwaysEat().build())));
 	public static final RegistryObject<Item> HSCBandage = r("hsc_bandage", new HSCBandage(new Properties().tab(Sniwek).food(new Food.Builder().alwaysEat().build())));
 	public static final RegistryObject<Item> HelpBook = r("help_book", new HelpBook(new Properties().tab(Rybkek).stacksTo(1)));
+	public static final RegistryObject<Item> RainbowFreezer = r("rainbow_freezer", new RainbowFreezer(new Properties().tab(Rybkek).stacksTo(1).durability(8)));
 
 	public static final RegistryObject<Item> Shop = r("shop", new Shop(new Properties().tab(Shitpost).stacksTo(1)));
 	public static final RegistryObject<Item> AltShop = r("alt_shop", new AltShop(new Properties().tab(Shitpost).stacksTo(1)));
 	public static final RegistryObject<Item> Augustus = r("augustus", new Augustus(new Properties().tab(Shitpost).stacksTo(1)));
+	public static final RegistryObject<Item> DepressedFish = r("depressed_fish", new ItemWithDescription(new Properties().tab(Shitpost).stacksTo(1), withColor("Draw!", GOLD), withColor("~ Brawlhalla - 2023", GRAY)));
+	public static final RegistryObject<Item> HelpFish = r("help_fish", new ItemWithDescription(new Properties().tab(Shitpost).stacksTo(1), withColor("When you try but you don't succeed...", BLUE), withColor("~ ||rozbrajaczpoziomow|| - 2023", GRAY)));
 
 	public static void register(IEventBus eventBus) {
 		ItemsConstruct.register(eventBus);

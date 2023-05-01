@@ -23,8 +23,9 @@ public class DemonicDiamond extends Item {
 
 	@Override
 	public void inventoryTick(ItemStack pStack, World pLevel, Entity pEntity, int pItemSlot, boolean pIsSelected) {
-		if(!(pEntity instanceof PlayerEntity player)) { pEntity.kill(); return; }
+		if(!(pEntity instanceof PlayerEntity)) { pEntity.kill(); return; }
 		if(!pIsSelected) return;
+		PlayerEntity player = (PlayerEntity) pEntity;
 
 		if(!player.isOnFire()) // To prevent overriding other fire sources, like lava
 			player.setSecondsOnFire(1);

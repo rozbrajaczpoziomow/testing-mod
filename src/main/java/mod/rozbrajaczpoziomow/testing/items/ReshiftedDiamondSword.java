@@ -36,7 +36,8 @@ public class ReshiftedDiamondSword extends Item {
 
 	@Override
 	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		if(!(attacker instanceof PlayerEntity player)) { attacker.kill(); return false; }
+		if(!(attacker instanceof PlayerEntity)) { attacker.kill(); return false; }
+		PlayerEntity player = (PlayerEntity) attacker;
 		if(player.getCooldowns().isOnCooldown(this)) return false;
 
 		target.addEffect(new EffectInstance(NIGHT_VISION, 20 * 3, 0));
@@ -57,7 +58,8 @@ public class ReshiftedDiamondSword extends Item {
 		living.addEffect(new EffectInstance(MOVEMENT_SPEED, 20 * 2, 1));
 		living.addEffect(new EffectInstance(NIGHT_VISION, 20 * 2, 0));
 		living.addEffect(new EffectInstance(REGENERATION, 20 * 2, 0));
-		if(living instanceof PlayerEntity player) {
+		if(living instanceof PlayerEntity) {
+			PlayerEntity player = (PlayerEntity) living;
 			player.getCooldowns().addCooldown(this, 20 * 10);
 			player.playNotifySound(reshifted_diamond_sword.get(), SoundCategory.MASTER, 1f, 1f);
 		}

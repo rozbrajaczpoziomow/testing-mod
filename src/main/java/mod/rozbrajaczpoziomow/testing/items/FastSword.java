@@ -28,9 +28,9 @@ public class FastSword extends Item {
 
 	@Override
 	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		if(!(attacker instanceof PlayerEntity player)) { attacker.kill(); return false; }
+		if(!(attacker instanceof PlayerEntity)) { attacker.kill(); return false; }
 		attacker.swing(MAIN_HAND);
-		target.hurt(playerAttack(player), .03f);
+		target.hurt(playerAttack((PlayerEntity) attacker), .03f);
 		target.invulnerableTime = 0;
 		stack.hurtAndBreak(1, attacker, e -> e.broadcastBreakEvent(MAIN_HAND));
 		return false;

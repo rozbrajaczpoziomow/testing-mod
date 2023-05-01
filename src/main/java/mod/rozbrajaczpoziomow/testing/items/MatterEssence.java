@@ -50,7 +50,8 @@ public class MatterEssence extends Item {
 		final String holdingTickNBT = "testing:hold_tick";
 		final String tickNBT = "testing:tick";
 
-		if(!(pEntity instanceof PlayerEntity player)) { pEntity.kill(); return; }
+		if(!(pEntity instanceof PlayerEntity)) { pEntity.kill(); return; }
+		PlayerEntity player = (PlayerEntity) pEntity;
 		int holdingTick = pStack.getOrCreateTag().getInt(holdingTickNBT);
 		int tick = pStack.getTag().getInt(tickNBT);
 

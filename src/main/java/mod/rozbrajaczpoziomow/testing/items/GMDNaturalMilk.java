@@ -26,17 +26,24 @@ public class GMDNaturalMilk extends Item {
 	@Override
 	public ItemStack finishUsingItem(ItemStack stack, World world, LivingEntity entity) {
 		switch(rng(4)) {
-			case 0 -> {
+			case 0:
 				entity.addEffect(new EffectInstance(REGENERATION, 20 * 10, 0));
 				entity.addEffect(new EffectInstance(POISON, 20 * 10, 0));
-			}
-			case 1 -> entity.addEffect(new EffectInstance(MOVEMENT_SLOWDOWN, 20 * 60, 0));
-			case 2 -> entity.addEffect(new EffectInstance(POISON, 20 * 13, 0));
-			case 3 -> {
+				break;
+
+			case 1:
+				entity.addEffect(new EffectInstance(MOVEMENT_SLOWDOWN, 20 * 60, 0));
+				break;
+
+			case 2:
+				entity.addEffect(new EffectInstance(POISON, 20 * 13, 0));
+				break;
+
+			case 3:
 				entity.addEffect(new EffectInstance(BLINDNESS, 20 * 4, 0));
 				entity.addEffect(new EffectInstance(POISON, 20 * 30, 0));
 				entity.addEffect(new EffectInstance(REGENERATION, 20 * 50, 0));
-			}
+				break;
 		}
 		return BUCKET.getDefaultInstance();
 	}

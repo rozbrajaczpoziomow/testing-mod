@@ -35,7 +35,8 @@ public class ShiftedEmeraldSword extends Item {
 
 	@Override
 	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		if(!(attacker instanceof PlayerEntity player)) { attacker.kill(); return false; }
+		if(!(attacker instanceof PlayerEntity)) { attacker.kill(); return false; }
+		PlayerEntity player = (PlayerEntity) attacker;
 
 		if(player.getCooldowns().isOnCooldown(this)) return false;
 		target.addEffect(new EffectInstance(WITHER, 20 * 3, 0));

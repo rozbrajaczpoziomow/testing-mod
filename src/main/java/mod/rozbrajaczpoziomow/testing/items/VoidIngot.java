@@ -26,7 +26,10 @@ public class VoidIngot extends Item {
 				for(ServerPlayerEntity player : Objects.requireNonNull(world.getServer()).getPlayerList().getPlayers()) {
 					player.addEffect(new EffectInstance(HARM, 5, 0));
 					player.addEffect(new EffectInstance(BLINDNESS, 20 * 5, 0));
-				} if(entity instanceof LivingEntity livingEntity) {
+				}
+
+				if(entity instanceof LivingEntity) {
+					LivingEntity livingEntity = (LivingEntity) entity;
 					livingEntity.addEffect(new EffectInstance(WITHER, 20 * 60 * 20, 1));
 					livingEntity.addEffect(new EffectInstance(CONFUSION, 20 * 60, 0));
 				}

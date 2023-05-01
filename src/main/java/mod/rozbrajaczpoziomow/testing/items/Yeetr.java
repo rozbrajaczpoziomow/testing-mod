@@ -14,7 +14,9 @@ public class Yeetr extends Item {
 
 	@Override
 	public boolean hurtEnemy(ItemStack stack, LivingEntity tt, LivingEntity attacker) {
-		if(!(tt instanceof PlayerEntity target)) return true;
+		if(!(tt instanceof PlayerEntity)) return true;
+
+		PlayerEntity target = (PlayerEntity) tt;
 
 		double x = target.getX();
 		double y = target.getY();

@@ -89,8 +89,8 @@ public class UncraftingTableTile extends TileEntity {
 			final NonNullList<Ingredient> ingredients = NonNullList.create();
 
 			stacks.forEach((itemSlot, stack) -> {
-				if(stack.getItem() instanceof IUncraftingDifferentResult res) {
-					Pair<Integer, Optional<Ingredients>> result = res.getResult(stack);
+				if(stack.getItem() instanceof IUncraftingDifferentResult) {
+					Pair<Integer, Optional<Ingredients>> result = ((IUncraftingDifferentResult) stack.getItem()).getResult(stack);
 					if(result.getSecond().isPresent()) {
 						inv.removeItem(itemSlot, result.getFirst());
 						ingredients.addAll(result.getSecond().get().get());
@@ -120,8 +120,10 @@ public class UncraftingTableTile extends TileEntity {
 	}
 
 	public ActionResultType rightClick(PlayerEntity _player, Hand hand, BlockRayTraceResult hit) {
-		if(!(_player instanceof ServerPlayerEntity player))
+		if(!(_player instanceof ServerPlayerEntity))
 			return PASS;
+
+		ServerPlayerEntity player = (ServerPlayerEntity) _player;
 
 		if(hand != MAIN_HAND)
 			return PASS;

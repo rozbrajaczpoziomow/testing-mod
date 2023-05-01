@@ -18,7 +18,8 @@ public class Vodka extends Item {
 	@Override
 	public ItemStack finishUsingItem(ItemStack stack, World world, LivingEntity entity) {
 		if(!world.isClientSide) {
-			if(entity instanceof PlayerEntity player && !player.isCreative()) player.getCooldowns().addCooldown(this, 5 * 20);
+			if(entity instanceof PlayerEntity && !((PlayerEntity) entity).isCreative())
+				((PlayerEntity) entity).getCooldowns().addCooldown(this, 5 * 20);
 			entity.addEffect(new EffectInstance(Effects.CONFUSION, 30 * 20, 2));
 			entity.addEffect(new EffectInstance(Effects.MOVEMENT_SPEED, 5 * 20, 1));
 			stack.hurtAndBreak(1, entity, p -> p.broadcastBreakEvent(Hand.MAIN_HAND));

@@ -1,13 +1,19 @@
 package mod.rozbrajaczpoziomow.testing;
 
 import mod.rozbrajaczpoziomow.testing.a_registers.BlockRegister;
+import mod.rozbrajaczpoziomow.testing.tile_entities.RainbowBlockTile;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Items;
 import net.minecraft.particles.RedstoneParticleData;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockDisplayReader;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -16,6 +22,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+
+import javax.annotation.Nullable;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
 import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
@@ -39,6 +47,19 @@ public class Events {
 			for(RegistryObject<? extends Block> glass : BlockRegister.getTranslucent()) {
 				RenderTypeLookup.setRenderLayer(glass.get(), translucent());
 			}
+		}
+
+		@SubscribeEvent
+		@OnlyIn(Dist.CLIENT)
+		public static void createBlockColorHandlers(final ColorHandlerEvent.Block event) {
+			event.getBlockColors().register((BlockState state, @Nullable IBlockDisplayReader reader, @Nullable BlockPos pos, int layer) -> {
+				assert pos != null;
+				assert reader != null;
+				RainbowBlockTile te = (RainbowBlockTile) reader.getBlockEntity(pos);
+				assert te != null;
+//				TestingMod.LOGGER.info(String.format("[%d, %d, %d] - %X", pos.getX(), pos.getY(), pos.getZ(), color));
+				return te.getColor();
+			}, BlockRegister.RainbowBlock.get());
 		}
 	}
 
@@ -76,8 +97,10 @@ public class Events {
 
 		@SubscribeEvent
 		public static void brokenIronIngotCrafting(PlayerInteractEvent.RightClickItem event) {
-			if(!(event.getPlayer() instanceof ServerPlayerEntity player))
+			if(!(event.getPlayer() instanceof ServerPlayerEntity))
 				return;
+
+			ServerPlayerEntity player = (ServerPlayerEntity) event.getPlayer();
 
 			if(player.inventory.items.stream().noneMatch(is -> !is.isEmpty() && is.getItem() == AltCore.get()))
 				return;

@@ -13,7 +13,6 @@ import net.minecraft.world.World;
 import static net.minecraft.potion.Effects.*;
 
 public class WitherOnAStick extends Item {
-
 	public WitherOnAStick(Properties builderIn) {
 		super(builderIn);
 	}
@@ -34,7 +33,8 @@ public class WitherOnAStick extends Item {
 
 	@Override
 	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		if((attacker instanceof PlayerEntity player) && !player.isCreative()) player.getCooldowns().addCooldown(this, 20);
+		if(attacker instanceof PlayerEntity && !((PlayerEntity) attacker).isCreative())
+			((PlayerEntity) attacker).getCooldowns().addCooldown(this, 20);
 
 		target.addEffect(new EffectInstance(CONFUSION, 20 * 15, 0));
 		target.addEffect(new EffectInstance(WITHER, 20 * 15, 0));

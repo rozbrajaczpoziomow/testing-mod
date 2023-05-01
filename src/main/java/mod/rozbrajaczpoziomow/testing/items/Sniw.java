@@ -17,7 +17,8 @@ public class Sniw extends Item {
 
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
-		if(!isSelected || !(entity instanceof PlayerEntity player)) return;
+		if(!isSelected || !(entity instanceof PlayerEntity)) return;
+		PlayerEntity player = (PlayerEntity) entity;
 		player.abilities.mayfly = false;
 		player.abilities.flying = false;
 		player.startFallFlying();
@@ -26,8 +27,8 @@ public class Sniw extends Item {
 
 	@Override
 	public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		if(!(target instanceof PlayerEntity player)) return true;
-		player.addEffect(new EffectInstance(MOVEMENT_SLOWDOWN, 20 * 20, 256));
+		if(!(target instanceof PlayerEntity)) return true;
+		target.addEffect(new EffectInstance(MOVEMENT_SLOWDOWN, 20 * 20, 256));
 		stack.setCount(0);
 		return true;
 	}

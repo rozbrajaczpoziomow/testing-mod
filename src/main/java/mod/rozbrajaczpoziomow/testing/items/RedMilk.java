@@ -32,25 +32,28 @@ public class RedMilk extends Item implements IUncraftingDifferentResult {
 	@Override
 	public ItemStack finishUsingItem(ItemStack pStack, World pLevel, LivingEntity entity) {
 		switch(rng(4)) {
-			case 0 -> {
+			case 0:
 				entity.addEffect(new EffectInstance(BLINDNESS, 20 * 26, 0));
 				entity.addEffect(new EffectInstance(POISON, 20 * 26, 0));
 				entity.addEffect(new EffectInstance(MOVEMENT_SLOWDOWN, 20 * 26, 0));
-			}
-			case 1 -> {
+				break;
+
+			case 1:
 				entity.addEffect(new EffectInstance(REGENERATION, 20 * 30, 0));
 				entity.addEffect(new EffectInstance(HARM, 5, 0));
 				entity.addEffect(new EffectInstance(NIGHT_VISION, 20 * 30, 0));
-			}
-			case 2 -> {
+				break;
+
+			case 2:
 				entity.addEffect(new EffectInstance(REGENERATION, 20 * 20, 0));
 				entity.addEffect(new EffectInstance(POISON, 20 * 20, 0));
-			}
-			case 3 -> {
+				break;
+
+			case 3:
 				entity.addEffect(new EffectInstance(MOVEMENT_SPEED, 20 * 60 * 8, 0));
 				entity.addEffect(new EffectInstance(JUMP, 20 * 60 * 8, 0));
 				entity.addEffect(new EffectInstance(BLINDNESS, 20 * 60 * 8, 0));
-			}
+				break;
 		}
 		return BUCKET.getDefaultInstance();
 	}

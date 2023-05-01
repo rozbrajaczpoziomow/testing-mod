@@ -48,10 +48,10 @@ public class AltVoid extends Block {
 
 	@Override
 	public void stepOn(World world, BlockPos pos, Entity entity) {
-		if(!(entity instanceof LivingEntity livingEntity)) return;
+		if(!(entity instanceof LivingEntity)) return;
 		if(world.isClientSide) return;
 		sendMessage(entity, "!od dluohs uoy gniht eht ton s'ti ,potS", BLUE);
-		livingEntity.addEffect(new EffectInstance(NIGHT_VISION, 20 * 5, 0));
+		((LivingEntity) entity).addEffect(new EffectInstance(NIGHT_VISION, 20 * 5, 0));
 	}
 
 	@Override
@@ -81,9 +81,9 @@ public class AltVoid extends Block {
 	@Override
 	public void updateEntityAfterFallOn(IBlockReader world, Entity entity) {
 		if(((World)world).isClientSide) return;
-		if(!(entity instanceof PlayerEntity player)) return;
-		entity.setDeltaMovement(entity.getDeltaMovement().add(0d, 200d, 0d));
-		player.setDeltaMovement(entity.getDeltaMovement());
+		if(!(entity instanceof PlayerEntity)) return;
+		PlayerEntity player = (PlayerEntity) entity;
+		player.setDeltaMovement(player.getDeltaMovement().add(0d, 200d, 0d));
 
 		if(cooldown > 0) {
 			sendMessage(player, Integer.valueOf(cooldown / 20).toString() + "s", BLUE);

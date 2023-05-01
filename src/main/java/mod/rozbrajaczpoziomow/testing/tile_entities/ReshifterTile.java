@@ -16,13 +16,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
-import static mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister.ReshiftedDiamond;
-import static mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister.ReshiftedEmerald;
+import static mod.rozbrajaczpoziomow.testing.a_registers.BlockRegister.RainbowBlock;
+import static mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister.*;
 import static mod.rozbrajaczpoziomow.testing.a_registers.SoundRegister.reshifter_shift;
 import static mod.rozbrajaczpoziomow.testing.a_registers.TileEntityRegister.ReshifterTE;
 import static mod.rozbrajaczpoziomow.testing.blocks.Reshifter.active;
-import static net.minecraft.item.Items.DIAMOND;
-import static net.minecraft.item.Items.EMERALD;
+import static net.minecraft.item.Items.*;
 import static net.minecraft.potion.Effects.BLINDNESS;
 import static net.minecraft.util.SoundCategory.MASTER;
 import static net.minecraft.util.text.TextFormatting.GRAY;
@@ -32,7 +31,7 @@ public class ReshifterTile extends TileEntity implements ITickableTileEntity {
 	private int tick = 0;
 	private Item get = null;
 	private final int update = 20 * 40;
-	private final ImmutableMap<Item, Item> getMap = ImmutableMap.of(EMERALD, ReshiftedEmerald.get(), DIAMOND, ReshiftedDiamond.get());
+	private final ImmutableMap<Item, Item> getMap = ImmutableMap.of(EMERALD, ReshiftedEmerald.get(), DIAMOND, ReshiftedDiamond.get(), DepressedFish.get(), HelpFish.get(), BLUE_ICE, RainbowBlock.get().asItem());
 
 	public ReshifterTile() {
 		super(ReshifterTE.get());

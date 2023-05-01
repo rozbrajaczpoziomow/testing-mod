@@ -29,8 +29,10 @@ public class HSCBandage extends Item {
 
 	@Override
 	public ItemStack finishUsingItem(ItemStack stack, World _world, LivingEntity livingEntity) {
-		if(!(livingEntity instanceof ServerPlayerEntity player))
+		if(!(livingEntity instanceof ServerPlayerEntity))
 			return stack;
+
+		ServerPlayerEntity player = (ServerPlayerEntity) livingEntity;
 
 		if(player.getCooldowns().isOnCooldown(getItem()))
 			return stack;

@@ -26,7 +26,8 @@ public class RadiantedDiamond extends Item {
 		final String tickNBT = "testing:tick";
 		final String holdingTickNBT = "testing:hold_tick";
 
-		if(!(pEntity instanceof PlayerEntity player)) { pEntity.kill(); return; }
+		if(!(pEntity instanceof PlayerEntity)) { pEntity.kill(); return; }
+		PlayerEntity player = (PlayerEntity) pEntity;
 		int holdingTick = pStack.getOrCreateTag().getInt(holdingTickNBT);
 		int tick = pStack.getTag().getInt(tickNBT);
 

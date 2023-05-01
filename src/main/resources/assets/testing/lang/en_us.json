@@ -93,6 +93,9 @@
   "item.testing.healing_sugar_cane": "Healing Sugar Cane",
   "item.testing.hsc_bandage": "HSC Bandage",
   "item.testing.help_book": "Help Book",
+  "item.testing.depressed_fish": "Depressed Fish",
+  "item.testing.help_fish": "Help Fish",
+  "item.testing.rainbow_freezer": "Rainbow Freezer",
 
   "block.testing.screenshot_block": "Screenshot Block",
   "block.testing.paper_block": "Paper Block",
@@ -100,6 +103,7 @@
   "block.testing.reshifter": "Reshifter",
   "block.testing.snow_eradicator": "Snow Eradicator",
   "block.testing.stone_gen_i": "Stone Gen I",
+  "block.testing.rainbow_block": "Rainbow Block",
 
   "block.testing.machete_ore": "Machete Ore",
   "block.testing.usp_drop": "USP-Z Special Forces Drop",

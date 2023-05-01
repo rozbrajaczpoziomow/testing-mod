@@ -54,7 +54,7 @@ public class StoneGenI extends Block {
 	}
 
 	private StoneGenITile te(World world, BlockPos pos) {
-		if(!(world.getBlockEntity(pos) instanceof StoneGenITile te)) throw new IllegalStateException();
-		return te;
+		if(!(world.getBlockEntity(pos) instanceof StoneGenITile)) throw new IllegalStateException();
+		return ((StoneGenITile) world.getBlockEntity(pos));
 	}
 }
