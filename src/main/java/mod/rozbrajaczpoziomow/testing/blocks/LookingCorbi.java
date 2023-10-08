@@ -1,7 +1,6 @@
 package mod.rozbrajaczpoziomow.testing.blocks;
 
 import mod.rozbrajaczpoziomow.testing.a_registers.SoundRegister;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.entity.Entity;
@@ -11,7 +10,7 @@ import net.minecraftforge.common.util.ForgeSoundType;
 
 import javax.annotation.Nullable;
 
-public class LookingCorbi extends Block {
+public class LookingCorbi extends Corbi {
 	public LookingCorbi(Properties properties) {
 		super(properties);
 	}

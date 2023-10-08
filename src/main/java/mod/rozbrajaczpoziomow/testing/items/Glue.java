@@ -22,6 +22,7 @@ import static net.minecraft.util.Hand.OFF_HAND;
 import static net.minecraft.util.text.TextFormatting.YELLOW;
 
 public class Glue extends Item {
+	public static final int paperLimit = 3;
 	private final String[] messages = new String[] { "It's glue, you can glue things with it...", "Glue taken straight from school!" };
 	public Glue(Properties properties) {
 		super(properties);
@@ -34,7 +35,7 @@ public class Glue extends Item {
 		if(hand != MAIN_HAND) return ActionResult.pass(stack);
 		ItemStack paper = player.getOffhandItem();
 		if(paper.getItem() != PAPER) return ActionResult.pass(stack);
-		if(paper.getCount() > 3 || stack.getMaxDamage() - stack.getDamageValue() < paper.getCount()) { sendMessage(player, "You have too many things to glue...", YELLOW); return ActionResult.pass(stack); }
+		if(paper.getCount() > paperLimit || stack.getMaxDamage() - stack.getDamageValue() < paper.getCount()) { sendMessage(player, "You have too many things to glue...", YELLOW); return ActionResult.pass(stack); }
 
 		stack.hurtAndBreak(paper.getCount(), player, p -> p.broadcastBreakEvent(MAIN_HAND));
 		player.setItemInHand(OFF_HAND, new ItemStack(GluedPaper.get(), paper.getCount()));

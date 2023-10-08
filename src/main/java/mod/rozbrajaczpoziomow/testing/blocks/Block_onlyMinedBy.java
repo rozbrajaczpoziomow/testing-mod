@@ -25,7 +25,7 @@ public class Block_onlyMinedBy extends Block {
 
 	@Override
 	public boolean canHarvestBlock(BlockState state, IBlockReader world, BlockPos pos, PlayerEntity player) {
-		return tools.contains(player.getMainHandItem().getItem());
+		return player.isCreative() || tools.contains(player.getMainHandItem().getItem());
 	}
 
 	@Override

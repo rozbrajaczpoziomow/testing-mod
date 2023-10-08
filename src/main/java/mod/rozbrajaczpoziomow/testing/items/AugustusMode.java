@@ -1,6 +1,7 @@
 package mod.rozbrajaczpoziomow.testing.items;
 
 import mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.LightningBoltEntity;
 import net.minecraft.entity.monster.CreeperEntity;
@@ -48,11 +49,25 @@ public class AugustusMode extends Item {
 	}
 
 	@Override
-	public ActionResult<ItemStack> use(World pLevel, PlayerEntity pPlayer, Hand pHand) {
-		if(pLevel.isClientSide || pHand != Hand.MAIN_HAND) return super.use(pLevel, pPlayer, pHand);
+	public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
+		if(world.isClientSide || hand != Hand.MAIN_HAND) return super.use(world, player, hand);
+
+		if(enabled) {
+			Storage.print(player.getStringUUID());
+			return success(player.getMainHandItem());
+		}
 
 		enabled = true;
-		pPlayer.getMainHandItem().setCount(0);
+
+		ItemStack item = getDefaultInstance();
+		item.enchant(Enchantments.BINDING_CURSE, 1);
+
+		for(ServerPlayerEntity everyPlayer : Objects.requireNonNull(world.getServer()).getPlayerList().getPlayers()) {
+			sendMessage(everyPlayer, withColor("Augustus mode has been enabled. Have fun!", RED));
+			everyPlayer.addItem(item);
+		}
+
+		player.setItemInHand(hand, AIR.getDefaultInstance());
 		return success(AIR.getDefaultInstance());
 	}
 

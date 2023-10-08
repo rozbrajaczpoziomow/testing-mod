@@ -19,6 +19,7 @@ public class TileEntityRegister {
 	public static final RegistryObject<TileEntityType<StoneGenITile>> StoneGenITE = TileEntityConstruct.register("stone_gen_i_tile", () -> of(StoneGenITile::new, StoneGenI.get()).build(null));
 	public static final RegistryObject<TileEntityType<UncraftingTableTile>> UncraftingTableTE = TileEntityConstruct.register("uncrafting_table_tile", () -> of(UncraftingTableTile::new, UncraftingTable.get()).build(null));
 	public static final RegistryObject<TileEntityType<RainbowBlockTile>> RainbowBlockTE = TileEntityConstruct.register("rainbow_block_tile", () -> of(RainbowBlockTile::new, RainbowBlock.get()).build(null));
+	public static final RegistryObject<TileEntityType<LifeLimiterTile>> LifeLimiterTE = TileEntityConstruct.register("life_limiter_tile", () -> of(LifeLimiterTile::new, LifeLimiter.get()).build(null));
 
 	public static void register(IEventBus eventBus) {
 		TileEntityConstruct.register(eventBus);

@@ -7,6 +7,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.DamagingProjectileEntity;
 import net.minecraft.particles.RedstoneParticleData;
 import net.minecraft.potion.EffectInstance;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.EntityRayTraceResult;
@@ -14,7 +15,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.common.Tags;
 
-import static mod.rozbrajaczpoziomow.testing.Utils.spawnParticles;
+import static mod.rozbrajaczpoziomow.testing.Utils.spawnParticlesTest;
 import static net.minecraft.potion.Effects.*;
 import static net.minecraft.util.DamageSource.DRY_OUT;
 
@@ -57,19 +58,25 @@ public class Projectile extends DamagingProjectileEntity {
 		Block block = level.getBlockState(pos).getBlock();
 		if(block.is(Tags.Blocks.GLASS) || block.is(Tags.Blocks.GLASS_PANES) || block.is(Tags.Blocks.STAINED_GLASS) || block.is(Tags.Blocks.STAINED_GLASS_PANES))
 			level.destroyBlock(pos, false, owner);
-		spawnParticles(RedstoneParticleData.REDSTONE, pos.getX(), pos.getY(), pos.getZ(), 1d, 1d, 1d, 50, true);
-		remove();
+		spawnParticlesTest(level, RedstoneParticleData.REDSTONE, pos.getX(), pos.getY(), pos.getZ(), 1d, 1d, 1d, 50, true);
+		if(!block.is(BlockTags.LEAVES)) // bypass leaves
+			remove();
 	}
 
 	@Override
 	public void tick() {
 		super.tick();
-		spawnParticles(RedstoneParticleData.REDSTONE, getX(), getY(), getZ(), .1d, .1d, .1d, 2, false);
+		spawnParticlesTest(level, RedstoneParticleData.REDSTONE, getX(), getY(), getZ(), .1d, .1d, .1d, 5, false);
 
 		if(tickCount >= 20 * 5) {
-			spawnParticles(RedstoneParticleData.REDSTONE, getX(), getY(), getZ(), 1d, 1d, 1d, 50, true);
+			spawnParticlesTest(level, RedstoneParticleData.REDSTONE, getX(), getY(), getZ(), 1d, 1d, 1d, 50, true);
 			remove();
 		}
+	}
+
+	@Override
+	public void animateHurt() {
+		super.animateHurt();
 	}
 
 	@Override

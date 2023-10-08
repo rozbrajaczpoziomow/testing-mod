@@ -29,6 +29,11 @@ public class SoundRegister {
 	public static final RegistryObject<SoundEvent> aura_diamond_i = r("aura_diamond_i");
 	public static final RegistryObject<SoundEvent> aura_diamond_ii = r("aura_diamond_ii");
 	public static final RegistryObject<SoundEvent> reshifted_diamond_sword = r("reshifted_diamond_sword");
+	public static final RegistryObject<SoundEvent> bad_apple = r("bad_apple");
+	public static final RegistryObject<SoundEvent> radiant_zero_break = r("radiant_zero_break");
+	public static final RegistryObject<SoundEvent> strange_cobblestone_break = r("strange_cobblestone_break");
+	public static final RegistryObject<SoundEvent> faded_door_open = r("faded_door_open");
+	public static final RegistryObject<SoundEvent> faded_door_close = r("faded_door_close");
 
 	private static RegistryObject<SoundEvent> r(String key) {
 		return SoundEventsConstruct.register(key, () -> new SoundEvent(new ResourceLocation(MOD_ID, key)));

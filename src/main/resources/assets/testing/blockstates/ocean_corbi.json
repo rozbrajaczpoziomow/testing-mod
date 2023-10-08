@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "testing:block/ocean_corbi"
+    },
+    "facing=east": {
+      "model": "testing:block/ocean_corbi",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "testing:block/ocean_corbi",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "testing:block/ocean_corbi",
+      "y": 270
     }
   }
 }

@@ -100,5 +100,35 @@
     "sounds": [
       "testing:reshifted_diamond_sword"
     ]
+  },
+  "bad_apple": {
+    "subtitle": "",
+    "sounds": [
+      "testing:bad_apple"
+    ]
+  },
+  "radiant_zero_break": {
+    "subtitle": "sound.testing.radiant_zero_break",
+    "sounds": [
+      "testing:radiant_zero_break"
+    ]
+  },
+  "strange_cobblestone_break": {
+    "subtitle": "sound.testing.strange_cobblestone_break",
+    "sounds": [
+      "testing:strange_cobblestone_break"
+    ]
+  },
+  "faded_door_open": {
+    "subtitle": "sound.testing.faded_door_open",
+    "sounds": [
+      "testing:faded_door_open"
+    ]
+  },
+  "faded_door_close": {
+    "subtitle": "sound.testing.faded_door_close",
+    "sounds": [
+      "testing:faded_door_close"
+    ]
   }
 }

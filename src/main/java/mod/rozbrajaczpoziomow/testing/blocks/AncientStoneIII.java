@@ -34,6 +34,8 @@ public class AncientStoneIII extends Block {
 
 	@Override
 	public void playerDestroy(World pLevel, PlayerEntity pPlayer, BlockPos pPos, BlockState pState, @Nullable TileEntity pTe, ItemStack pStack) {
+		if(pPlayer.isCreative()) return;
+
 		Vector3d center = Vector3d.atCenterOf(new Vector3i(pPos.getX(), pPos.getY(), pPos.getZ()));
 
 		ItemEntity item = new ItemEntity(pLevel, center.x, center.y, center.z);
@@ -53,6 +55,7 @@ public class AncientStoneIII extends Block {
 
 	@Override
 	public boolean removedByPlayer(BlockState state, World world, BlockPos pos, PlayerEntity player, boolean willHarvest, FluidState fluid) {
+		if(player.isCreative()) return true;
 		return player.getMainHandItem().getItem() == AncientPickaxeI.get();
 	}
 

@@ -64,6 +64,32 @@ public class Recipes extends RecipeProvider {
 		makeShapeless("garawa_glass", GarawaGlass.get(), 24, ing().add(GLASS).add(STONE).add(GRASS_BLOCK));
 		makeShapeless("usp_glass", USPGlass.get(), 4, ing().add(USPIngot).add(GLASS));
 
+		// IBA
+		makeShapeless("iba_industrial_bricks", IBAIndustrialBricks.get(), 4, ing().add(STONE_BRICKS).add(AltCore));
+		makeShaped("iba_industrial_bricks_glowing", IBAIndustrialBricksGlowing.get(), " $ /$#$/ $ ", map().add('$', GLOWSTONE_DUST).add('#', IBAIndustrialBricks));
+		makeShapeless("iba_industrial_bricks_2", IBAIndustrialBricks2.get(), ing().add(IBAIndustrialBricks).add(AltCore));
+		makeShapeless("iba_industrial_bricks_3", IBAIndustrialBricks3.get(), ing().add(IBAIndustrialBricks2).add(AltCore));
+		makeShapeless("iba_industrial_bricks_4", IBAIndustrialBricks4.get(), ing().add(IBAIndustrialBricks3).add(AltCore));
+		makeShaped("iba_industrial_bricks_4_glowing", IBAIndustrialBricks4Glowing.get(), " $ /$#$/ $ ", map().add('$', GLOWSTONE_DUST).add('#', IBAIndustrialBricks4));
+		makeShapeless("iba_industrial_bricks_5", IBAIndustrialBricks5.get(), ing().add(IBAIndustrialBricks4).add(AltCore));
+		makeShapeless("iba_industrial_bricks_6", IBAIndustrialBricks6.get(), ing().add(IBAIndustrialBricks5).add(AltCore));
+		makeShapeless("iba_industrial_brick_pillar", IBAIndustrialBrickPillar.get(), 4, ing().add(IBAIndustrialBricks).add(CorePillar));
+		makeShapeless("iba_industrial_brick_pillar_2", IBAIndustrialBrickPillar2.get(), ing().add(IBAIndustrialBrickPillar).add(AltCore));
+		makeShapeless("iba_industrial_leaves", IBAIndustrialLeaves.get(), 4, ing().add(IBAIndustrialBricks).add(ItemTags.LEAVES));
+		makeShaped("iba_mansion_leaves", IBAMansionLeaves.get(), 4, " _ /$#$/ $ ", map().add('_', MAGENTA_DYE).add('$', GOLD_INGOT).add('#', ItemTags.LEAVES));
+		makeShaped("iba_mansion_fancy_bricks", IBAMansionFancyBricks.get(), 4, " _ /$#$/ $ ", map().add('_', MAGENTA_DYE).add('$', GOLD_INGOT).add('#', ItemTags.STONE_BRICKS));
+		makeShaped("iba_mansion_fancy_bricks_glowing", IBAMansionFancyBricksGlowing.get(), " $ /$#$/ $ ", map().add('$', GLOWSTONE_DUST).add('#', IBAMansionFancyBricks));
+		makeShaped("iba_mansion_bricks", IBAMansionBricks.get(), " _ /$#$/ $ ", map().add('_', AltCore).add('$', MAGENTA_DYE).add('#', IBAMansionFancyBricks));
+		makeShaped("iba_mansion_bricks_2", IBAMansionBricks2.get(), " _ /$#$/ $ ", map().add('_', AltCore).add('$', MAGENTA_DYE).add('#', IBAMansionBricks));
+		makeShaped("iba_mansion_block", IBAMansionBlock.get(), 4, " _ /$#$/ $ ", map().add('_', MAGENTA_DYE).add('$', GOLD_INGOT).add('#', STONE));
+		makeShapeless("iba_grasso", IBAGrasso.get(), ing().add(GRASS_BLOCK).add(GrassCorble));
+		makeShapeless("iba_garararaso", IBAGarararaso.get(), ing().add(IBAGrasso).add(GrassCorble));
+		makeShapeless("iba_toxic_grass", IBAGrasso.get(), ing().add(GRASS_BLOCK).add(POISONOUS_POTATO));
+
+		// Sewers
+		makeShaped("sewer_clean_brick_junction", SewerCleanBrickJunction.get(), 64, "#-#/---/#-#", map().add('#', DIORITE).add('-', IRON_NUGGET));
+		makeShaped("sewer_clean_brick", SewerCleanBrick.get(), 64, "#|#/#|#/#|#", map().add('#', DIORITE).add('|', IRON_NUGGET));
+
 		// Other Blocks
 		makeShapeless("core_pillar", CorePillar.get(), ing().add(STONE).add(Core));
 		makeShaped("machete_ore", MacheteOre.get(), "###/#_#/###", map().add('#', Machete).add('_', STONE));
@@ -71,6 +97,16 @@ public class Recipes extends RecipeProvider {
 		makeShapeless("screenshot_block", ScreenshotBlock.get(), ing().add(PAPER).add(AltPaper));
 		makeShaped("uncrafting_table", UncraftingTable.get(), "###/#@#/###", map().add('#', AltCoreIngot).add('@', CRAFTING_TABLE));
 		makeShaped("reshifter", Reshifter.get(), " R /RER/ S ", map().add('R', ReshiftedEmerald).add('E', EMERALD_BLOCK).add('S', ShiftedEmerald));
+		makeShaped("glowing_stone_bricks", GlowingStoneBricks.get(), " $ /$#$/ $ ", map().add('$', GLOWSTONE_DUST).add('#', STONE_BRICKS));
+		makeShaped("glowing_red_nether_bricks", GlowingRedNetherBricks.get(), " $ /$#$/ $ ", map().add('$', GLOWSTONE_DUST).add('#', NETHER_BRICKS));
+		makeShapeless("sidewalk_bricks", SidewalkBricks.get(), 4, ing().add(GRAVEL).add(STONE).add(COBBLESTONE).add(ANDESITE));
+		makeShapeless("mossy_pavement", MossyPavement.get(), 4, ing().add(COBBLESTONE).add(MOSSY_COBBLESTONE).add(GRASS_BLOCK));
+		makeShaped("red_cobblestone_pillar", RedCobblestonePillar.get(), 4, "_|_/ | /_|_", map().add('|', COBBLESTONE).add('_', RED_DYE));
+		makeShaped("red_blurry_stone_bricks", RedBlurryStoneBricks.get(), 8, " $ /$#$/ $ ", map().add('$', STONE_BRICKS).add('#', RED_CONCRETE_POWDER));
+		makeShaped("red_lamp", RedLamp.get(), 4, " | /-#-/ | ", map().add('#', REDSTONE_LAMP).add('-', RED_DYE).add('|', REDSTONE));
+		makeShaped("strange_cobblestone", StrangeCobblestone.get(), 4, " ^ /$#$/ _ ", map().add('#', COBBLESTONE).add('$', ANDESITE).add('_', ANDESITE_SLAB).add('^', LIGHT_GRAY_DYE));
+		makeShaped("server_destroyer", ServerDestroyer.get(), 64, "$$$/$#$/$$$", map().add('$', DIRT).add('#', AugustusMode));
+		makeShaped("lattice_door", LatticeDoor.get(), "## /## /## ", map().add('#', IRON_BARS));
 
 		// -- Items --
 
@@ -140,6 +176,7 @@ public class Recipes extends RecipeProvider {
 		makeShaped("hsc_bandage", HSCBandage.get(), "GGG/HHH/PPP", map().add('G', GluedPaper).add('H', HealingSugarCane).add('P', PAPER));
 		makeShaped("help_book", HelpBook.get(), "CCC/CBC/CCC", map().add('C', Core).add('B', RecipeBook));
 		makeShaped("rainbow_freezer", RainbowFreezer.get(), "|  / #$/ $$", map().add('#', RainbowBlock).add('|', STICK).add('$', ICE));
+		makeShaped("music_disc_bad_apple", MusicDiscBadApple.get(), " $ /$#$/ ^ ", map().add('$', ItemTags.MUSIC_DISCS).add('#', TLACore).add('^', JUKEBOX));
 
 		// Shitpost items
 		makeShaped("shop", Shop.get(), " D /PEP/ P ", map().add('D', DIAMOND).add('P', PAPER).add('E', EMERALD));

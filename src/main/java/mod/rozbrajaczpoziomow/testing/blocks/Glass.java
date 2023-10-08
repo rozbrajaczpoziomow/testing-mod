@@ -1,7 +1,7 @@
 package mod.rozbrajaczpoziomow.testing.blocks;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.BreakableBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -10,7 +10,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class Glass extends Block {
+public class Glass extends BreakableBlock {
 	public Glass(Properties properties) {
 		super(properties.noOcclusion());
 	}

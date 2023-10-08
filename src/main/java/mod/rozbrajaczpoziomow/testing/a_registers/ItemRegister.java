@@ -1,11 +1,9 @@
 package mod.rozbrajaczpoziomow.testing.a_registers;
 
+import com.google.common.base.Suppliers;
 import mod.rozbrajaczpoziomow.testing.TestingMod;
 import mod.rozbrajaczpoziomow.testing.items.*;
-import net.minecraft.item.Food;
-import net.minecraft.item.HoeItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.SwordItem;
+import net.minecraft.item.*;
 import net.minecraft.potion.EffectInstance;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
@@ -107,12 +105,14 @@ public class ItemRegister {
 	public static final RegistryObject<Item> HSCBandage = r("hsc_bandage", new HSCBandage(new Properties().tab(Sniwek).food(new Food.Builder().alwaysEat().build())));
 	public static final RegistryObject<Item> HelpBook = r("help_book", new HelpBook(new Properties().tab(Rybkek).stacksTo(1)));
 	public static final RegistryObject<Item> RainbowFreezer = r("rainbow_freezer", new RainbowFreezer(new Properties().tab(Rybkek).stacksTo(1).durability(8)));
+	public static final RegistryObject<Item> MusicDiscBadApple = r("music_disc_badapple", new MusicDiscItem(14, Suppliers.memoize(SoundRegister.bad_apple::get), new Properties().stacksTo(1).rarity(Rarity.RARE).tab(Rybkek)));
 
 	public static final RegistryObject<Item> Shop = r("shop", new Shop(new Properties().tab(Shitpost).stacksTo(1)));
 	public static final RegistryObject<Item> AltShop = r("alt_shop", new AltShop(new Properties().tab(Shitpost).stacksTo(1)));
 	public static final RegistryObject<Item> Augustus = r("augustus", new Augustus(new Properties().tab(Shitpost).stacksTo(1)));
 	public static final RegistryObject<Item> DepressedFish = r("depressed_fish", new ItemWithDescription(new Properties().tab(Shitpost).stacksTo(1), withColor("Draw!", GOLD), withColor("~ Brawlhalla - 2023", GRAY)));
 	public static final RegistryObject<Item> HelpFish = r("help_fish", new ItemWithDescription(new Properties().tab(Shitpost).stacksTo(1), withColor("When you try but you don't succeed...", BLUE), withColor("~ ||rozbrajaczpoziomow|| - 2023", GRAY)));
+	public static final RegistryObject<Item> MrClean = r("mr_clean", new ItemWithDescription(new Properties().tab(Shitpost).stacksTo(1), text("Mr. Clean is a brand name and mascot, owned by the American company Procter & Gamble, used for an all-purpose cleaner and later also for a melamine foam abrasive sponge."), text("The all-purpose cleaner was originally formulated by Linwood Burton, a marine ship cleaning businessman with accounts throughout the east coast of the United States and his friend, Mathusan Chandramohan,[1] a rich entrepreneur from Sri Lanka.[2]"), text("Mr. Clean made his television commercial debut in 1958, initially portrayed in the live-action versions by character actor House Peters Jr.[3]"), text(""), text("- International versions"), text("Don Limpio, in Spain; originally Mr. Proper"), text("Maestro Limpio, in Mexico"), text("Mastro Lindo, in Italy"), text("Meister Proper, in Germany"), text("Mr. Proper, in Eastern Europe, including Bulgaria,[5] Kazakhstan,[6] Russia,[7] and Ukraine.[8]"), text("M. Net, in French Canada"), text("Monsieur Propre, in France"), text(""), text("In the UK and Ireland, the product is sold under the brand name Flash;[9] this is because a company exists that uses the \"Mr. Clean\" name.[10] Furthermore, Flash does not use a mascot, unlike Mr. Clean.[11] For many years Flash was advertised on UK television by Scottish actress Molly Weir, with the catchphrase \"Flash cleans floors WITHOUT scratching\". Since 2016, adverts for Flash have included parodies of the song Flash by Queen.[12][13]")));
 
 	public static void register(IEventBus eventBus) {
 		ItemsConstruct.register(eventBus);

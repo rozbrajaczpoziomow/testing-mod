@@ -87,12 +87,12 @@ public class Events {
 			item.setExtendedLifetime();
 			item.setInvulnerable(true);
 			event.getEntity().getCommandSenderWorld().addFreshEntity(item);
-			Utils.spawnParticles(RedstoneParticleData.REDSTONE, pos.getX(), pos.getY(), pos.getZ(), .2d, .5d, .2d, 50, true);
+			Utils.spawnParticlesTest(event.getEntity().getCommandSenderWorld(), RedstoneParticleData.REDSTONE, pos.getX(), pos.getY(), pos.getZ(), .2d, .5d, .2d, 50, true);
 		}
 
 		@SubscribeEvent
 		public static void arrowCooldown(ArrowLooseEvent event) {
-			event.getPlayer().getCooldowns().addCooldown(event.getBow().getItem(), event.getCharge() * 2);
+			event.getPlayer().getCooldowns().addCooldown(event.getBow().getItem(), event.getCharge() / 2);
 		}
 
 		@SubscribeEvent

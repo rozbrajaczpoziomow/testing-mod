@@ -1,7 +1,6 @@
 package mod.rozbrajaczpoziomow.testing.blocks;
 
 import mod.rozbrajaczpoziomow.testing.a_registers.SoundRegister;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.entity.Entity;
@@ -20,7 +19,7 @@ import java.util.Objects;
 
 import static net.minecraft.potion.Effects.*;
 
-public class WitherCorbi extends Block {
+public class WitherCorbi extends Corbi {
 	public WitherCorbi(Properties properties) {
 		super(properties);
 	}

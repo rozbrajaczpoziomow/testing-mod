@@ -7,6 +7,7 @@ import net.minecraft.util.text.IFormattableTextComponent;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 
@@ -25,6 +26,7 @@ public class Utils {
 		return new StringTextComponent(txt);
 	}
 
+	@Deprecated
 	public static void spawnParticles(IParticleData particleData, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, int amount, boolean allowRNG) {
 		if(FMLEnvironment.dist == Dist.CLIENT)
 			while(amount-- > 0)
@@ -32,6 +34,14 @@ public class Utils {
 					Minecraft.getInstance().particleEngine.createParticle(particleData, x + rng(), y + rng(), z + rng(), xSpeed + rng() - .4, ySpeed + rng() - .4, zSpeed + rng() - .4);
 				else
 					Minecraft.getInstance().particleEngine.createParticle(particleData, x, y, z, xSpeed, ySpeed, zSpeed);
+	}
+
+	public static void spawnParticlesTest(World world, IParticleData particleData, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, int amount, boolean RNG) {
+		while(amount-- > 0)
+			if(RNG)
+				world.addParticle(particleData, x + rng(), y + rng(), z + rng(), xSpeed + rng() - .4, ySpeed + rng() - .4, zSpeed + rng() - .4);
+			else
+				world.addParticle(particleData, x, y, z, xSpeed, ySpeed, zSpeed);
 	}
 
 	public static void sendMessage(Entity entity, String text) {
