@@ -53,7 +53,7 @@ public class AugustusMode extends Item {
 		if(world.isClientSide || hand != Hand.MAIN_HAND) return super.use(world, player, hand);
 
 		if(enabled) {
-			Storage.print(player.getStringUUID());
+			Storage.print(player.getStringUUID()).forEach(text -> sendMessage(player, text));
 			return success(player.getMainHandItem());
 		}
 
