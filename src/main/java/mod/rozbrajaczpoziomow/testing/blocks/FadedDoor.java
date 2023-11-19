@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static mod.rozbrajaczpoziomow.testing.a_registers.SoundRegister.faded_door_close;
 import static mod.rozbrajaczpoziomow.testing.a_registers.SoundRegister.faded_door_open;
 import static net.minecraft.util.text.TextFormatting.DARK_GRAY;
@@ -37,6 +37,6 @@ public class FadedDoor extends DoorBlock {
 
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
-		tooltip.add(withColor("Haunted...", DARK_GRAY));
+		tooltip.add(text("Haunted...", DARK_GRAY));
 	}
 }

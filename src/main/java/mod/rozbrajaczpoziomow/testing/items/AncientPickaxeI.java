@@ -18,7 +18,7 @@ import net.minecraftforge.common.ToolType;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static net.minecraft.block.material.Material.*;
 import static net.minecraft.item.ItemTier.NETHERITE;
 import static net.minecraft.potion.Effects.MOVEMENT_SLOWDOWN;
@@ -42,7 +42,7 @@ public class AncientPickaxeI extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable World pLevel, List<ITextComponent> pTooltip, ITooltipFlag pFlag) {
-		pTooltip.add(withColor("This pickaxe is made out of Ancient Diamonds and Solid Sticks, so it's really good...", RED));
+		pTooltip.add(text("This pickaxe is made out of Ancient Diamonds and Solid Sticks, so it's really good...", RED));
 	}
 
 	@Override

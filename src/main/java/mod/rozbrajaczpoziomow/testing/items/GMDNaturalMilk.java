@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.rng;
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static net.minecraft.item.Items.BUCKET;
 import static net.minecraft.potion.Effects.*;
 import static net.minecraft.util.text.TextFormatting.DARK_AQUA;
@@ -50,7 +50,7 @@ public class GMDNaturalMilk extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable World pLevel, List<ITextComponent> pTooltip, ITooltipFlag pFlag) {
-		pTooltip.add(withColor("This milk looks uh... in-teresting.. Anyways, it has a description on the back that says: This is GMD 100% natural miilk with no chemicals or any bad food for cows... ^.^ This milk is made so you can smile!", DARK_AQUA));
+		pTooltip.add(text("This milk looks uh... in-teresting.. Anyways, it has a description on the back that says: This is GMD 100% natural miilk with no chemicals or any bad food for cows... ^.^ This milk is made so you can smile!", DARK_AQUA));
 	}
 
 	@Override

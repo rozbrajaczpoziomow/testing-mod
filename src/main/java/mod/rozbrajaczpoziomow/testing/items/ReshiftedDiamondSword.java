@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static mod.rozbrajaczpoziomow.testing.a_registers.SoundRegister.reshifted_diamond_sword;
 import static net.minecraft.potion.Effects.*;
 import static net.minecraft.util.Hand.MAIN_HAND;
@@ -89,7 +89,7 @@ public class ReshiftedDiamondSword extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable World pLevel, List<ITextComponent> pTooltip, ITooltipFlag pFlag) {
-		pTooltip.add(withColor("Ten miecz nie jest wyjątkowy, po prostu miecz jest ostry i fajny, ale czy jest naprawdę dobry? Nie sądzę... Może się do czegoś przyda...", LIGHT_PURPLE));
+		pTooltip.add(text("Ten miecz nie jest wyjątkowy, po prostu miecz jest ostry i fajny, ale czy jest naprawdę dobry? Nie sądzę... Może się do czegoś przyda...", LIGHT_PURPLE));
 	}
 
 	@Override

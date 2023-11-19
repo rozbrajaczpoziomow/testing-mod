@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static net.minecraft.potion.Effects.MOVEMENT_SLOWDOWN;
 import static net.minecraft.util.text.TextFormatting.AQUA;
 
@@ -36,6 +36,6 @@ public class AncientDiamondII extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable World pLevel, List<ITextComponent> pTooltip, ITooltipFlag pFlag) {
-		pTooltip.add(withColor("This ancient diamond is really heavy, but at the same time it's a thing you want to have in your inventory...", AQUA));
+		pTooltip.add(text("This ancient diamond is really heavy, but at the same time it's a thing you want to have in your inventory...", AQUA));
 	}
 }

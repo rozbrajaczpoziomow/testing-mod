@@ -13,7 +13,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.text;
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
 import static mod.rozbrajaczpoziomow.testing.a_registers.CreativeTabs.TabBlocks;
 import static mod.rozbrajaczpoziomow.testing.items.ToolTier.CROWBAR;
 import static net.minecraft.block.AbstractBlock.Properties.of;
@@ -88,28 +87,29 @@ public class BlockRegister {
 	public static final RegistryObject<Block> AncientStoneIII = r("ancient_stone_iii", new AncientStoneIII(of(STONE).strength(10f).harvestLevel(NETHERITE.getLevel() + 1).harvestTool(PICKAXE).requiresCorrectToolForDrops()));
 
 	// IBA
-	public static final RegistryObject<Block> IBAIndustrialBricks = r("iba_industrial_bricks", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
-	public static final RegistryObject<Block> IBAIndustrialBricksGlowing = r("iba_industrial_bricks_glowing", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 15)));
-	public static final RegistryObject<Block> IBAIndustrialBricks2 = r("iba_industrial_bricks_2", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
-	public static final RegistryObject<Block> IBAIndustrialBricks3 = r("iba_industrial_bricks_3", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
-	public static final RegistryObject<Block> IBAIndustrialBricks4 = r("iba_industrial_bricks_4", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
-	public static final RegistryObject<Block> IBAIndustrialBricks4Glowing = r("iba_industrial_bricks_4_glowing", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 15)));
-	public static final RegistryObject<Block> IBAIndustrialBricks5 = r("iba_industrial_bricks_5", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
-	public static final RegistryObject<Block> IBAIndustrialBricks6 = r("iba_industrial_bricks_6", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
-	public static final RegistryObject<Block> IBAIndustrialBricks7 = r("iba_industrial_bricks_7", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
+	public static final RegistryObject<BaseIBABlock> IBAIndustrialBricks = r("iba_industrial_bricks", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
+//	public static final RegistryObject<Block> IBAIndustrialBricksGlowing = r("iba_industrial_bricks_glowing", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 15)));
+	public static final RegistryObject<BaseIBABlock> IBAIndustrialBricks2 = r("iba_industrial_bricks_2", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
+	public static final RegistryObject<BaseIBABlock> IBAIndustrialBricks3 = r("iba_industrial_bricks_3", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
+	public static final RegistryObject<BaseIBABlock> IBAIndustrialBricks4 = r("iba_industrial_bricks_4", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
+//	public static final RegistryObject<Block> IBAIndustrialBricks4Glowing = r("iba_industrial_bricks_4_glowing", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 15)));
+	public static final RegistryObject<BaseIBABlock> IBAIndustrialBricks5 = r("iba_industrial_bricks_5", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
+	public static final RegistryObject<BaseIBABlock> IBAIndustrialBricks6 = r("iba_industrial_bricks_6", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
+	public static final RegistryObject<BaseIBABlock> IBAIndustrialBricks7 = r("iba_industrial_bricks_7", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
 	public static final RegistryObject<HorizontallyRotatableBlock> IBAIndustrialBrickPillar = r("iba_industrial_brick_pillar", new HorizontallyRotatableBlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
 	public static final RegistryObject<HorizontallyRotatableBlock> IBAIndustrialBrickPillar2 = r("iba_industrial_brick_pillar_2", new HorizontallyRotatableBlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
-	public static final RegistryObject<Block> IBAIndustrialLeaves = r("iba_industrial_leaves", new Block(of(LEAVES).strength(0.2f).sound(SoundType.GRASS).noOcclusion().isSuffocating((a, b, c) -> false).isViewBlocking((a, b, c) -> false)));
-	public static final RegistryObject<BlockWithDescription> IBAMansionLeaves = r("iba_mansion_leaves", new BlockWithDescription(of(LEAVES).strength(0.2f).sound(SoundType.GRASS).noOcclusion().isSuffocating((a, b, c) -> false).isViewBlocking((a, b, c) -> false), withColor("Leaves, but if you were richer.", LIGHT_PURPLE)));
-	public static final RegistryObject<IBAMansionFancyBricks> IBAMansionFancyBricks = r("iba_mansion_fancy_bricks", new IBAMansionFancyBricks(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
-	public static final RegistryObject<IBAMansionFancyBricks> IBAMansionFancyBricksGlowing = r("iba_mansion_fancy_bricks_glowing", new IBAMansionFancyBricks(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 15)));
-	public static final RegistryObject<BlockWithDescription> IBAMansionBricks = r("iba_mansion_bricks", new BlockWithDescription(of(STONE).requiresCorrectToolForDrops().strength(1.5f), withColor("gEtM aNsIOnEd", LIGHT_PURPLE)));
-	public static final RegistryObject<BlockWithDescription> IBAMansionBricks2 = r("iba_mansion_bricks_2", new BlockWithDescription(of(STONE).requiresCorrectToolForDrops().strength(1.5f), withColor("gEtM aNsIOnEd", LIGHT_PURPLE)));
-	public static final RegistryObject<BlockWithDescription> IBAMansionBricks2Glowing = r("iba_mansion_bricks_2_glowing", new BlockWithDescription(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 15), withColor("gEtM aNsIOnEd", LIGHT_PURPLE)));
-	public static final RegistryObject<BlockWithDescription> IBAMansionBlock = r("iba_mansion_block", new BlockWithDescription(of(STONE).requiresCorrectToolForDrops().strength(1.5f), withColor("Stone, but fancier™", LIGHT_PURPLE)));
-	public static final RegistryObject<BlockWithDescription> IBAGrasso = r("iba_grasso", new BlockWithDescription(of(GRASS).strength(0.6f).sound(SoundType.GRASS), withColor("GRASP", GREEN)));
-	public static final RegistryObject<BlockWithDescription> IBAGarararaso = r("iba_garararaso", new BlockWithDescription(of(GRASS).strength(0.6f).sound(SoundType.GRASS), withColor("GARARARASP", GREEN)));
-	public static final RegistryObject<BlockWithDescription> IBAToxicGrass = r("iba_toxic_grass", new BlockWithDescription(of(GRASS).strength(0.6f).sound(SoundType.GRASS), withColor("Never been toxic before? Oh, really?", GREEN)));
+	public static final RegistryObject<BaseIBABlock> IBAIndustrialLeaves = r("iba_industrial_leaves", new BaseIBABlock(of(LEAVES).strength(0.2f).sound(SoundType.GRASS).noOcclusion().isSuffocating((a, b, c) -> false).isViewBlocking((a, b, c) -> false)));
+	public static final RegistryObject<BaseIBABlock> IBAMansionLeaves = r("iba_mansion_leaves", new BaseIBABlock(of(LEAVES).strength(0.2f).sound(SoundType.GRASS).noOcclusion().isSuffocating((a, b, c) -> false).isViewBlocking((a, b, c) -> false), text("Leaves, but if you were richer.", LIGHT_PURPLE)));
+	public static final RegistryObject<BaseIBABlock> IBAMansionFancyBricks = r("iba_mansion_fancy_bricks", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f), text("Brick, but if you were richer.", LIGHT_PURPLE)));
+//	public static final RegistryObject<BlockWithDescription> IBAMansionFancyBricksGlowing = r("iba_mansion_fancy_bricks_glowing", new BlockWithDescription(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 15), text("Brick, but if you were richer.", LIGHT_PURPLE)));
+	public static final RegistryObject<BaseIBABlock> IBAMansionBricks = r("iba_mansion_bricks", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f), text("gEtM aNsIOnEd", LIGHT_PURPLE)));
+	public static final RegistryObject<BaseIBABlock> IBAMansionBricks2 = r("iba_mansion_bricks_2", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f), text("gEtM aNsIOnEd", LIGHT_PURPLE)));
+//	public static final RegistryObject<BlockWithDescription> IBAMansionBricks2Glowing = r("iba_mansion_bricks_2_glowing", new BlockWithDescription(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 15), text("gEtM aNsIOnEd", LIGHT_PURPLE)));
+	public static final RegistryObject<BaseIBABlock> IBAMansionBlock = r("iba_mansion_block", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f), text("Stone, but fancier™", LIGHT_PURPLE)));
+	public static final RegistryObject<BaseIBABlock> IBAGrasso = r("iba_grasso", new BaseIBABlock(of(GRASS).strength(0.6f).sound(SoundType.GRASS), text("GRASP", GREEN)));
+	public static final RegistryObject<BaseIBABlock> IBAGarararaso = r("iba_garararaso", new BaseIBABlock(of(GRASS).strength(0.6f).sound(SoundType.GRASS), text("GARARARASP", GREEN)));
+	public static final RegistryObject<BaseIBABlock> IBAToxicGrass = r("iba_toxic_grass", new BaseIBABlock(of(GRASS).strength(0.6f).sound(SoundType.GRASS), text("Never been toxic before? Oh, really?", GREEN)));
+	// After adding something here, add it to the IBA tag in BlockTagGenerator so it works correctly with the Glowdust
 
 	// Sewers
 	public static final RegistryObject<HorizontallyRotatableBlockWithDescription> SewerCleanBrickJunction = r("sewer_clean_brick_junction", new HorizontallyRotatableBlockWithDescription(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 4), text("Have you ever been in sewers? Probably not, well now you have a chance to build your own, but this time clean...why...")));
@@ -127,10 +127,10 @@ public class BlockRegister {
 	public static final RegistryObject<Block> GlowingStoneBricks = r("glowing_stone_bricks", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f, 6f).lightLevel(state -> 15)));
 	public static final RegistryObject<Block> GlowingRedNetherBricks = r("glowing_red_nether_bricks", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f, 6f).lightLevel(state -> 15)));
 	public static final RegistryObject<Block> SidewalkBricks = r("sidewalk_bricks", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
-	public static final RegistryObject<BlockWithDescription> MossyPavement = r("mossy_pavement", new BlockWithDescription(of(STONE).requiresCorrectToolForDrops().strength(1.5f), withColor("Description? Nah man what the hell, do you think we are in Ohio?", GREEN)));
-	public static final RegistryObject<HorizontallyRotatableBlockWithDescription> RedCobblestonePillar = r("red_cobblestone_pillar", new HorizontallyRotatableBlockWithDescription(of(STONE).requiresCorrectToolForDrops().harvestTool(PICKAXE).strength(2f, 6f), withColor("po co ci opis?", RED)));
+	public static final RegistryObject<BlockWithDescription> MossyPavement = r("mossy_pavement", new BlockWithDescription(of(STONE).requiresCorrectToolForDrops().strength(1.5f), text("Description? Nah man what the hell, do you think we are in Ohio?", GREEN)));
+	public static final RegistryObject<HorizontallyRotatableBlockWithDescription> RedCobblestonePillar = r("red_cobblestone_pillar", new HorizontallyRotatableBlockWithDescription(of(STONE).requiresCorrectToolForDrops().harvestTool(PICKAXE).strength(2f, 6f), text("po co ci opis?", RED)));
 	public static final RegistryObject<BlockWithDescription> RedBlurryStoneBricks = r("red_blurry_stone_bricks", new BlockWithDescription(of(STONE).requiresCorrectToolForDrops().harvestTool(PICKAXE).strength(2f, 6f), text("Tu wstaw 0 znaków").withStyle(RED, ITALIC)));
-	public static final RegistryObject<BlockWithDescription> RedLamp = r("red_lamp", new BlockWithDescription(of(BUILDABLE_GLASS).lightLevel(state -> 15).strength(.3f).sound(SoundType.GLASS), withColor("It could glow red but... Thanks to mojang, it will not.", RED)));
+	public static final RegistryObject<BlockWithDescription> RedLamp = r("red_lamp", new BlockWithDescription(of(BUILDABLE_GLASS).lightLevel(state -> 15).strength(.3f).sound(SoundType.GLASS), text("It could glow red but... Thanks to mojang, it will not.", RED)));
 	public static final RegistryObject<RadiantZero> RadiantZero = r("radiant_zero", new RadiantZero(of(STONE).requiresCorrectToolForDrops().harvestTool(PICKAXE).strength(2f, 6f)));
 	public static final RegistryObject<StrangeCobblestone> StrangeCobblestone = r("strange_cobblestone", new StrangeCobblestone(of(STONE).requiresCorrectToolForDrops().harvestTool(PICKAXE).strength(2f, 6f)));
 	public static final RegistryObject<ServerDestroyer> ServerDestroyer = r("server_destroyer", new ServerDestroyer(of(GLASS).strength(0f, 0f)));

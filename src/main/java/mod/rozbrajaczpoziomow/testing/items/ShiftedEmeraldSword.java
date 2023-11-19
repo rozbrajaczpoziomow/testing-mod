@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static net.minecraft.potion.Effects.*;
 import static net.minecraft.util.ActionResult.success;
 import static net.minecraft.util.Hand.MAIN_HAND;
@@ -67,7 +67,7 @@ public class ShiftedEmeraldSword extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable World pLevel, List<ITextComponent> pTooltip, ITooltipFlag pFlag) {
-		pTooltip.add(withColor("This sword is kinda interesting, it looks like in another dimension there is a possibility to craft an emerald sword... I'm sad there's no emerald sword in our sword, but hey, we have this...", DARK_GRAY));
+		pTooltip.add(text("This sword is kinda interesting, it looks like in another dimension there is a possibility to craft an emerald sword... I'm sad there's no emerald sword in our sword, but hey, we have this...", DARK_GRAY));
 	}
 
 	@Override

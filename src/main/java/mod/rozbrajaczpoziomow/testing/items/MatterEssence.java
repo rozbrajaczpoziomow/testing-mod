@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static net.minecraft.item.Items.DIAMOND;
 import static net.minecraft.item.Items.GLASS_BOTTLE;
 import static net.minecraft.potion.Effects.*;
@@ -81,8 +81,8 @@ public class MatterEssence extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable World pLevel, List<ITextComponent> pTooltip, ITooltipFlag pFlag) {
-		pTooltip.add(withColor("This disgusting liquid is really poisoning, don't hold it for too long, and don't even try to drink it.", DARK_GREEN));
-		pTooltip.add(withColor("The safest way to storage it is to just leave it inside of a chest.", DARK_GREEN));
+		pTooltip.add(text("This disgusting liquid is really poisoning, don't hold it for too long, and don't even try to drink it.", DARK_GREEN));
+		pTooltip.add(text("The safest way to storage it is to just leave it inside of a chest.", DARK_GREEN));
 	}
 
 	@Override

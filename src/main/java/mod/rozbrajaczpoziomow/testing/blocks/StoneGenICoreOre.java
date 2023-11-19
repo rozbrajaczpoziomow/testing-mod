@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.rng;
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister.StoneGenICore;
 import static net.minecraft.enchantment.Enchantments.SILK_TOUCH;
 import static net.minecraft.item.Items.*;
@@ -45,6 +45,6 @@ public class StoneGenICoreOre extends Block {
 
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable IBlockReader world, List<ITextComponent> tooltip, ITooltipFlag flag) {
-		tooltip.add(withColor("It's a delicate ore I think, you should try to pick it up with si-... Wait this ore is unobtainable you creative player.", BLUE));
+		tooltip.add(text("It's a delicate ore I think, you should try to pick it up with si-... Wait this ore is unobtainable you creative player.", BLUE));
 	}
 }

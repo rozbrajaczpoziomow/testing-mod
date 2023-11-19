@@ -35,7 +35,7 @@ import java.util.Set;
 
 import static mod.rozbrajaczpoziomow.testing.TestingMod.LOGGER;
 import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static mod.rozbrajaczpoziomow.testing.a_registers.BlockRegister.BigCorbi;
 import static mod.rozbrajaczpoziomow.testing.a_registers.TileEntityRegister.UncraftingTableTE;
 import static net.minecraft.block.Blocks.CHEST;
@@ -155,7 +155,7 @@ public class UncraftingTableTile extends TileEntity {
 			if(stored.keySet().size() < 1)
 				sendMessage(player, "  None...", AQUA);
 			else
-				stored.forEach((item, count) -> sendMessage(player, withColor(String.format("  %dx %s", count, item), AQUA)));
+				stored.forEach((item, count) -> sendMessage(player, text(String.format("  %dx %s", count, item), AQUA)));
 
 			stored.forEach((item, count) -> {
 				LOGGER.error(item);

@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static net.minecraft.util.ActionResultType.FAIL;
 import static net.minecraft.util.ActionResultType.SUCCESS;
 import static net.minecraft.util.text.TextFormatting.*;
@@ -28,7 +28,7 @@ public class RainbowFreezer extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
-		tooltip.add(withColor("Right-click on a Rainbow Block to freeze its color", BLUE));
+		tooltip.add(text("Right-click on a Rainbow Block to freeze its color", BLUE));
 	}
 
 	@Override

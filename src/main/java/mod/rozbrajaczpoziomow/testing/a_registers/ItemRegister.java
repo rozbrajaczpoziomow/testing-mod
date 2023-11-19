@@ -13,7 +13,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.Objects;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.text;
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
 import static mod.rozbrajaczpoziomow.testing.a_registers.CreativeTabs.*;
 import static mod.rozbrajaczpoziomow.testing.items.ToolTier.*;
 import static net.minecraft.item.Item.Properties;
@@ -69,8 +68,8 @@ public class ItemRegister {
 	public static final RegistryObject<Item> Yeetr = r("yeetr", new Yeetr(new Properties().tab(Rybkek).durability(3).setNoRepair()));
 	public static final RegistryObject<Item> YeetrX = r("yeetr_x", new Yeetr(new Properties().tab(Rybkek).stacksTo(1)));
 	public static final RegistryObject<Item> RecipeBook = r("recipe_book", new RecipeBook(new Properties().tab(Rybkek).stacksTo(1).rarity(EPIC)));
-	public static final RegistryObject<Item> ReshiftedEmerald = r("reshifted_emerald", new ItemWithDescription(new Properties().tab(Sniwek).fireResistant(), withColor("This is probably void matter, maybe because it's hard to study... But it could be an emerald from another dimension... We will never know.", LIGHT_PURPLE)));
-	public static final RegistryObject<Item> ShiftedEmerald = r("shifted_emerald", new ItemWithDescription(new Properties().tab(Sniwek).fireResistant(), withColor("It's matter that's not natural in this world. It can't be any void matter; it's unstable; but it can be useful...", GRAY)));
+	public static final RegistryObject<Item> ReshiftedEmerald = r("reshifted_emerald", new ItemWithDescription(new Properties().tab(Sniwek).fireResistant(), text("This is probably void matter, maybe because it's hard to study... But it could be an emerald from another dimension... We will never know.", LIGHT_PURPLE)));
+	public static final RegistryObject<Item> ShiftedEmerald = r("shifted_emerald", new ItemWithDescription(new Properties().tab(Sniwek).fireResistant(), text("It's matter that's not natural in this world. It can't be any void matter; it's unstable; but it can be useful...", GRAY)));
 	public static final RegistryObject<Item> AltFirework = r("alt_firework", new AltFirework(new Properties().tab(Sniwek)));
 	public static final RegistryObject<Item> AltFireworkEmerald = r("alt_firework_emerald", new AltFireworkEmerald(new Properties().tab(Sniwek)));
 	public static final RegistryObject<Item> AltFireworkReshiftedEmerald = r("alt_firework_reshifted_emerald", new AltFireworkReshiftedEmerald(new Properties().tab(Sniwek)));
@@ -82,7 +81,7 @@ public class ItemRegister {
 	public static final RegistryObject<Item> RadiantedDiamond = r("radianted_diamond", new RadiantedDiamond(new Properties().tab(Sniwek).stacksTo(1)));
 	public static final RegistryObject<Item> DemonicDiamond = r("demonic_diamond", new DemonicDiamond(new Properties().tab(Sniwek).stacksTo(1)));
 	public static final RegistryObject<Item> HealingDiamond = r("healing_diamond", new HealingDiamond(new Properties().tab(Sniwek).stacksTo(1)));
-	public static final RegistryObject<Item> AncientDiamondI = r("ancient_diamond_i", new ItemWithDescription(new Properties().tab(Sniwek).stacksTo(32), withColor("This diamond is so old that it's called ancient, but it can be really useful...", DARK_GREEN)));
+	public static final RegistryObject<Item> AncientDiamondI = r("ancient_diamond_i", new ItemWithDescription(new Properties().tab(Sniwek).stacksTo(32), text("This diamond is so old that it's called ancient, but it can be really useful...", DARK_GREEN)));
 	public static final RegistryObject<Item> AncientDiamondII = r("ancient_diamond_ii", new AncientDiamondII(new Properties().tab(Sniwek).stacksTo(16)));
 	public static final RegistryObject<Item> SolidStick = r("solid_stick", new SolidStick(new Properties().tab(Sniwek).stacksTo(16)));
 	public static final RegistryObject<Item> AncientPickaxeI = r("ancient_pickaxe_i", new AncientPickaxeI(new Properties().tab(Sniwek).durability(4557)));
@@ -100,18 +99,19 @@ public class ItemRegister {
 	public static final RegistryObject<Item> Milkbar = r("milkbar", new HoeItem(MILKBAR, 6, Float.MAX_VALUE / 67, new Properties().tab(Sniwek)));
 	public static final RegistryObject<Item> StoneGenICore = r("stone_gen_i_core", new StoneGenICore(new Properties().tab(Sniwek).durability(200 * 20)));
 	public static final RegistryObject<Item> BrokenIronIngot = r("broken_iron_ingot", new ItemWithDescription(new Properties().tab(Sniwek), text("It's just a broken Iron Ingot, if you ask about its name... Uh let's just sasy that it has broken in the same time as this ingot ;-;")));
-	public static final RegistryObject<Item> TLACore = r("tla_core", new ItemWithDescription(new Properties().tab(Sniwek), withColor("This is something like Alt Core but it doesn't change the effects of an item, it changes the form of an item. DON'T TRY TO USE IT ON FIRESNIW PASTY!", BLUE)));
+	public static final RegistryObject<Item> TLACore = r("tla_core", new ItemWithDescription(new Properties().tab(Sniwek), text("This is something like Alt Core but it doesn't change the effects of an item, it changes the form of an item. DON'T TRY TO USE IT ON FIRESNIW PASTY!", BLUE)));
 	public static final RegistryObject<Item> HealingSugarCane = r("healing_sugar_cane", new HealingSugarCane(new Properties().tab(Sniwek).food(new Food.Builder().alwaysEat().build())));
 	public static final RegistryObject<Item> HSCBandage = r("hsc_bandage", new HSCBandage(new Properties().tab(Sniwek).food(new Food.Builder().alwaysEat().build())));
 	public static final RegistryObject<Item> HelpBook = r("help_book", new HelpBook(new Properties().tab(Rybkek).stacksTo(1)));
 	public static final RegistryObject<Item> RainbowFreezer = r("rainbow_freezer", new RainbowFreezer(new Properties().tab(Rybkek).stacksTo(1).durability(8)));
 	public static final RegistryObject<Item> MusicDiscBadApple = r("music_disc_badapple", new MusicDiscItem(14, Suppliers.memoize(SoundRegister.bad_apple::get), new Properties().stacksTo(1).rarity(Rarity.RARE).tab(Rybkek)));
+	public static final RegistryObject<Item> Glowdust = r("glowdust", new Glowdust(new Properties().tab(Rybkek)));
 
 	public static final RegistryObject<Item> Shop = r("shop", new Shop(new Properties().tab(Shitpost).stacksTo(1)));
 	public static final RegistryObject<Item> AltShop = r("alt_shop", new AltShop(new Properties().tab(Shitpost).stacksTo(1)));
 	public static final RegistryObject<Item> Augustus = r("augustus", new Augustus(new Properties().tab(Shitpost).stacksTo(1)));
-	public static final RegistryObject<Item> DepressedFish = r("depressed_fish", new ItemWithDescription(new Properties().tab(Shitpost).stacksTo(1), withColor("Draw!", GOLD), withColor("~ Brawlhalla - 2023", GRAY)));
-	public static final RegistryObject<Item> HelpFish = r("help_fish", new ItemWithDescription(new Properties().tab(Shitpost).stacksTo(1), withColor("When you try but you don't succeed...", BLUE), withColor("~ ||rozbrajaczpoziomow|| - 2023", GRAY)));
+	public static final RegistryObject<Item> DepressedFish = r("depressed_fish", new ItemWithDescription(new Properties().tab(Shitpost).stacksTo(1), text("Draw!", GOLD), text("~ Brawlhalla - 2023", GRAY)));
+	public static final RegistryObject<Item> HelpFish = r("help_fish", new ItemWithDescription(new Properties().tab(Shitpost).stacksTo(1), text("When you try but you don't succeed...", BLUE), text("~ ||rozbrajaczpoziomow|| - 2023", GRAY)));
 	public static final RegistryObject<Item> MrClean = r("mr_clean", new ItemWithDescription(new Properties().tab(Shitpost).stacksTo(1), text("Mr. Clean is a brand name and mascot, owned by the American company Procter & Gamble, used for an all-purpose cleaner and later also for a melamine foam abrasive sponge."), text("The all-purpose cleaner was originally formulated by Linwood Burton, a marine ship cleaning businessman with accounts throughout the east coast of the United States and his friend, Mathusan Chandramohan,[1] a rich entrepreneur from Sri Lanka.[2]"), text("Mr. Clean made his television commercial debut in 1958, initially portrayed in the live-action versions by character actor House Peters Jr.[3]"), text(""), text("- International versions"), text("Don Limpio, in Spain; originally Mr. Proper"), text("Maestro Limpio, in Mexico"), text("Mastro Lindo, in Italy"), text("Meister Proper, in Germany"), text("Mr. Proper, in Eastern Europe, including Bulgaria,[5] Kazakhstan,[6] Russia,[7] and Ukraine.[8]"), text("M. Net, in French Canada"), text("Monsieur Propre, in France"), text(""), text("In the UK and Ireland, the product is sold under the brand name Flash;[9] this is because a company exists that uses the \"Mr. Clean\" name.[10] Furthermore, Flash does not use a mascot, unlike Mr. Clean.[11] For many years Flash was advertised on UK television by Scottish actress Molly Weir, with the catchphrase \"Flash cleans floors WITHOUT scratching\". Since 2016, adverts for Flash have included parodies of the song Flash by Queen.[12][13]")));
 
 	public static void register(IEventBus eventBus) {

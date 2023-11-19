@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.rng;
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static net.minecraft.item.Items.BUCKET;
 import static net.minecraft.potion.Effects.*;
 import static net.minecraft.util.text.TextFormatting.RED;
@@ -41,7 +41,7 @@ public class GMDBrutalMilk extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable World pLevel, List<ITextComponent> pTooltip, ITooltipFlag pFlag) {
-		pTooltip.add(withColor("There is a note on the back of this bucket and it reads: This milk is obtained 100% without any brutality towards animals! Just for our customers!", RED));
+		pTooltip.add(text("There is a note on the back of this bucket and it reads: This milk is obtained 100% without any brutality towards animals! Just for our customers!", RED));
 	}
 
 	@Override

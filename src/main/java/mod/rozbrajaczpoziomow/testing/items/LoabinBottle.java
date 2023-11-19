@@ -39,7 +39,7 @@ public class LoabinBottle extends Item {
 		else { time *= 2; level *= 2; }
 
 		entityLiving.addEffect(new EffectInstance(effect, time, level));
-		sendMessage(entityLiving, withColor(String.format("%s %d for %ds", effect.getDisplayName().getString(), level + 1, time / 20), GOLD));
+		sendMessage(entityLiving, text(String.format("%s %d for %ds", effect.getDisplayName().getString(), level + 1, time / 20), GOLD));
 
 		stack.shrink(1);
 
@@ -48,7 +48,7 @@ public class LoabinBottle extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable World pLevel, List<ITextComponent> pTooltip, ITooltipFlag pFlag) {
-		pTooltip.add(withColor("You probably aren't gonna get much out of this...", GRAY));
+		pTooltip.add(text("You probably aren't gonna get much out of this...", GRAY));
 	}
 
 	@Override

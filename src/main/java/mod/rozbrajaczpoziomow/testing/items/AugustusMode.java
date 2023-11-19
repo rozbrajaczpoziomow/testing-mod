@@ -63,7 +63,7 @@ public class AugustusMode extends Item {
 		item.enchant(Enchantments.BINDING_CURSE, 1);
 
 		for(ServerPlayerEntity everyPlayer : Objects.requireNonNull(world.getServer()).getPlayerList().getPlayers()) {
-			sendMessage(everyPlayer, withColor("Augustus mode has been enabled. Have fun!", RED));
+			sendMessage(everyPlayer, text("Augustus mode has been enabled. Have fun!", RED));
 			everyPlayer.addItem(item);
 		}
 
@@ -328,26 +328,26 @@ public class AugustusMode extends Item {
 			final Map<String, Long> timer = timers.get(whom);
 
 			ret.add(text(" "));
-			ret.add(withColor(String.format("Timer 1: Nausea + Poison + Slowness: %s", time('1', timer)), GREEN));
-			ret.add(withColor(String.format("Timer 2: Clear Inventory + Get Augustus: %s", time('2', timer)), RED));
-			ret.add(withColor(String.format("Timer 3: Creepers: %s", time('3', timer)), DARK_GREEN));
-			ret.add(withColor(String.format("Timer 4: Lightning Bolt: %s", time('4', timer)), DARK_AQUA));
-			ret.add(withColor(String.format("Timer 5: Weakness: %s", time('5', timer)), AQUA));
-			ret.add(withColor(String.format("Timer 6: The Nice Timer: %s", time('6', timer)), GOLD));
-			ret.add(withColor(String.format("Timer 7: No Digging: %s", time('7', timer)), GRAY));
-			ret.add(withColor(String.format("Timer 8: Fly away: %s", time('8', timer, 20 * 60 * 45L)), WHITE));
-			ret.add(withColor(String.format("Timer 9: DEATH: %s", time('9', timer, 20 * 60 * 70L)), DARK_RED));
+			ret.add(text(String.format("Timer 1: Nausea + Poison + Slowness: %s", time('1', timer)), GREEN));
+			ret.add(text(String.format("Timer 2: Clear Inventory + Get Augustus: %s", time('2', timer)), RED));
+			ret.add(text(String.format("Timer 3: Creepers: %s", time('3', timer)), DARK_GREEN));
+			ret.add(text(String.format("Timer 4: Lightning Bolt: %s", time('4', timer)), DARK_AQUA));
+			ret.add(text(String.format("Timer 5: Weakness: %s", time('5', timer)), AQUA));
+			ret.add(text(String.format("Timer 6: The Nice Timer: %s", time('6', timer)), GOLD));
+			ret.add(text(String.format("Timer 7: No Digging: %s", time('7', timer)), GRAY));
+			ret.add(text(String.format("Timer 8: Fly away: %s", time('8', timer, 20 * 60 * 45L)), WHITE));
+			ret.add(text(String.format("Timer 9: DEATH: %s", time('9', timer, 20 * 60 * 70L)), DARK_RED));
 			ret.add(text(" "));
 
 			return ret;
 		}
 
 		private static String time(char which, Map<String, Long> timer) {
-			return String.format("%s / %s", fmt(timer.get(which + "")), fmt(timer.get(which + " div")));
+			return String.format("%s / %s", fmt(timer.get(String.valueOf(which))), fmt(timer.get(which + " div")));
 		}
 
 		private static String time(char which, Map<String, Long> timer, long toOverride) {
-			return String.format("%s / %s", fmt(timer.get(which + "")), fmt(toOverride));
+			return String.format("%s / %s", fmt(timer.get(String.valueOf(which))), fmt(toOverride));
 		}
 
 		private static String fmt(long ticks) {

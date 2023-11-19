@@ -15,7 +15,8 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static mod.rozbrajaczpoziomow.testing.Utils.*;
+import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static net.minecraft.item.Items.SUGAR_CANE;
 import static net.minecraft.potion.Effects.*;
 import static net.minecraft.util.ActionResult.pass;
@@ -43,12 +44,12 @@ public class HealingDiamond extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
-		tooltip.add(withColor("This warm diamond is healthy, it's the definition of health...", RED));
+		tooltip.add(text("This warm diamond is healthy, it's the definition of health...", RED));
 		tooltip.add(text(" "));
-		tooltip.add(withColor("health (hĕlth) - noun", GRAY));
-		tooltip.add(withColor("1. The overall condition of an organism at a given time.", GRAY));
-		tooltip.add(withColor("2. Soundness, especially of body or mind; freedom from disease or abnormality.", GRAY));
-		tooltip.add(withColor("3. A condition of optimal well-being.", GRAY));
+		tooltip.add(text("health (hĕlth) - noun", GRAY));
+		tooltip.add(text("1. The overall condition of an organism at a given time.", GRAY));
+		tooltip.add(text("2. Soundness, especially of body or mind; freedom from disease or abnormality.", GRAY));
+		tooltip.add(text("3. A condition of optimal well-being.", GRAY));
 	}
 
 	@Override

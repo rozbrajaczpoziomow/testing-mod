@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister.AncientDiamondII;
 import static net.minecraft.item.ItemTier.NETHERITE;
 import static net.minecraft.util.text.TextFormatting.GRAY;
@@ -57,6 +57,6 @@ public class AncientStoneII extends Block {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable IBlockReader pLevel, List<ITextComponent> pTooltip, ITooltipFlag pFlag) {
-		pTooltip.add(withColor("The successor of Ancient Stone I, even harder to see, and it only drops 1 ancient diamond", GRAY));
+		pTooltip.add(text("The successor of Ancient Stone I, even harder to see, and it only drops 1 ancient diamond", GRAY));
 	}
 }

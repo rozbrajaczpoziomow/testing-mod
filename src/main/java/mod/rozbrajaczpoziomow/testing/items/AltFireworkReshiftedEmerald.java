@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister.ShiftedEmerald;
 import static mod.rozbrajaczpoziomow.testing.items.AltFirework.getPos;
 import static mod.rozbrajaczpoziomow.testing.items.AltFirework.spawnFirework;
@@ -43,6 +43,6 @@ public class AltFireworkReshiftedEmerald extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable World pLevel, List<ITextComponent> pTooltip, ITooltipFlag pFlag) {
-		pTooltip.add(withColor("It's getting kinda strange...", GRAY));
+		pTooltip.add(text("It's getting kinda strange...", GRAY));
 	}
 }

@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static net.minecraft.util.text.TextFormatting.RED;
 
 public class AuraDiamond extends Item {
@@ -40,6 +40,6 @@ public class AuraDiamond extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable World pLevel, List<ITextComponent> pTooltip, ITooltipFlag pFlag) {
-		pTooltip.add(withColor("This powerful diamond creates unknown diamonds, if one of them touches anything, it'll explode and give effects...", RED));
+		pTooltip.add(text("This powerful diamond creates unknown diamonds, if one of them touches anything, it'll explode and give effects...", RED));
 	}
 }

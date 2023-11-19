@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static net.minecraft.potion.Effects.*;
 import static net.minecraft.util.text.TextFormatting.RED;
 
@@ -24,7 +24,7 @@ public class HSCBandage extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
-		tooltip.add(withColor("This bandage can heal you fast, I guess there are chances that it heals deep wounds too... But you'll find out later...", RED));
+		tooltip.add(text("This bandage can heal you fast, I guess there are chances that it heals deep wounds too... But you'll find out later...", RED));
 	}
 
 	@Override

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister.GluedPaper;
 import static net.minecraft.item.Items.PAPER;
 import static net.minecraft.util.Hand.MAIN_HAND;
@@ -46,7 +46,7 @@ public class Glue extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable World pLevel, List<ITextComponent> pTooltip, ITooltipFlag pFlag) {
-		pTooltip.add(withColor(messages[pStack.getOrCreateTag().getInt("testing:msg")], YELLOW));
+		pTooltip.add(text(messages[pStack.getOrCreateTag().getInt("testing:msg")], YELLOW));
 	}
 
 	@Override

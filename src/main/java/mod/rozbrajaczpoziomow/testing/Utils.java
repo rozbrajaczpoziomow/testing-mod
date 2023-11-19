@@ -13,17 +13,12 @@ import net.minecraftforge.fml.loading.FMLEnvironment;
 
 import java.util.Random;
 
-import static net.minecraft.util.text.Color.fromLegacyFormat;
-import static net.minecraft.util.text.Style.DEFAULT_FONT;
-import static net.minecraft.util.text.Style.EMPTY;
-
 public class Utils {
-	public static IFormattableTextComponent withColor(String txt, TextFormatting color) {
-		return text(txt).setStyle(EMPTY.withColor(fromLegacyFormat(color)).withFont(DEFAULT_FONT));
-	}
-
 	public static StringTextComponent text(String txt) {
 		return new StringTextComponent(txt);
+	}
+	public static IFormattableTextComponent text(String txt, TextFormatting color) {
+		return new StringTextComponent(txt).withStyle(color);
 	}
 
 	@Deprecated
@@ -49,7 +44,7 @@ public class Utils {
 	}
 
 	public static void sendMessage(Entity entity, String text, TextFormatting color) {
-		sendMessage(entity, withColor(text, color));
+		sendMessage(entity, text(text, color));
 	}
 
 	public static void sendMessage(Entity entity, ITextComponent component) {

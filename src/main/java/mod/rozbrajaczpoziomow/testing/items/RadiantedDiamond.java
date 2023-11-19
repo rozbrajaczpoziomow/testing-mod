@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static net.minecraft.potion.Effects.*;
 import static net.minecraft.util.text.TextFormatting.DARK_GREEN;
 
@@ -50,6 +50,6 @@ public class RadiantedDiamond extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
-		tooltip.add(withColor("This diamond has sucked all the power of the liquid, yet it's not as dangerous.", DARK_GREEN));
+		tooltip.add(text("This diamond has sucked all the power of the liquid, yet it's not as dangerous.", DARK_GREEN));
 	}
 }

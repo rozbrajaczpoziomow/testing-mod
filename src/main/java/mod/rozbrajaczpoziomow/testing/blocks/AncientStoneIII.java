@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister.AncientDiamondIII;
 import static mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister.AncientPickaxeI;
 import static net.minecraft.potion.Effects.*;
@@ -61,6 +61,6 @@ public class AncientStoneIII extends Block {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable IBlockReader pLevel, List<ITextComponent> pTooltip, ITooltipFlag pFlag) {
-		pTooltip.add(withColor("This is one of the oldest stones out there, you'll need to look for on for an eternity...", GRAY));
+		pTooltip.add(text("This is one of the oldest stones out there, you'll need to look for on for an eternity...", GRAY));
 	}
 }

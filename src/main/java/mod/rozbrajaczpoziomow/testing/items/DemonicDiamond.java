@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static net.minecraft.potion.Effects.BLINDNESS;
 import static net.minecraft.util.text.TextFormatting.RED;
 
@@ -34,6 +34,6 @@ public class DemonicDiamond extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
-		tooltip.add(withColor("This really hot diamond burns you the instant you touch it...", RED));
+		tooltip.add(text("This really hot diamond burns you the instant you touch it...", RED));
 	}
 }

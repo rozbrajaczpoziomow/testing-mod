@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static net.minecraft.util.text.TextFormatting.DARK_GRAY;
 
 public class SolidStick extends Item {
@@ -32,6 +32,6 @@ public class SolidStick extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable World pLevel, List<ITextComponent> pTooltip, ITooltipFlag pFlag) {
-		pTooltip.add(withColor("This stick is really heavy and solid, great for harder crafts...", DARK_GRAY));
+		pTooltip.add(text("This stick is really heavy and solid, great for harder crafts...", DARK_GRAY));
 	}
 }

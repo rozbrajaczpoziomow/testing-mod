@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.rng;
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister.AncientDiamondI;
 import static net.minecraft.item.ItemTier.DIAMOND;
 import static net.minecraft.potion.Effects.MOVEMENT_SLOWDOWN;
@@ -59,6 +59,6 @@ public class AncientStoneI extends Block {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable IBlockReader pLevel, List<ITextComponent> pTooltip, ITooltipFlag pFlag) {
-		pTooltip.add(withColor("This stone is ancient, and it can contain really interesting old matter", GRAY));
+		pTooltip.add(text("This stone is ancient, and it can contain really interesting old matter", GRAY));
 	}
 }

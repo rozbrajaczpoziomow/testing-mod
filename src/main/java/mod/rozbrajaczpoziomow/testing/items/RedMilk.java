@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.rng;
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister.Core;
 import static mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister.CoreIngot;
 import static mod.rozbrajaczpoziomow.testing.blocks.UncraftingTable.IUncraftingDifferentResult;
@@ -60,7 +60,7 @@ public class RedMilk extends Item implements IUncraftingDifferentResult {
 
 	@Override
 	public void appendHoverText(ItemStack pStack, @Nullable World pLevel, List<ITextComponent> pTooltip, ITooltipFlag pFlag) {
-		pTooltip.add(withColor("This milk looks kinda disturbing... I'm not sure if I wanna drink it...", RED));
+		pTooltip.add(text("This milk looks kinda disturbing... I'm not sure if I wanna drink it...", RED));
 	}
 
 	@Override

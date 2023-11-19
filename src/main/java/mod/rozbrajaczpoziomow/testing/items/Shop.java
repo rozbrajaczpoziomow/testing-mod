@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static net.minecraft.item.Items.EMERALD;
 import static net.minecraft.util.DamageSource.DROWN;
 import static net.minecraft.util.text.TextFormatting.GREEN;
@@ -51,6 +51,6 @@ public class Shop extends Item {
 	public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> tooltip, ITooltipFlag flag) {
 		if(stack.getTag() == null) return;
 		final int seconds = stack.getTag().getInt(secondsNBT);
-		tooltip.add(withColor(String.format("%d min %d sec / %d min", seconds / 60, seconds % 60, updateOn / 60), GREEN));
+		tooltip.add(text(String.format("%d min %d sec / %d min", seconds / 60, seconds % 60, updateOn / 60), GREEN));
 	}
 }

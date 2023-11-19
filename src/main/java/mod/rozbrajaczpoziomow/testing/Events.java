@@ -26,7 +26,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import javax.annotation.Nullable;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
-import static mod.rozbrajaczpoziomow.testing.Utils.withColor;
+import static mod.rozbrajaczpoziomow.testing.Utils.text;
 import static mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister.*;
 import static net.minecraft.client.renderer.RenderType.translucent;
 import static net.minecraft.item.Items.IRON_INGOT;
@@ -112,12 +112,12 @@ public class Events {
 				return;
 
 			if(player.getOffhandItem().getCount() != 1) {
-				sendMessage(player, withColor("... Spadaj nie chce mi się", RED));
+				sendMessage(player, text("... Spadaj nie chce mi się", RED));
 				return;
 			}
 
 			player.setItemInHand(OFF_HAND, BrokenIronIngot.get().getDefaultInstance());
-			sendMessage(player, withColor("You fucking fucked up the Iron Ingot congrats kurwa, i wtedy Iron Ingot zamieni się na ten item....", GRAY));
+			sendMessage(player, text("You fucking fucked up the Iron Ingot congrats kurwa, i wtedy Iron Ingot zamieni się na ten item....", GRAY));
 			player.playNotifySound(ANVIL_USE, MASTER, 1f, 1f);
 		}
 	}
