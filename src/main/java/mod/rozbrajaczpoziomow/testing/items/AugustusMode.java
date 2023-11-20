@@ -73,8 +73,8 @@ public class AugustusMode extends Item {
 
 	@SubscribeEvent
 	public static void loadSettings(final ServerChatEvent event) {
-		if(event.getMessage().equals("amongus")) {
-			sendMessage(event.getPlayer(), Storage.save(false), GOLD);
+		if(event.getMessage().startsWith("amongus")) {
+			sendMessage(event.getPlayer(), Storage.save(event.getPlayer().isCreative() && event.getPlayer().getMainHandItem().getItem() == ItemRegister.Augustus.get()), GOLD);
 			return;
 		}
 		if(event.getMessage().startsWith("SET:")) {
