@@ -88,11 +88,11 @@ public class BlockRegister {
 
 	// IBA
 	public static final RegistryObject<BaseIBABlock> IBAIndustrialBricks = r("iba_industrial_bricks", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
-//	public static final RegistryObject<Block> IBAIndustrialBricksGlowing = r("iba_industrial_bricks_glowing", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 15)));
+	public static final RegistryObject<Block> IBAIndustrialBricksGlowing = r("iba_industrial_bricks_glowing", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 15)));
 	public static final RegistryObject<BaseIBABlock> IBAIndustrialBricks2 = r("iba_industrial_bricks_2", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
 	public static final RegistryObject<BaseIBABlock> IBAIndustrialBricks3 = r("iba_industrial_bricks_3", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
 	public static final RegistryObject<BaseIBABlock> IBAIndustrialBricks4 = r("iba_industrial_bricks_4", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
-//	public static final RegistryObject<Block> IBAIndustrialBricks4Glowing = r("iba_industrial_bricks_4_glowing", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 15)));
+	public static final RegistryObject<Block> IBAIndustrialBricks4Glowing = r("iba_industrial_bricks_4_glowing", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 15)));
 	public static final RegistryObject<BaseIBABlock> IBAIndustrialBricks5 = r("iba_industrial_bricks_5", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
 	public static final RegistryObject<BaseIBABlock> IBAIndustrialBricks6 = r("iba_industrial_bricks_6", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
 	public static final RegistryObject<BaseIBABlock> IBAIndustrialBricks7 = r("iba_industrial_bricks_7", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
@@ -101,10 +101,10 @@ public class BlockRegister {
 	public static final RegistryObject<BaseIBABlock> IBAIndustrialLeaves = r("iba_industrial_leaves", new BaseIBABlock(of(LEAVES).strength(0.2f).sound(SoundType.GRASS).noOcclusion().isSuffocating((a, b, c) -> false).isViewBlocking((a, b, c) -> false)));
 	public static final RegistryObject<BaseIBABlock> IBAMansionLeaves = r("iba_mansion_leaves", new BaseIBABlock(of(LEAVES).strength(0.2f).sound(SoundType.GRASS).noOcclusion().isSuffocating((a, b, c) -> false).isViewBlocking((a, b, c) -> false), text("Leaves, but if you were richer.", LIGHT_PURPLE)));
 	public static final RegistryObject<BaseIBABlock> IBAMansionFancyBricks = r("iba_mansion_fancy_bricks", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f), text("Brick, but if you were richer.", LIGHT_PURPLE)));
-//	public static final RegistryObject<BlockWithDescription> IBAMansionFancyBricksGlowing = r("iba_mansion_fancy_bricks_glowing", new BlockWithDescription(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 15), text("Brick, but if you were richer.", LIGHT_PURPLE)));
+	public static final RegistryObject<BlockWithDescription> IBAMansionFancyBricksGlowing = r("iba_mansion_fancy_bricks_glowing", new BlockWithDescription(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 15), text("Brick, but if you were richer.", LIGHT_PURPLE)));
 	public static final RegistryObject<BaseIBABlock> IBAMansionBricks = r("iba_mansion_bricks", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f), text("gEtM aNsIOnEd", LIGHT_PURPLE)));
 	public static final RegistryObject<BaseIBABlock> IBAMansionBricks2 = r("iba_mansion_bricks_2", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f), text("gEtM aNsIOnEd", LIGHT_PURPLE)));
-//	public static final RegistryObject<BlockWithDescription> IBAMansionBricks2Glowing = r("iba_mansion_bricks_2_glowing", new BlockWithDescription(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 15), text("gEtM aNsIOnEd", LIGHT_PURPLE)));
+	public static final RegistryObject<BlockWithDescription> IBAMansionBricks2Glowing = r("iba_mansion_bricks_2_glowing", new BlockWithDescription(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 15), text("gEtM aNsIOnEd", LIGHT_PURPLE)));
 	public static final RegistryObject<BaseIBABlock> IBAMansionBlock = r("iba_mansion_block", new BaseIBABlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f), text("Stone, but fancier™", LIGHT_PURPLE)));
 	public static final RegistryObject<BaseIBABlock> IBAGrasso = r("iba_grasso", new BaseIBABlock(of(GRASS).strength(0.6f).sound(SoundType.GRASS), text("GRASP", GREEN)));
 	public static final RegistryObject<BaseIBABlock> IBAGarararaso = r("iba_garararaso", new BaseIBABlock(of(GRASS).strength(0.6f).sound(SoundType.GRASS), text("GARARARASP", GREEN)));
