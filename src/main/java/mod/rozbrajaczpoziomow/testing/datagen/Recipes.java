@@ -184,6 +184,7 @@ public class Recipes extends RecipeProvider {
 		makeShaped("alt_shop", AltShop.get(), " P /P#P/ P ", map().add('P', AltPaper).add('#', Shop));
 		makeShaped("augustus", Augustus.get(), " # / # / | ", map().add('#', DIRT).add('|', DIAMOND));
 		makeShapeless("depressed_fish", DepressedFish.get(), ing().add(TLACore).add(PUFFERFISH));
+		makeShapeless("mr_clean", MrClean.get(), ing().add(MILK_BUCKET, 9));
 
 		// Minecraft Items
 	}
