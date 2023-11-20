@@ -129,7 +129,7 @@ public class AugustusMode extends Item {
 		if(++t2 >= t2div - 20 * 60 * 5 && t2 % 20 == 0 && init) {
 			long secs = (t2div - t2) / 20;
 			if(secs / 60 == 5) sendMessage(player, "E yo do you need any augustus guz?!", RED);
-			if(secs >= 60) sendMessage(player, secs / 60 + " min", RED);
+			if(secs >= 60) sendMessage(player, secs / 60 + " min" + secs % 60 + " sec", RED);
 			else sendMessage(player, secs + " sec", RED);
 		}
 
@@ -343,11 +343,11 @@ public class AugustusMode extends Item {
 		}
 
 		private static String time(char which, Map<String, Long> timer) {
-			return String.format("%s / %s", fmt(timer.get(String.valueOf(which))), fmt(timer.get(which + " div")));
+			return fmt(timer.get(which + " div") - timer.get(String.valueOf(which)));
 		}
 
 		private static String time(char which, Map<String, Long> timer, long toOverride) {
-			return String.format("%s / %s", fmt(timer.get(String.valueOf(which))), fmt(toOverride));
+			return fmt(toOverride - timer.get(String.valueOf(which)));
 		}
 
 		private static String fmt(long ticks) {
