@@ -26,8 +26,8 @@ public class Augustus extends Item {
 
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
-		if(entity.tickCount % 20 != 0) return;
 		if(!(entity instanceof LivingEntity)) return;
+		if(entity.tickCount % 5 != rng(5)) return;
 		LivingEntity living = (LivingEntity) entity;
 
 		living.addEffect(new EffectInstance(HARM, 1, 0));
