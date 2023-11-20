@@ -50,9 +50,12 @@ public class AncientStoneII extends Block {
 
 	@Override
 	public boolean removedByPlayer(BlockState state, World world, BlockPos pos, PlayerEntity player, boolean willHarvest, FluidState fluid) {
-		if(player.isCreative()) return true;
+		if(player.isCreative()) return super.removedByPlayer(state, world, pos, player, willHarvest, fluid);
 		if(!(player.getMainHandItem().getItem() instanceof PickaxeItem)) return false;
-		return ((PickaxeItem) player.getMainHandItem().getItem()).getTier().getLevel() >= NETHERITE.getLevel();
+		if(((PickaxeItem) player.getMainHandItem().getItem()).getTier().getLevel() >= NETHERITE.getLevel())
+			return super.removedByPlayer(state, world, pos, player, willHarvest, fluid);
+
+		return false;
 	}
 
 	@Override

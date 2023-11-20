@@ -10,7 +10,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.math.vector.Vector3i;
@@ -33,30 +32,30 @@ public class AncientStoneIII extends Block {
 	}
 
 	@Override
-	public void playerDestroy(World pLevel, PlayerEntity pPlayer, BlockPos pPos, BlockState pState, @Nullable TileEntity pTe, ItemStack pStack) {
-		if(pPlayer.isCreative()) return;
+	public boolean removedByPlayer(BlockState state, World world, BlockPos pos, PlayerEntity player, boolean willHarvest, FluidState fluid) {
+		if(player.isCreative())
+			return super.removedByPlayer(state, world, pos, player, willHarvest, fluid);
 
-		Vector3d center = Vector3d.atCenterOf(new Vector3i(pPos.getX(), pPos.getY(), pPos.getZ()));
+		if(player.getMainHandItem().getItem() != AncientPickaxeI.get())
+			return false;
 
-		ItemEntity item = new ItemEntity(pLevel, center.x, center.y, center.z);
+		Vector3d center = Vector3d.atCenterOf(new Vector3i(pos.getX(), pos.getY(), pos.getZ()));
+
+		ItemEntity item = new ItemEntity(world, center.x, center.y, center.z);
 		item.setDefaultPickUpDelay();
 
-		if(EnchantmentHelper.getEnchantments(pStack).containsKey(Enchantments.SILK_TOUCH))
+		if(EnchantmentHelper.getEnchantments(player.getMainHandItem()).containsKey(Enchantments.SILK_TOUCH))
 			item.setItem(new ItemStack(this));
 		else
 			item.setItem(new ItemStack(AncientDiamondIII.get(), 1));
 
-		pLevel.addFreshEntity(item);
+		world.addFreshEntity(item);
 
-		pPlayer.addEffect(new EffectInstance(WITHER, 20 * 20, 0));
-		pPlayer.addEffect(new EffectInstance(MOVEMENT_SLOWDOWN, 20 * 30, 1));
-		pPlayer.addEffect(new EffectInstance(REGENERATION, 20 * 3, 2));
-	}
+		player.addEffect(new EffectInstance(WITHER, 20 * 20, 0));
+		player.addEffect(new EffectInstance(MOVEMENT_SLOWDOWN, 20 * 30, 1));
+		player.addEffect(new EffectInstance(REGENERATION, 20 * 3, 2));
 
-	@Override
-	public boolean removedByPlayer(BlockState state, World world, BlockPos pos, PlayerEntity player, boolean willHarvest, FluidState fluid) {
-		if(player.isCreative()) return true;
-		return player.getMainHandItem().getItem() == AncientPickaxeI.get();
+		return super.removedByPlayer(state, world, pos, player, willHarvest, fluid);
 	}
 
 	@Override
