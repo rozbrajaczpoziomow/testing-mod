@@ -31,11 +31,16 @@ import static net.minecraft.util.text.TextFormatting.GOLD;
 
 public class Glowdust extends Item {
 	private static final HashMap<Block, Block> specialBlockTransformations = new HashMap<>();
+	private static boolean init;
 	public Glowdust(Properties properties) {
 		super(properties);
 	}
 
-	static {
+	private static void $init() {
+		if(init)
+			return;
+
+		init = true;
 		specialBlockTransformations.put(Blocks.RED_NETHER_BRICKS, BlockRegister.GlowingRedNetherBricks.get());
 		specialBlockTransformations.put(Blocks.STONE_BRICKS, BlockRegister.GlowingStoneBricks.get());
 	}
@@ -61,6 +66,7 @@ public class Glowdust extends Item {
 	}
 
 	private boolean enlighten(World world, BlockPos pos, BlockState state, boolean light) {
+		$init();
 		if(state.is(TagIBAGlowdustableBlocks)) {
 			int bef = state.getValue(lightLevel);
 			world.setBlock(pos, state.setValue(lightLevel, light? 15 : 0), 2 | 16 | 32);
