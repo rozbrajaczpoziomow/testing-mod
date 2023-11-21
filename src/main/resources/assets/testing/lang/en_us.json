@@ -2,6 +2,16 @@
   "effect.testing.shuffle_inventory": "Shuffle inventory",
   "effect.testing.stripper": "Stripper",
 
+  "item.minecraft.potion.effect.shuffle_inventory": "Potion of Shuffle inventory",
+  "item.minecraft.splash_potion.effect.shuffle_inventory": "Splash Potion of Shuffle inventory",
+  "item.minecraft.lingering_potion.effect.shuffle_inventory": "Lingering Potion of Shuffle inventory",
+  "item.minecraft.tipped_arrow.effect.shuffle_inventory": "Arrow of Shuffle inventory",
+
+  "item.minecraft.potion.effect.stripper": "Potion of Stripping",
+  "item.minecraft.splash_potion.effect.stripper": "Splash Potion of Stripping",
+  "item.minecraft.lingering_potion.effect.stripper": "Lingering Potion of Stripping",
+  "item.minecraft.tipped_arrow.effect.stripper": "Arrow of Stripping",
+
   "death.attack.nightmares": "%s had a nightmare",
   "death.attack.timer": "%s's life timed out",
 
