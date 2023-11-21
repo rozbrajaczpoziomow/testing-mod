@@ -11,7 +11,6 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.IBlockReader;
 
 import javax.annotation.Nullable;
-import java.util.Arrays;
 import java.util.List;
 
 public class BaseIBABlock extends Block {
@@ -27,7 +26,7 @@ public class BaseIBABlock extends Block {
 	public BaseIBABlock(Properties properties, ITextComponent... description) {
 		super(properties.lightLevel(state -> state.getValue(lightLevel)));
 		this.registerDefaultState(stateDefinition.any().setValue(lightLevel, 0));
-		this.description = Arrays.asList(description);
+		this.description = ImmutableList.copyOf(description);
 	}
 
 	@Override

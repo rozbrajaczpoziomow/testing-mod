@@ -108,8 +108,8 @@ public class BlockRegister {
 	// After adding something here, add it to the IBA tag in BlockTagGenerator so it works correctly with the Glowdust
 
 	// Sewers
-	public static final RegistryObject<HorizontallyRotatableBlockWithDescription> SewerCleanBrickJunction = r("sewer_clean_brick_junction", new HorizontallyRotatableBlockWithDescription(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 4), text("Have you ever been in sewers? Probably not, well now you have a chance to build your own, but this time clean...why...")));
-	public static final RegistryObject<HorizontallyRotatableBlockWithDescription> SewerCleanBrick = r("sewer_clean_brick", new HorizontallyRotatableBlockWithDescription(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 2), text("Mr. Clean enough...why...")));
+	public static final RegistryObject<HorizontallyRotatableBlock> SewerCleanBrickJunction = r("sewer_clean_brick_junction", new HorizontallyRotatableBlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 4), text("Have you ever been in sewers? Probably not, well now you have a chance to build your own, but this time clean...why...")));
+	public static final RegistryObject<HorizontallyRotatableBlock> SewerCleanBrick = r("sewer_clean_brick", new HorizontallyRotatableBlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 2), text("Mr. Clean enough...why...")));
 
 	// Other
 	public static final RegistryObject<Block> CorePillar = r("core_pillar", new Glass(of(STONE).harvestLevel(2).harvestTool(PICKAXE).requiresCorrectToolForDrops().strength(.7f)));
@@ -124,7 +124,7 @@ public class BlockRegister {
 	public static final RegistryObject<Block> GlowingRedNetherBricks = r("glowing_red_nether_bricks", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f, 6f).lightLevel(state -> 15)));
 	public static final RegistryObject<Block> SidewalkBricks = r("sidewalk_bricks", new Block(of(STONE).requiresCorrectToolForDrops().strength(1.5f)));
 	public static final RegistryObject<BlockWithDescription> MossyPavement = r("mossy_pavement", new BlockWithDescription(of(STONE).requiresCorrectToolForDrops().strength(1.5f), text("Description? Nah man what the hell, do you think we are in Ohio?", GREEN)));
-	public static final RegistryObject<HorizontallyRotatableBlockWithDescription> RedCobblestonePillar = r("red_cobblestone_pillar", new HorizontallyRotatableBlockWithDescription(of(STONE).requiresCorrectToolForDrops().harvestTool(PICKAXE).strength(2f, 6f), text("po co ci opis?", RED)));
+	public static final RegistryObject<HorizontallyRotatableBlock> RedCobblestonePillar = r("red_cobblestone_pillar", new HorizontallyRotatableBlock(of(STONE).requiresCorrectToolForDrops().harvestTool(PICKAXE).strength(2f, 6f), text("po co ci opis?", RED)));
 	public static final RegistryObject<BlockWithDescription> RedBlurryStoneBricks = r("red_blurry_stone_bricks", new BlockWithDescription(of(STONE).requiresCorrectToolForDrops().harvestTool(PICKAXE).strength(2f, 6f), text("Tu wstaw 0 znaków").withStyle(RED, ITALIC)));
 	public static final RegistryObject<BlockWithDescription> RedLamp = r("red_lamp", new BlockWithDescription(of(BUILDABLE_GLASS).lightLevel(state -> 15).strength(.3f).sound(SoundType.GLASS), text("It could glow red but... Thanks to mojang, it will not.", RED)));
 	public static final RegistryObject<RadiantZero> RadiantZero = r("radiant_zero", new RadiantZero(of(STONE).requiresCorrectToolForDrops().harvestTool(PICKAXE).strength(2f, 6f)));
