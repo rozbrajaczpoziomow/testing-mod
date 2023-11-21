@@ -1,4 +1,7 @@
 {
+  "effect.testing.shuffle_inventory": "Shuffle inventory",
+  "effect.testing.stripper": "Stripper",
+
   "death.attack.nightmares": "%s had a nightmare",
   "death.attack.timer": "%s's life timed out",
 

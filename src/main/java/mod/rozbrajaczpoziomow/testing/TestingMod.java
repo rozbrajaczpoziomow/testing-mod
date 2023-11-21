@@ -19,5 +19,6 @@ public class TestingMod {
 		ItemRegister.register(bus);
 		EntityRegister.register(bus);
 		TileEntityRegister.register(bus);
+		EffectRegister.register(bus);
 	}
 }

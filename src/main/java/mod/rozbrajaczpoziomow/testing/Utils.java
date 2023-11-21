@@ -64,4 +64,6 @@ public class Utils {
 	public static int rng(int max) { // From 0 to max - 1
 		return new Random().nextInt(max);
 	}
+
+	public static int rgba(int r, int g, int b, int a) { return a << 24 | r << 16 | g << 8 | b; }
 }
