@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.text;
-import static mod.rozbrajaczpoziomow.testing.a_registers.TagRegister.TagIBAGlowdustableBlocks;
+import static mod.rozbrajaczpoziomow.testing.a_registers.TagRegister.TagGlowdustableBlocks;
 import static mod.rozbrajaczpoziomow.testing.blocks.BaseIBABlock.lightLevel;
 import static net.minecraft.util.text.TextFormatting.GOLD;
 
@@ -47,7 +47,7 @@ public class Glowdust extends Item {
 
 	// ! Doesn't automatically update, code doesn't use it, just for HelpBook.
 	public static ImmutableList<Block> getSupported() {
-		final ArrayList<Block> temp = new ArrayList<>(TagIBAGlowdustableBlocks.getValues());
+		final ArrayList<Block> temp = new ArrayList<>(TagGlowdustableBlocks.getValues());
 		temp.add(Blocks.RED_NETHER_BRICKS);
 		temp.add(Blocks.STONE_BRICKS);
 		return ImmutableList.copyOf(temp);
@@ -67,7 +67,7 @@ public class Glowdust extends Item {
 
 	private boolean enlighten(World world, BlockPos pos, BlockState state, boolean light) {
 		$init();
-		if(state.is(TagIBAGlowdustableBlocks)) {
+		if(state.is(TagGlowdustableBlocks)) {
 			int bef = state.getValue(lightLevel);
 			world.setBlock(pos, state.setValue(lightLevel, light? 15 : 0), 2 | 16 | 32);
 			return bef == (light? 0 : 15);
