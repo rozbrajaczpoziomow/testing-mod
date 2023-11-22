@@ -99,13 +99,15 @@ public class ItemRegister {
 	public static final RegistryObject<Item> Milkbar = r("milkbar", new HoeItem(MILKBAR, 6, Float.MAX_VALUE / 67, new Properties().tab(Sniwek)));
 	public static final RegistryObject<Item> StoneGenICore = r("stone_gen_i_core", new StoneGenICore(new Properties().tab(Sniwek).durability(200 * 20)));
 	public static final RegistryObject<Item> BrokenIronIngot = r("broken_iron_ingot", new ItemWithDescription(new Properties().tab(Sniwek), text("It's just a broken Iron Ingot, if you ask about its name... Uh let's just sasy that it has broken in the same time as this ingot ;-;")));
-	public static final RegistryObject<Item> TLACore = r("tla_core", new ItemWithDescription(new Properties().tab(Sniwek), text("This is something like Alt Core but it doesn't change the effects of an item, it changes the form of an item. DON'T TRY TO USE IT ON FIRESNIW PASTY!", BLUE)));
+	public static final RegistryObject<Item> TLACore = r("tla_core", new TLACore(new Properties().tab(Sniwek)));
 	public static final RegistryObject<Item> HealingSugarCane = r("healing_sugar_cane", new HealingSugarCane(new Properties().tab(Sniwek).food(new Food.Builder().alwaysEat().build())));
 	public static final RegistryObject<Item> HSCBandage = r("hsc_bandage", new HSCBandage(new Properties().tab(Sniwek).food(new Food.Builder().alwaysEat().build())));
 	public static final RegistryObject<Item> HelpBook = r("help_book", new HelpBook(new Properties().tab(Rybkek).stacksTo(1)));
 	public static final RegistryObject<Item> RainbowFreezer = r("rainbow_freezer", new RainbowFreezer(new Properties().tab(Rybkek).stacksTo(1).durability(8)));
 	public static final RegistryObject<Item> MusicDiscBadApple = r("music_disc_badapple", new MusicDiscItem(14, Suppliers.memoize(SoundRegister.bad_apple::get), new Properties().stacksTo(1).rarity(Rarity.RARE).tab(Rybkek)));
 	public static final RegistryObject<Item> Glowdust = r("glowdust", new Glowdust(new Properties().tab(Rybkek)));
+	public static final RegistryObject<Item> TLACoreReactive = r("tla_core_reactive", new ItemWithDescription(new Properties().tab(Sniwek), text("ITS one of forms of tla core, lets say that it works on shape of item lol.")));
+	public static final RegistryObject<Item> Dice = r("dice", new Dice(new Properties().tab(Sniwek).stacksTo(1).durability(50)));
 
 	public static final RegistryObject<Item> Shop = r("shop", new Shop(new Properties().tab(Shitpost).stacksTo(1)));
 	public static final RegistryObject<Item> AltShop = r("alt_shop", new AltShop(new Properties().tab(Shitpost).stacksTo(1)));

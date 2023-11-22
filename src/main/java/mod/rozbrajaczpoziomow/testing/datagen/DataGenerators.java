@@ -11,6 +11,8 @@ public class DataGenerators {
 	public static void gatherData(GatherDataEvent event) {
 		DataGenerator gen = event.getGenerator();
 		gen.addProvider(new Recipes(gen));
-		gen.addProvider(new BlockTagGenerator(gen, event.getExistingFileHelper()));
+		BlockTagGenerator blockTagGenerator = new BlockTagGenerator(gen, event.getExistingFileHelper());
+		gen.addProvider(blockTagGenerator);
+		gen.addProvider(new ItemTagGenerator(gen, blockTagGenerator, event.getExistingFileHelper()));
 	}
 }

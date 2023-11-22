@@ -9,7 +9,6 @@ import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.particles.RedstoneParticleData;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtils;
@@ -34,10 +33,12 @@ import java.util.function.Function;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
 import static mod.rozbrajaczpoziomow.testing.Utils.text;
+import static mod.rozbrajaczpoziomow.testing.a_registers.EffectRegister.ShuffleInventoryPotion;
 import static mod.rozbrajaczpoziomow.testing.a_registers.EffectRegister.StripperPotion;
 import static mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister.*;
 import static net.minecraft.client.renderer.RenderType.translucent;
 import static net.minecraft.item.Items.*;
+import static net.minecraft.item.crafting.Ingredient.of;
 import static net.minecraft.potion.Potions.THICK;
 import static net.minecraft.tags.BlockTags.BEACON_BASE_BLOCKS;
 import static net.minecraft.util.Hand.OFF_HAND;
@@ -76,7 +77,8 @@ public class Events {
 			final Function<Potion, ItemStack> potion = p -> PotionUtils.setPotion(POTION.getDefaultInstance(), p);
 			// Because brewing recipes are not part of datagen, they go here.
 			// BrewingRecipeRegistry.addRecipe(bottom 3 slots input, brewing item, output);
-			BrewingRecipeRegistry.addRecipe(Ingredient.of(potion.apply(THICK)), Ingredient.of(Yeetr.get()), potion.apply(StripperPotion.get()));
+			BrewingRecipeRegistry.addRecipe(of(potion.apply(THICK)), of(Yeetr.get()), potion.apply(StripperPotion.get()));
+			BrewingRecipeRegistry.addRecipe(of(potion.apply(THICK)), of(Yeetr.get()), potion.apply(ShuffleInventoryPotion.get()));
 		}
 	}
 

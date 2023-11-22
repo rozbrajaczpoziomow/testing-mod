@@ -32,6 +32,7 @@ import static java.lang.Integer.parseInt;
 import static java.util.Objects.requireNonNull;
 import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
 import static mod.rozbrajaczpoziomow.testing.Utils.text;
+import static net.minecraft.item.Items.REDSTONE;
 import static net.minecraft.util.ActionResult.pass;
 import static net.minecraft.util.ActionResult.success;
 import static net.minecraft.util.Hand.MAIN_HAND;
@@ -75,6 +76,9 @@ public class HelpBook extends Item {
 					text("By right-clicking certain blocks (listed below), you can make them glow.", GOLD),
 					text("To make them no longer glow, right-click on them whilst having " + name(ItemRegister.Glowdust.get()) + " in your offhand.", YELLOW),
 					text("[Click to see the list of blocks]", GRAY).withStyle(Style.EMPTY.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "$mod:testing/view_glowdust_blocks")))
+			)),
+			() -> new HelpTopic(text("Obtaining a " + name(ItemRegister.TLACoreReactive.get()), RED), of(
+					text("Shift+right-click some " + name(REDSTONE) + " with a " + name(ItemRegister.TLACore.get()), RED)
 			))
 	});
 

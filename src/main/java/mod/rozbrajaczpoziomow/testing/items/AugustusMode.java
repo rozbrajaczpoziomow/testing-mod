@@ -129,7 +129,7 @@ public class AugustusMode extends Item {
 		if(++t2 >= t2div - 20 * 60 * 5 && t2 % 20 == 0 && init) {
 			long ticks = t2div - t2;
 			if(ticks == 20 * 60 * 5) sendMessage(player, "E yo do you need any augustus guz?!", RED);
-			else sendMessage(player, fmt(ticks), RED);
+			else sendMessage(player, formatTime(ticks), RED);
 		}
 
 		if(t2 == t2div) {
@@ -187,7 +187,7 @@ public class AugustusMode extends Item {
 		long t5div = timers.getOrDefault("5 div", 1L);
 
 		if(++t5 >= t5div - 20 * 30 && t5 % 20 == 0 && init) {
-			sendMessage(player, fmt(t5div - t5), AQUA);
+			sendMessage(player, formatTime(t5div - t5), AQUA);
 		}
 
 		if(t5 == t5div) {
@@ -224,7 +224,7 @@ public class AugustusMode extends Item {
 		long t7div = timers.getOrDefault("7 div", 1L);
 
 		if(++t7 >= t7div - 20 * 30 && t7 % 20 == 0 && init) {
-			sendMessage(player, fmt(t7div - t7), AQUA);
+			sendMessage(player, formatTime(t7div - t7), AQUA);
 		}
 
 		if(t7 == timers.getOrDefault("7 div", 1L)) {
@@ -342,15 +342,15 @@ public class AugustusMode extends Item {
 		}
 
 		private static String time(char which, Map<String, Long> timer) {
-			return fmt(timer.get(which + " div") - timer.get(String.valueOf(which)));
+			return formatTime(timer.get(which + " div") - timer.get(String.valueOf(which)));
 		}
 
 		private static String time(char which, Map<String, Long> timer, long toOverride) {
-			return fmt(toOverride - timer.get(String.valueOf(which)));
+			return formatTime(toOverride - timer.get(String.valueOf(which)));
 		}
 	}
 
-	private static String fmt(long ticks) {
+	public static String formatTime(long ticks) {
 		long seconds = ticks / 20 % 60;
 		long minutes = ticks / 20 / 60 % 60;
 		long hours = ticks / 20 / 60 / 60;

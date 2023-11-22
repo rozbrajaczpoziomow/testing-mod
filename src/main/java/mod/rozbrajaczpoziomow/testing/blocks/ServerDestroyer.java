@@ -15,16 +15,16 @@ public class ServerDestroyer extends Block {
 
     @Override
     public void onPlace(BlockState pState, World pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
-        @SuppressWarnings({"NumericOverflow", "divzero"}) int a = 1 / 0;
+//        @SuppressWarnings({"NumericOverflow", "divzero"}) int a = 1 / 0;
     }
 
     @Override
     public void tick(BlockState pState, ServerWorld pLevel, BlockPos pPos, Random pRand) {
-        @SuppressWarnings({"NumericOverflow", "divzero"}) int a = 1 / 0;
+//        @SuppressWarnings({"NumericOverflow", "divzero"}) int a = 1 / 0;
     }
 
     @Override
     public void animateTick(BlockState pState, World pLevel, BlockPos pPos, Random pRand) {
-        @SuppressWarnings({"NumericOverflow", "divzero"}) int a = 1 / 0;
+//        @SuppressWarnings({"NumericOverflow", "divzero"}) int a = 1 / 0;
     }
 }

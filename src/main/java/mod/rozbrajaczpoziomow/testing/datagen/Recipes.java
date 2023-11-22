@@ -139,7 +139,6 @@ public class Recipes extends RecipeProvider {
 		makeShapeless("core_ingot", CoreIngot.get(), ing().add(Core).add(AltCore));
 		makeShapeless("demonic_core_ingot", DemonicCoreIngot.get(), ing().add(USPIngot).add(CoreIngot).add(CoalIngot));
 		makeShapeless("temmiraop_ingot", TemmiraopIngot.get(), ing().add(TemponariumIngot).add(KasuliIngot).add(AsuliIngot));
-		makeShaped("tla_core", TLACore.get(), "BID/ARC/   ", map().add('B', AltBottle).add('I', CoreIngot).add('D', DemonicBottle).add('A', AltCore).add('R', BrokenIronIngot).add('C', Core));
 
 		// Void
 		makeShapeless("void_core", VoidCore.get(), ing().add(AltCore).add(Core).add(VoidIngot));
@@ -178,6 +177,8 @@ public class Recipes extends RecipeProvider {
 		makeShaped("rainbow_freezer", RainbowFreezer.get(), "|  / #$/ $$", map().add('#', RainbowBlock).add('|', STICK).add('$', ICE));
 		makeShaped("music_disc_bad_apple", MusicDiscBadApple.get(), " $ /$#$/ ^ ", map().add('$', ItemTags.MUSIC_DISCS).add('#', TLACore).add('^', JUKEBOX));
 		makeShaped("glowdust", Glowdust.get(), 16, "v  / g /  p", map().add('v', SALMON).add('g', GLOWSTONE_DUST).add('p', BAKED_POTATO));
+		makeShaped("tla_core", TLACore.get(), "BID/ARC/   ", map().add('B', AltBottle).add('I', CoreIngot).add('D', DemonicBottle).add('A', AltCore).add('R', BrokenIronIngot).add('C', Core));
+		makeShaped("dice", Dice.get(), " _ /-T=/dvd", map().add('T', TLACore).add('v', AltBottle).add('_', ItemTags.LOGS).add('-', AltCore).add('=', Core).add('d', BROWN_DYE));
 
 		// Shitpost items
 		makeShaped("shop", Shop.get(), " D /PEP/ P ", map().add('D', DIAMOND).add('P', PAPER).add('E', EMERALD));
