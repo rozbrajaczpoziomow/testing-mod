@@ -18,14 +18,14 @@ public class EffectRegister {
 	public static final DeferredRegister<Effect> EffectConstruct = DeferredRegister.create(ForgeRegistries.POTIONS, MOD_ID);
 
 	public static final RegistryObject<ShuffleInventoryEffect> ShuffleInventoryEffect = r("shuffle_inventory", new ShuffleInventoryEffect());
-	public static final RegistryObject<StripperEffect> StripperEffect = r("stripper", new StripperEffect()); // TODO: recipe - mundane potion + yeetr x lol
+	public static final RegistryObject<StripperEffect> StripperEffect = r("stripper", new StripperEffect());
 
 
 
 	public static final DeferredRegister<Potion> PotionConstruct = DeferredRegister.create(ForgeRegistries.POTION_TYPES, MOD_ID);
 
 	public static final RegistryObject<Potion> ShuffleInventoryPotion = p("shuffle_inventory", () -> new Potion(new EffectInstance(ShuffleInventoryEffect.get(), 20 * 60)));
-	public static final RegistryObject<Potion> StripperPotion = p("stripper", () -> new Potion(new EffectInstance(StripperEffect.get(), 20 * 60)));
+	public static final RegistryObject<Potion> StripperPotion = p("stripper", () -> new Potion(new EffectInstance(StripperEffect.get(), 20 * 10)));
 
 	public static <T extends Effect> RegistryObject<T> r(String n, T effect) {
 		return EffectConstruct.register(n, () -> effect);

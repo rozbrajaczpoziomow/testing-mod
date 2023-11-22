@@ -7,13 +7,18 @@ import net.minecraft.block.BlockState;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.particles.RedstoneParticleData;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockDisplayReader;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -22,15 +27,18 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import javax.annotation.Nullable;
+import java.util.function.Function;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
 import static mod.rozbrajaczpoziomow.testing.Utils.text;
+import static mod.rozbrajaczpoziomow.testing.a_registers.EffectRegister.StripperPotion;
 import static mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister.*;
 import static net.minecraft.client.renderer.RenderType.translucent;
-import static net.minecraft.item.Items.IRON_INGOT;
-import static net.minecraft.item.Items.IRON_PICKAXE;
+import static net.minecraft.item.Items.*;
+import static net.minecraft.potion.Potions.THICK;
 import static net.minecraft.tags.BlockTags.BEACON_BASE_BLOCKS;
 import static net.minecraft.util.Hand.OFF_HAND;
 import static net.minecraft.util.SoundCategory.MASTER;
@@ -43,6 +51,7 @@ public class Events {
 	@Mod.EventBusSubscriber(modid = TestingMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 	public static class ModEvents {
 		@SubscribeEvent
+		@OnlyIn(Dist.CLIENT)
 		public static void onClientSetup(FMLClientSetupEvent event) {
 			for(RegistryObject<? extends Block> glass : BlockRegister.getTranslucent()) {
 				RenderTypeLookup.setRenderLayer(glass.get(), translucent());
@@ -60,6 +69,14 @@ public class Events {
 //				TestingMod.LOGGER.info(String.format("[%d, %d, %d] - %X", pos.getX(), pos.getY(), pos.getZ(), color));
 				return te.getColor();
 			}, BlockRegister.RainbowBlock.get());
+		}
+
+		@SubscribeEvent
+		public static void brewingRecipes(final FMLCommonSetupEvent event) {
+			final Function<Potion, ItemStack> potion = p -> PotionUtils.setPotion(POTION.getDefaultInstance(), p);
+			// Because brewing recipes are not part of datagen, they go here.
+			// BrewingRecipeRegistry.addRecipe(bottom 3 slots input, brewing item, output);
+			BrewingRecipeRegistry.addRecipe(Ingredient.of(potion.apply(THICK)), Ingredient.of(Yeetr.get()), potion.apply(StripperPotion.get()));
 		}
 	}
 
