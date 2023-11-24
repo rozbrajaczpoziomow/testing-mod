@@ -215,5 +215,6 @@
   "block.testing.server_destroyer": "Server Destroyer",
   "block.testing.faded_door": "Faded Door",
   "block.testing.life_limiter": "The Oldener© 3000 (patent pending)",
-  "block.testing.lattice_door": "Lattice Door"
+  "block.testing.lattice_door": "Lattice Door",
+  "block.testing.cortrap": "Cortrap"
 }

@@ -133,6 +133,7 @@ public class BlockRegister {
 	public static final RegistryObject<FadedDoor> FadedDoor = r("faded_door", new FadedDoor(of(WOOD).strength(3f).noOcclusion()));
 	public static final RegistryObject<LifeLimiter> LifeLimiter = r("life_limiter", new LifeLimiter(of(WOOD).strength(3f).harvestTool(AXE).sound(SoundType.WOOD)));
 	public static final RegistryObject<LatticeDoor> LatticeDoor = r("lattice_door", new LatticeDoor(of(METAL).strength(3f).noOcclusion()));
+	public static final RegistryObject<Cortrap> Cortrap = r("cortrap", new Cortrap(of(STONE).requiresCorrectToolForDrops().strength(2f).lightLevel(state -> 15).noOcclusion()));
 
 
 	public static <T extends Block> RegistryObject<T> r(String n, T block) {
@@ -146,6 +147,6 @@ public class BlockRegister {
 	}
 
 	public static RegistryObject<? extends Block>[] getTranslucent() {
-		return new RegistryObject[] { RelicGlass, GarawaGlass, USPGlass, CorePillar, SnowEradicator, IBAIndustrialLeaves, IBAMansionLeaves, FadedDoor, LatticeDoor };
+		return new RegistryObject[] { RelicGlass, GarawaGlass, USPGlass, CorePillar, SnowEradicator, IBAIndustrialLeaves, IBAMansionLeaves, FadedDoor, LatticeDoor, Cortrap };
 	}
 }
