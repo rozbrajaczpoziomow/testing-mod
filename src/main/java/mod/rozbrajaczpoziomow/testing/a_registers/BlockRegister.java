@@ -109,7 +109,7 @@ public class BlockRegister {
 
 	// Sewers
 	public static final RegistryObject<HorizontallyRotatableBlock> SewerCleanBrickJunction = r("sewer_clean_brick_junction", new HorizontallyRotatableBlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 4), text("Have you ever been in sewers? Probably not, well now you have a chance to build your own, but this time clean...why...")));
-	public static final RegistryObject<HorizontallyRotatableBlock> SewerCleanBrick = r("sewer_clean_brick", new HorizontallyRotatableBlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 2), text("Mr. Clean enough...why...")));
+	public static final RegistryObject<HorizontallyRotatableBlock> SewerCleanBrick = r("sewer_clean_brick", new HorizontallyRotatableBlock(of(STONE).requiresCorrectToolForDrops().strength(1.5f).lightLevel(state -> 4), text("Mr. Clean enough...why...")));
 
 	// Other
 	public static final RegistryObject<Block> CorePillar = r("core_pillar", new Glass(of(STONE).harvestLevel(2).harvestTool(PICKAXE).requiresCorrectToolForDrops().strength(.7f)));
@@ -134,6 +134,8 @@ public class BlockRegister {
 	public static final RegistryObject<LifeLimiter> LifeLimiter = r("life_limiter", new LifeLimiter(of(WOOD).strength(3f).harvestTool(AXE).sound(SoundType.WOOD)));
 	public static final RegistryObject<LatticeDoor> LatticeDoor = r("lattice_door", new LatticeDoor(of(METAL).strength(3f).noOcclusion()));
 	public static final RegistryObject<Cortrap> Cortrap = r("cortrap", new Cortrap(of(STONE).requiresCorrectToolForDrops().strength(2f).lightLevel(state -> 15).noOcclusion()));
+	public static final RegistryObject<ColdLadder> ColdLadder = r("cold_ladder", new ColdLadder(of(DECORATION).strength(.4f).sound(SoundType.LADDER).noOcclusion()));
+	public static final RegistryObject<PurpleVines> PurpleVines = r("purple_vines", new PurpleVines(of(REPLACEABLE_PLANT).noOcclusion().strength(.2f).sound(SoundType.VINE)));
 
 
 	public static <T extends Block> RegistryObject<T> r(String n, T block) {
@@ -147,6 +149,6 @@ public class BlockRegister {
 	}
 
 	public static RegistryObject<? extends Block>[] getTranslucent() {
-		return new RegistryObject[] { RelicGlass, GarawaGlass, USPGlass, CorePillar, SnowEradicator, IBAIndustrialLeaves, IBAMansionLeaves, FadedDoor, LatticeDoor, Cortrap };
+		return new RegistryObject[] { RelicGlass, GarawaGlass, USPGlass, CorePillar, SnowEradicator, IBAIndustrialLeaves, IBAMansionLeaves, FadedDoor, LatticeDoor, Cortrap, PurpleVines };
 	}
 }

@@ -33,8 +33,7 @@ import java.util.function.Function;
 
 import static mod.rozbrajaczpoziomow.testing.Utils.sendMessage;
 import static mod.rozbrajaczpoziomow.testing.Utils.text;
-import static mod.rozbrajaczpoziomow.testing.a_registers.EffectRegister.ShuffleInventoryPotion;
-import static mod.rozbrajaczpoziomow.testing.a_registers.EffectRegister.StripperPotion;
+import static mod.rozbrajaczpoziomow.testing.a_registers.EffectRegister.*;
 import static mod.rozbrajaczpoziomow.testing.a_registers.ItemRegister.*;
 import static net.minecraft.client.renderer.RenderType.translucent;
 import static net.minecraft.item.Items.*;
@@ -78,7 +77,8 @@ public class Events {
 			// Because brewing recipes are not part of datagen, they go here.
 			// BrewingRecipeRegistry.addRecipe(bottom 3 slots input, brewing item, output);
 			BrewingRecipeRegistry.addRecipe(of(potion.apply(THICK)), of(Yeetr.get()), potion.apply(StripperPotion.get()));
-			BrewingRecipeRegistry.addRecipe(of(potion.apply(THICK)), of(Yeetr.get()), potion.apply(ShuffleInventoryPotion.get()));
+			BrewingRecipeRegistry.addRecipe(of(potion.apply(THICK)), of(Dice.get()), potion.apply(ShuffleInventoryPotion.get()));
+			BrewingRecipeRegistry.addRecipe(of(potion.apply(THICK)), of(Yeetr.get()), potion.apply(PortalPotion.get()));
 		}
 	}
 

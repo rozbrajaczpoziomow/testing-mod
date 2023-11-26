@@ -107,6 +107,8 @@ public class Recipes extends RecipeProvider {
 		makeShaped("strange_cobblestone", StrangeCobblestone.get(), 4, " ^ /$#$/ _ ", map().add('#', COBBLESTONE).add('$', ANDESITE).add('_', ANDESITE_SLAB).add('^', LIGHT_GRAY_DYE));
 		makeShaped("server_destroyer", ServerDestroyer.get(), 64, "$$$/$#$/$$$", map().add('$', DIRT).add('#', AugustusMode));
 		makeShaped("lattice_door", LatticeDoor.get(), "## /## /## ", map().add('#', IRON_BARS));
+		makeShaped("cold_ladder", ColdLadder.get(), 16, "| |/|-|/| |", map().add('|', IRON_INGOT).add('-', LADDER));
+		makeShaped("purple_vines", PurpleVines.get(), "   /|-|/   ", map().add('|', PURPLE_DYE).add('-', VINE));
 
 		// -- Items --
 

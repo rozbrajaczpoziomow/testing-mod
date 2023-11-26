@@ -216,5 +216,7 @@
   "block.testing.faded_door": "Faded Door",
   "block.testing.life_limiter": "The Oldener© 3000 (patent pending)",
   "block.testing.lattice_door": "Lattice Door",
-  "block.testing.cortrap": "Cortrap"
+  "block.testing.cortrap": "Cortrap",
+  "block.testing.cold_ladder": "Cold Ladder",
+  "block.testing.purple_vines": "Purple Vines"
 }
